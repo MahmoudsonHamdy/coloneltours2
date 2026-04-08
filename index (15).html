@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="HR" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/png" href="logo-white.png">
+<link rel="shortcut icon" href="logo-white.png">
+<title>Colonel Tours – تأشيرات سياحية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+/* ══ DESIGN TOKENS ══════════════════════════════════════ */
+:root{
+  /* Backgrounds */
+  --bg0:#07111f;   /* darkest */
+  --bg1:#0d1b30;
+  --bg2:#122040;
+  --bg3:#1a2c52;   /* card */
+
+  /* Brand */
+  --blue:#1e44b0;
+  --gold:#d4952f;
+  --gold2:#f0b84a;
+  --gold3:#fad07e;
+
+  /* Text — ALL high-contrast */
+  --t1:#ffffff;          /* headings */
+  --t2:#eae4d9;          /* body */
+  --t3:#b8c8de;          /* secondary */
+  --t4:#7e98b8;          /* tertiary */
+  --gold-t:#f0b84a;      /* gold text */
+
+  --wa:#25d366;
+  --r:6px;
+}
+
+/* ══ LIGHT MODE ══════════════════════════════════════════ */
+[data-theme="light"]{
+  --bg0:#f5f1ea;
+  --bg1:#ffffff;
+  --bg2:#ede8df;
+  --bg3:#ffffff;
+  --t1:#0c1829;
+  --t2:#1e3048;
+  --t3:#3d5470;
+  --t4:#6080a0;
+  --gold-t:#9a6810;
+}
+[data-theme="light"] body{background:var(--bg0);color:var(--t2);}
+[data-theme="light"] p{color:var(--t3);}
+[data-theme="light"] h1,[data-theme="light"] h2,[data-theme="light"] h3,[data-theme="light"] h4{color:var(--t1);}
+[data-theme="light"] .h2{color:var(--t1);}
+[data-theme="light"] .lead{color:var(--t3);}
+
+/* Nav */
+[data-theme="light"] #nav.stuck{background:rgba(245,241,234,.97);backdrop-filter:blur(24px);border-bottom-color:rgba(154,104,16,.15);}
+[data-theme="light"] .nlinks a{color:var(--t3);}
+[data-theme="light"] .nlinks a:hover{color:var(--gold);}
+[data-theme="light"] .lang-btn{background:rgba(0,0,0,.06);border-color:rgba(0,0,0,.14);color:var(--t2);}
+[data-theme="light"] .theme-btn{background:rgba(0,0,0,.06);border-color:rgba(0,0,0,.14);color:var(--t2);}
+[data-theme="light"] .lang-btn:hover,[data-theme="light"] .theme-btn:hover{border-color:var(--gold);color:var(--gold);}
+
+/* Sections */
+[data-theme="light"] .why{background:var(--bg1);}
+[data-theme="light"] .dest{background:var(--bg2);}
+[data-theme="light"] .services{background:var(--bg0);}
+[data-theme="light"] .visas{background:var(--bg1);}
+[data-theme="light"] .how{background:var(--bg2);}
+[data-theme="light"] .req{background:var(--bg1);}
+[data-theme="light"] .testi{background:var(--bg2);}
+[data-theme="light"] footer{background:#ddd8ce;border-top-color:rgba(0,0,0,.1);}
+[data-theme="light"] .fbot{border-top-color:rgba(0,0,0,.08);}
+[data-theme="light"] .fc ul li a{color:var(--t3);}
+[data-theme="light"] .fbp{color:var(--t3);}
+
+/* Why features */
+[data-theme="light"] .wf{border-color:transparent;}
+[data-theme="light"] .wf:hover{background:rgba(30,68,176,.05);border-color:rgba(154,104,16,.18);}
+[data-theme="light"] .wf-ico{background:rgba(212,149,47,.1);border-color:rgba(212,149,47,.2);}
+[data-theme="light"] .wf h4{color:var(--t1);}
+[data-theme="light"] .wf p{color:var(--t3);}
+
+/* Stats */
+[data-theme="light"] .stats{background:linear-gradient(135deg,#1e44b0 0%,#143290 100%);}
+
+/* Visa cards */
+[data-theme="light"] .vc{background:var(--bg3);border-color:rgba(154,104,16,.14);box-shadow:0 2px 16px rgba(0,0,0,.06);}
+[data-theme="light"] .vc:hover{border-color:rgba(212,149,47,.45);box-shadow:0 12px 36px rgba(0,0,0,.12);}
+[data-theme="light"] .vcm{background:rgba(237,232,223,.9);}
+[data-theme="light"] .vcm-l{color:var(--t4);}
+[data-theme="light"] .vcm-v{color:var(--t1);}
+[data-theme="light"] .vc-docs{color:var(--t3);border-top-color:rgba(154,104,16,.1);}
+[data-theme="light"] .vc-name{color:var(--t1);}
+[data-theme="light"] .vempty{color:var(--t4);}
+
+/* Search & Filter */
+[data-theme="light"] .vsrch{background:var(--bg3);color:var(--t2);border-color:rgba(154,104,16,.22);}
+[data-theme="light"] .vsrch::placeholder{color:var(--t4);}
+[data-theme="light"] .vtab{color:var(--t3);border-color:rgba(154,104,16,.2);}
+[data-theme="light"] .vtab.on,[data-theme="light"] .vtab:hover{background:rgba(212,149,47,.12);border-color:var(--gold);color:#7a4a08;}
+
+/* Services */
+[data-theme="light"] .srv-card{background:var(--bg3);border-color:rgba(154,104,16,.12);box-shadow:0 2px 16px rgba(0,0,0,.05);}
+[data-theme="light"] .srv-card:hover{border-color:rgba(212,149,47,.4);box-shadow:0 16px 44px rgba(0,0,0,.1);}
+[data-theme="light"] .srv-card h3{color:var(--t1);}
+[data-theme="light"] .srv-card p{color:var(--t3);}
+[data-theme="light"] .srv-pts li{color:var(--t3);}
+
+/* Steps */
+[data-theme="light"] .stb{background:rgba(255,255,255,.8);border-color:rgba(154,104,16,.14);}
+[data-theme="light"] .stb:hover{border-color:rgba(212,149,47,.4);}
+[data-theme="light"] .stb h3{color:var(--t1);}
+[data-theme="light"] .stb p{color:var(--t3);}
+[data-theme="light"] .stn{background:rgba(30,68,176,.08);border-color:rgba(212,149,47,.25);}
+
+/* Testimonials */
+[data-theme="light"] .tc{background:var(--bg3);border-color:rgba(154,104,16,.1);}
+[data-theme="light"] .tc:hover{border-color:rgba(212,149,47,.35);}
+[data-theme="light"] .tc p{color:var(--t3);}
+[data-theme="light"] .ta-n{color:var(--t1);}
+
+/* Form */
+[data-theme="light"] .fcard{background:var(--bg3);border-color:rgba(154,104,16,.18);}
+[data-theme="light"] .ftitle{color:var(--t1);}
+[data-theme="light"] .fg label{color:var(--t3);}
+[data-theme="light"] .fg input,[data-theme="light"] .fg select{background:var(--bg2);border-color:rgba(154,104,16,.2);color:var(--t2);}
+[data-theme="light"] .fg input:focus,[data-theme="light"] .fg select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,149,47,.1);}
+[data-theme="light"] .tpts li{color:var(--t3);}
+[data-theme="light"] .rimg-b{background:rgba(245,241,234,.95);border-color:rgba(154,104,16,.2);}
+[data-theme="light"] .rimg-b p{color:var(--t3);}
+
+/* section labels */
+[data-theme="light"] .st{color:var(--gold);}
+[data-theme="light"] .sl{background:var(--gold);}
+[data-theme="light"] .btn-o{background:rgba(0,0,0,.05);color:var(--t2);border-color:rgba(0,0,0,.18);}
+[data-theme="light"] .btn-o:hover{border-color:var(--gold);color:var(--gold);}
+[data-theme="light"] .srv-link{background:rgba(212,149,47,.08);border-color:rgba(212,149,47,.22);color:var(--gold);}
+[data-theme="light"] .srv-link:hover{background:rgba(212,149,47,.18);border-color:var(--gold);}
+[data-theme="light"] .hero-bg{background:radial-gradient(ellipse 60% 80% at 72% 48%,rgba(30,68,176,.12) 0%,transparent 60%),linear-gradient(155deg,#f5f1ea 0%,#ede8df 55%,#e8e2d7 100%);}
+[data-theme="light"] .hero-h1{color:var(--t1);}
+[data-theme="light"] .hero-p{color:var(--t3);}
+[data-theme="light"] .eyt{color:var(--gold);}
+[data-theme="light"] .eyl{background:var(--gold);}
+[data-theme="light"] .stat-l{color:rgba(255,255,255,.8);}
+[data-theme="light"] .scroll-h span{color:var(--t4);}
+[data-theme="light"] .sw{border-color:rgba(212,149,47,.4);}
+[data-theme="light"] .nlinks.open{background:rgba(245,241,234,.97);}
+
+
+/* ══ RESET & BASE ═══════════════════════════════════════ */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Tajawal',sans-serif;
+  font-size:16px;
+  line-height:1.75;
+  background:var(--bg0);
+  color:var(--t2);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+[lang="en"]{direction:ltr;}
+[lang="en"] body{font-family:'Cormorant Garamond',Georgia,serif;}
+[lang="en"] h1,[lang="en"] h2,[lang="en"] h3,[lang="en"] .h2,[lang="en"] .hero-h1{font-family:'Cormorant Garamond',serif;}
+[lang="en"] p,[lang="en"] li,[lang="en"] a,[lang="en"] label,[lang="en"] button,[lang="en"] input,[lang="en"] select,[lang="en"] .lead{font-family:'Cormorant Garamond',serif;font-size:1.05rem;}
+
+/* Global heading style */
+h1,h2,h3,h4{color:var(--t1);font-family:'Cormorant Garamond',serif;font-weight:600;line-height:1.15;}
+.h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--t1);margin-bottom:.85rem;}
+.h2 em{font-style:italic;color:var(--gold2);}
+.lead{font-size:1.05rem;color:var(--t3);line-height:1.9;font-weight:400;}
+p{color:var(--t3);}
+img{display:block;width:100%;height:100%;object-fit:cover;}
+a{text-decoration:none;color:inherit;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px;}
+
+/* ══ SECTION LABELS ═════════════════════════════════════ */
+.sh{display:flex;align-items:center;gap:.6rem;margin-bottom:.7rem;}
+.sl{width:24px;height:1.5px;background:var(--gold2);border-radius:1px;}
+.st{font-size:.72rem;font-weight:700;letter-spacing:4px;color:var(--gold2);text-transform:uppercase;font-family:'Tajawal',sans-serif;}
+[lang="en"] .st{font-family:'Cormorant Garamond',serif;letter-spacing:5px;}
+.ctr{text-align:center;}.ctr .sh{justify-content:center;}.ctr .lead{max-width:560px;margin:0 auto;}
+
+/* ══ BUTTONS ════════════════════════════════════════════ */
+.btn-g{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:linear-gradient(135deg,var(--gold) 0%,var(--gold2) 100%);
+  color:var(--bg0);padding:.95rem 2rem;border-radius:var(--r);
+  font-family:'Tajawal',sans-serif;font-weight:800;font-size:.95rem;
+  box-shadow:0 6px 24px rgba(212,149,47,.35);transition:all .3s;cursor:pointer;border:none;
+}
+.btn-g:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(212,149,47,.5);}
+[lang="en"] .btn-g{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;}
+.btn-o{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:rgba(255,255,255,.07);color:var(--t2);
+  border:1px solid rgba(255,255,255,.2);
+  padding:.95rem 2rem;border-radius:var(--r);
+  font-family:'Tajawal',sans-serif;font-weight:500;font-size:.95rem;
+  backdrop-filter:blur(8px);transition:all .3s;
+}
+.btn-o:hover{border-color:var(--gold);color:var(--gold-t);}
+
+/* Plane SVG helper */
+.pico{width:18px;height:18px;flex-shrink:0;fill:currentColor;}
+
+/* ══ NAV ════════════════════════════════════════════════ */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 5%;transition:all .4s;
+}
+#nav.stuck{
+  background:rgba(7,17,31,.97);backdrop-filter:blur(24px);
+  border-bottom:1px solid rgba(212,149,47,.15);padding:.7rem 5%;
+  box-shadow:0 4px 32px rgba(0,0,0,.5);
+}
+.nlogo{display:flex;align-items:center;gap:.85rem;}
+.nlogo img{height:52px;width:auto;filter:drop-shadow(0 0 8px rgba(212,149,47,.4));}
+.nlogo strong{display:block;font-size:1rem;font-weight:800;color:var(--t1);font-family:'Tajawal',sans-serif;}
+.nlogo em{font-style:normal;font-size:.58rem;color:var(--gold2);letter-spacing:2.5px;text-transform:uppercase;font-family:'Tajawal',sans-serif;}
+.nlinks{display:flex;gap:1.8rem;list-style:none;align-items:center;}
+.nlinks a{
+  color:var(--t3);font-size:.9rem;font-weight:500;
+  position:relative;transition:color .3s;
+  font-family:'Tajawal',sans-serif;
+}
+.nlinks a::after{content:'';position:absolute;bottom:-3px;right:50%;left:50%;height:1px;background:var(--gold2);transition:right .3s,left .3s;}
+.nlinks a:hover{color:var(--gold2);}.nlinks a:hover::after{right:0;left:0;}
+.ncta{
+  background:linear-gradient(135deg,var(--gold),var(--gold2))!important;
+  color:var(--bg0)!important;padding:.52rem 1.3rem!important;
+  border-radius:var(--r);font-weight:800!important;
+  box-shadow:0 4px 16px rgba(212,149,47,.3);
+}
+.ncta::after{display:none!important;}
+.lang-btn{
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
+  color:var(--t2);padding:.4rem .95rem;border-radius:20px;
+  font-size:.78rem;font-weight:700;cursor:pointer;
+  transition:all .25s;letter-spacing:.5px;
+  font-family:'Tajawal',sans-serif;
+}
+.lang-btn:hover{border-color:var(--gold2);color:var(--gold2);}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.burger span{display:block;width:22px;height:2px;background:var(--gold2);border-radius:2px;}
+.theme-btn{
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
+  color:var(--t2);padding:.4rem .7rem;border-radius:20px;
+  font-size:.85rem;cursor:pointer;transition:all .25s;
+}
+.theme-btn:hover{border-color:var(--gold2);}
+
+/* ══ HERO ═══════════════════════════════════════════════ */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 80% at 72% 48%,rgba(30,68,176,.2) 0%,transparent 60%),
+    linear-gradient(155deg,#091425 0%,#07111f 55%,#0b1828 100%);
+}
+.hero-bg::after{
+  content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(212,149,47,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(212,149,47,.03) 1px,transparent 1px);
+  background-size:60px 60px;
+}
+/* Stars */
+.hero-stars{position:absolute;inset:0;pointer-events:none;}
+.star{position:absolute;border-radius:50%;background:#fff;animation:tw var(--t,3s) ease-in-out infinite alternate;}
+@keyframes tw{from{opacity:.1}to{opacity:.85}}
+/* Orb & ring */
+.hero-orb{position:absolute;left:-8%;top:50%;transform:translateY(-50%);width:52vw;height:52vw;max-width:680px;max-height:680px;border-radius:50%;background:radial-gradient(circle at 38% 38%,rgba(30,68,176,.25) 0%,transparent 65%);animation:ob 7s ease-in-out infinite alternate;}
+@keyframes ob{from{transform:translateY(-50%) scale(.95)}to{transform:translateY(-50%) scale(1.04)}}
+.hero-ring{position:absolute;left:-8%;top:50%;width:52vw;height:52vw;max-width:680px;max-height:680px;border-radius:50%;border:1px solid rgba(212,149,47,.1);animation:rsp 35s linear infinite;transform:translateY(-50%);}
+.hero-ring::before{content:'';position:absolute;top:7%;right:-5px;width:10px;height:10px;border-radius:50%;background:var(--gold2);box-shadow:0 0 16px 6px rgba(212,149,47,.55);}
+@keyframes rsp{from{transform:translateY(-50%) rotate(0)}to{transform:translateY(-50%) rotate(360deg)}}
+/* Plane */
+.plane-wrap{position:absolute;top:30%;left:18%;z-index:5;animation:pfly 3s cubic-bezier(.25,.46,.45,.94) .5s both;}
+@keyframes pfly{from{left:-120px;top:48%;opacity:0}to{left:18%;top:30%;opacity:1}}
+.plane-trail{position:absolute;top:34%;left:0;height:2px;width:0;border-radius:2px;background:linear-gradient(to right,rgba(212,149,47,.7),rgba(212,149,47,.1),transparent);animation:ptrl 2s ease 3s forwards;}
+@keyframes ptrl{to{width:22vw}}
+/* Hero content — pushed RIGHT side */
+.hcontent{position:relative;z-index:3;padding:0 5%;max-width:640px;margin-right:0;margin-left:auto;}
+.eyebrow-r{display:flex;align-items:center;gap:.6rem;margin-bottom:1.5rem;}
+.eyl{width:28px;height:1.5px;background:var(--gold2);}
+.eyt{font-size:.68rem;font-weight:700;letter-spacing:4px;color:var(--gold2);text-transform:uppercase;}
+.hero-h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(4rem,9vw,8rem);
+  font-weight:700;line-height:.95;letter-spacing:2px;
+  color:var(--t1);margin-bottom:1.2rem;
+}
+.hero-h1 .shiny{
+  display:block;
+  background:linear-gradient(90deg,var(--gold) 0%,var(--gold3) 50%,var(--gold) 100%);
+  background-size:200%;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:shn 3.5s linear infinite;
+}
+@keyframes shn{to{background-position:200% center}}
+.hero-p{font-size:1.1rem;line-height:1.95;color:var(--t3);font-weight:400;max-width:460px;margin-bottom:2.4rem;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+/* scroll hint */
+.scroll-h{position:absolute;bottom:2.2rem;right:50%;transform:translateX(50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;z-index:3;}
+.scroll-h span{font-size:.62rem;letter-spacing:3px;color:var(--t4);text-transform:uppercase;}
+.sw{width:20px;height:32px;border-radius:10px;border:1px solid rgba(212,149,47,.3);display:flex;justify-content:center;padding-top:5px;}
+.sw::before{content:'';width:3px;height:6px;border-radius:2px;background:var(--gold2);animation:sd 1.6s ease infinite;}
+@keyframes sd{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(12px)}}
+
+/* ══ STATS ══════════════════════════════════════════════ */
+.stats{
+  padding:2.5rem 5%;
+  background:linear-gradient(135deg,var(--blue) 0%,#142e90 100%);
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:2px solid rgba(212,149,47,.25);
+  border-bottom:2px solid rgba(212,149,47,.25);
+}
+.stat{text-align:center;padding:.8rem;border-left:1px solid rgba(255,255,255,.08);}
+.stat:last-child{border:none;}
+.stat-n{
+  font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:700;
+  background:linear-gradient(135deg,var(--gold2),var(--gold3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  display:block;line-height:1;
+}
+.stat-l{font-size:.82rem;color:rgba(255,255,255,.75);margin-top:.3rem;font-weight:500;}
+
+/* ══ SECTIONS ═══════════════════════════════════════════ */
+section{padding:6rem 5%;}
+
+/* ══ WHY ════════════════════════════════════════════════ */
+.why{background:var(--bg1);}
+.why-g{display:grid;grid-template-columns:1fr 1.1fr;gap:4.5rem;align-items:center;}
+.why-imgw{position:relative;border-radius:14px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.55);}
+.why-imgw img{height:500px;}
+.why-badge{
+  position:absolute;bottom:-1.2rem;left:-1.2rem;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:var(--bg0);padding:1.2rem 1.6rem;border-radius:10px;
+  font-weight:800;font-size:.82rem;text-align:center;
+  box-shadow:0 12px 32px rgba(212,149,47,.45);z-index:2;
+}
+.why-badge big{display:block;font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:700;line-height:1;}
+.wfs{display:flex;flex-direction:column;gap:1.2rem;margin-top:2rem;}
+.wf{display:flex;gap:1rem;align-items:flex-start;padding:1rem 1.1rem;border-radius:10px;border:1px solid transparent;transition:all .3s;}
+.wf:hover{background:rgba(30,68,176,.1);border-color:rgba(212,149,47,.18);}
+.wf-ico{width:46px;height:46px;flex-shrink:0;border-radius:8px;background:rgba(212,149,47,.12);border:1px solid rgba(212,149,47,.22);display:flex;align-items:center;justify-content:center;font-size:1.25rem;}
+.wf h4{font-size:1rem;font-weight:700;color:var(--t1);margin-bottom:.22rem;font-family:'Tajawal',sans-serif;}
+[lang="en"] .wf h4{font-family:'Cormorant Garamond',serif;font-size:1.1rem;}
+.wf p{font-size:.88rem;color:var(--t3);line-height:1.75;font-weight:400;}
+
+/* ══ DESTINATIONS ═══════════════════════════════════════ */
+.dest{background:var(--bg2);}
+.dest-hd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.5rem;flex-wrap:wrap;gap:1.5rem;}
+.dcards{
+  display:grid;
+  grid-template-columns:1.8fr 1fr 1fr;
+  grid-template-rows:320px 260px 260px;
+  gap:.9rem;
+}
+/* Named grid positions */
+.dc-a{grid-column:1;grid-row:1/3;}    /* Cuba — tall left */
+.dc-b{grid-column:2;grid-row:1;}
+.dc-c{grid-column:3;grid-row:1;}
+.dc-d{grid-column:2;grid-row:2;}
+.dc-e{grid-column:3;grid-row:2;}
+.dc-f{grid-column:1;grid-row:3;}
+.dc-g{grid-column:2/4;grid-row:3;}   /* Seychelles — wide bottom right */
+
+.dc{position:relative;overflow:hidden;border-radius:14px;cursor:pointer;box-shadow:0 8px 32px rgba(0,0,0,.4);}
+/* IMAGE — fills card fully */
+.dc-img{position:absolute;inset:0;}
+.dc-img img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .7s cubic-bezier(.25,.46,.45,.94);}
+.dc:hover .dc-img img{transform:scale(1.08);}
+/* Overlays */
+.dc-ov{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(7,17,31,.97) 0%,rgba(7,17,31,.45) 40%,rgba(7,17,31,.08) 70%);
+}
+.dc-fast{
+  position:absolute;top:.9rem;right:.9rem;z-index:3;
+  background:rgba(212,149,47,.15);border:1px solid rgba(212,149,47,.5);
+  color:var(--gold2);font-size:.62rem;font-weight:700;letter-spacing:1.5px;
+  padding:.22rem .6rem;border-radius:20px;backdrop-filter:blur(8px);
+  display:flex;align-items:center;gap:.3rem;
+}
+.dc-flag{position:absolute;top:.9rem;left:.9rem;z-index:3;font-size:1.9rem;filter:drop-shadow(0 3px 8px rgba(0,0,0,.7));}
+.dc-a .dc-flag{font-size:2.6rem;}
+.dc-info{position:absolute;bottom:0;left:0;right:0;padding:1.3rem;z-index:3;}
+.dc-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.65rem;font-weight:700;color:var(--t1);
+  line-height:1;margin-bottom:.4rem;
+  text-shadow:0 2px 10px rgba(0,0,0,.6);
+}
+.dc-a .dc-name{font-size:2.4rem;}
+.dc-g .dc-name{font-size:2rem;}
+.dc-chips{display:flex;gap:.45rem;margin-bottom:.4rem;flex-wrap:wrap;}
+.dc-chip{font-size:.65rem;color:rgba(234,228,217,.9);background:rgba(255,255,255,.12);padding:.18rem .5rem;border-radius:20px;border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(4px);}
+.dc-price{font-size:.84rem;font-weight:700;color:var(--gold2);display:flex;align-items:center;gap:.3rem;}
+/* Hover reveal */
+.dc-reveal{
+  position:absolute;inset:0;z-index:5;
+  background:rgba(7,17,31,.93);backdrop-filter:blur(14px) saturate(180%);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  padding:2rem 1.6rem;text-align:center;
+  opacity:0;transition:opacity .4s;
+}
+.dc:hover .dc-reveal{opacity:1;}
+.dcr-title{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--gold2);margin-bottom:.18rem;}
+.dcr-sub{font-size:.68rem;color:var(--t4);letter-spacing:2.5px;margin-bottom:1.1rem;text-transform:uppercase;font-family:'Tajawal',sans-serif;}
+.dcr-list{list-style:none;width:100%;margin-bottom:1.2rem;}
+.dcr-list li{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.36rem 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:.82rem;}
+.dcr-list li span:first-child{color:var(--t3);font-weight:400;}
+.dcr-list li span:last-child{color:var(--t1);font-weight:700;}
+.dcr-btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:var(--bg0);padding:.65rem 1.5rem;border-radius:var(--r);
+  font-family:'Tajawal',sans-serif;font-weight:800;font-size:.82rem;
+  box-shadow:0 6px 20px rgba(212,149,47,.4);transition:all .25s;
+}
+.dcr-btn:hover{transform:scale(1.05);}
+.dcr-btn svg{width:15px;height:15px;fill:currentColor;flex-shrink:0;}
+[lang="en"] .dcr-btn{font-family:'Cormorant Garamond',serif;font-size:.95rem;}
+
+/* ══ SERVICES ═══════════════════════════════════════════ */
+.services{background:var(--bg0);}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:3rem;}
+.srv-card{background:var(--bg3);border:1px solid rgba(212,149,47,.1);border-radius:14px;overflow:hidden;transition:all .35s;}
+.srv-card:hover{border-color:rgba(212,149,47,.4);transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,.5);}
+.srv-photo{height:190px;overflow:hidden;position:relative;flex-shrink:0;}
+.srv-photo img{transition:transform .6s;}
+.srv-card:hover .srv-photo img{transform:scale(1.06);}
+.srv-photo-ov{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 35%,rgba(7,17,31,.65) 100%);}
+.srv-badge{
+  position:absolute;bottom:.8rem;right:.8rem;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  width:44px;height:44px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 14px rgba(212,149,47,.45);
+}
+.srv-badge svg{width:22px;height:22px;fill:var(--bg0);}
+.srv-body{padding:1.5rem;}
+.srv-card h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--t1);margin-bottom:.55rem;}
+[lang="en"] .srv-card h3{font-size:1.5rem;}
+.srv-card p{font-size:.9rem;color:var(--t3);line-height:1.8;font-weight:400;margin-bottom:.9rem;}
+.srv-pts{list-style:none;margin-bottom:1.1rem;}
+.srv-pts li{font-size:.82rem;color:var(--t3);display:flex;align-items:center;gap:.45rem;margin-bottom:.38rem;font-weight:400;}
+.srv-pts li::before{content:'✓';color:var(--gold2);font-weight:700;font-size:.75rem;flex-shrink:0;}
+.srv-link{
+  display:inline-flex;align-items:center;gap:.35rem;
+  background:rgba(212,149,47,.1);border:1px solid rgba(212,149,47,.25);
+  color:var(--gold2);padding:.48rem 1rem;border-radius:var(--r);
+  font-size:.8rem;font-weight:700;transition:all .3s;
+  font-family:'Tajawal',sans-serif;
+}
+.srv-link:hover{background:rgba(212,149,47,.2);border-color:var(--gold);}
+[lang="en"] .srv-link{font-family:'Cormorant Garamond',serif;font-size:.92rem;}
+
+/* ══ GALLERY ════════════════════════════════════════════ */
+.gal{display:flex;overflow:hidden;}
+.gi{flex:1;height:280px;overflow:hidden;position:relative;}
+.gi img{transition:transform .6s;}
+.gi:hover img{transform:scale(1.08);}
+.gi::after{content:'';position:absolute;inset:0;background:rgba(7,17,31,.22);transition:opacity .3s;}
+.gi:hover::after{opacity:0;}
+
+/* ══ VISAS ══════════════════════════════════════════════ */
+.visas{background:var(--bg1);}
+.vbar{display:flex;gap:.8rem;margin:2rem 0 1.8rem;flex-wrap:wrap;align-items:center;}
+.vsrch{
+  flex:1;min-width:200px;background:var(--bg3);
+  border:1px solid rgba(212,149,47,.2);
+  color:var(--t2);padding:.7rem 1rem;border-radius:var(--r);
+  font-family:'Tajawal',sans-serif;font-size:.9rem;outline:none;transition:all .3s;
+}
+.vsrch:focus{border-color:rgba(212,149,47,.55);box-shadow:0 0 0 3px rgba(212,149,47,.08);}
+.vsrch::placeholder{color:var(--t4);}
+.vtabs{display:flex;gap:.45rem;flex-wrap:wrap;}
+.vtab{
+  background:transparent;border:1px solid rgba(212,149,47,.2);
+  color:var(--t3);padding:.42rem .95rem;border-radius:20px;
+  font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:600;
+  cursor:pointer;transition:all .25s;
+}
+.vtab.on,.vtab:hover{background:rgba(212,149,47,.12);border-color:var(--gold);color:var(--gold-t);}
+.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.9rem;}
+.vc{background:var(--bg3);border:1px solid rgba(212,149,47,.1);border-radius:12px;overflow:hidden;transition:all .35s;}
+.vc:hover{border-color:rgba(212,149,47,.4);transform:translateY(-3px);box-shadow:0 14px 40px rgba(0,0,0,.4);}
+/* Country photo strip */
+.vc-photo{height:125px;overflow:hidden;position:relative;flex-shrink:0;}
+.vc-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s;}
+.vc:hover .vc-photo img{transform:scale(1.06);}
+.vc-ov{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 25%,rgba(7,17,31,.5) 100%);}
+.vc-flag{position:absolute;top:.5rem;right:.6rem;font-size:1.55rem;filter:drop-shadow(0 2px 5px rgba(0,0,0,.6));}
+.vc-price-b{
+  position:absolute;bottom:.5rem;left:.6rem;
+  background:rgba(7,17,31,.88);border:1px solid rgba(212,149,47,.35);
+  backdrop-filter:blur(6px);color:var(--gold2);
+  padding:.2rem .55rem;border-radius:20px;font-size:.7rem;font-weight:800;
+}
+.vc-body{padding:1.1rem 1.1rem .9rem;}
+.vc-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem;font-weight:700;color:var(--t1);margin-bottom:.7rem;
+}
+.vc-meta{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;margin-bottom:.65rem;}
+.vcm{background:rgba(7,17,31,.6);padding:.38rem .55rem;border-radius:6px;}
+.vcm-l{font-size:.6rem;color:var(--t4);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:.08rem;}
+.vcm-v{font-size:.8rem;color:var(--t2);font-weight:700;}
+.vc-docs{font-size:.74rem;color:var(--t3);line-height:1.6;border-top:1px solid rgba(212,149,47,.08);padding-top:.62rem;}
+.vc-docs b{color:rgba(212,149,47,.85);font-weight:700;}
+.vfast{
+  position:absolute;top:.5rem;left:.55rem;z-index:3;
+  background:rgba(74,222,128,.12);border:1px solid rgba(74,222,128,.3);
+  color:#4ade80;font-size:.58rem;font-weight:700;letter-spacing:.8px;
+  padding:.15rem .42rem;border-radius:10px;
+}
+.vempty{text-align:center;padding:3rem;color:var(--t4);display:none;}
+
+/* ══ HOW ════════════════════════════════════════════════ */
+.how{background:var(--bg2);}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:3.5rem;}
+.stb{
+  text-align:center;padding:2rem 1.2rem;
+  border:1px solid rgba(212,149,47,.14);border-radius:12px;
+  background:rgba(7,17,31,.45);transition:all .35s;
+}
+.stb:hover{border-color:rgba(212,149,47,.42);transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,0,.35);}
+.stn{
+  width:70px;height:70px;border-radius:50%;
+  background:rgba(30,68,176,.25);border:1px solid rgba(212,149,47,.28);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 1.3rem;
+  font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--gold2);
+  transition:all .35s;
+}
+.stb:hover .stn{background:rgba(212,149,47,.15);border-color:var(--gold);}
+.stb h3{font-size:1.05rem;font-weight:700;color:var(--t1);margin-bottom:.55rem;font-family:'Tajawal',sans-serif;}
+[lang="en"] .stb h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;}
+.stb p{font-size:.88rem;color:var(--t3);line-height:1.8;font-weight:400;}
+
+/* ══ REQUEST ════════════════════════════════════════════ */
+.req{background:var(--bg1);}
+.req-g{display:grid;grid-template-columns:1fr 1.05fr;gap:5rem;align-items:start;}
+.rimg{border-radius:14px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.55);position:relative;}
+.rimg img{height:560px;}
+.rimg-b{
+  position:absolute;bottom:1.4rem;left:1.4rem;
+  background:rgba(7,17,31,.92);backdrop-filter:blur(14px);
+  border:1px solid rgba(212,149,47,.28);
+  padding:1rem 1.3rem;border-radius:8px;z-index:2;
+}
+.rimg-b p{font-size:.7rem;color:var(--t3);margin-bottom:.18rem;}
+.rimg-b strong{font-size:1.05rem;color:var(--gold2);font-weight:700;}
+.tpts{list-style:none;margin-top:1.8rem;display:flex;flex-direction:column;gap:.88rem;}
+.tpts li{display:flex;align-items:center;gap:.82rem;font-size:.92rem;color:var(--t3);font-weight:400;}
+.tpts li::before{
+  content:'✓';color:var(--bg0);font-weight:800;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  width:21px;height:21px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.66rem;flex-shrink:0;
+}
+.fcard{background:var(--bg3);border:1px solid rgba(212,149,47,.14);padding:2.2rem;border-radius:14px;}
+.ftitle{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--t1);margin-bottom:1.4rem;}
+.fg{margin-bottom:.95rem;}
+.fg label{
+  display:block;font-size:.74rem;font-weight:700;
+  color:var(--t3);margin-bottom:.4rem;letter-spacing:.7px;text-transform:uppercase;
+  font-family:'Tajawal',sans-serif;
+}
+[lang="en"] .fg label{font-family:'Cormorant Garamond',serif;}
+.fg input,.fg select{
+  width:100%;background:rgba(7,17,31,.85);
+  border:1px solid rgba(212,149,47,.18);
+  color:var(--t2);padding:.72rem .92rem;border-radius:6px;
+  font-family:'Tajawal',sans-serif;font-size:.9rem;outline:none;transition:all .3s;
+}
+.fg input:focus,.fg select:focus{border-color:rgba(212,149,47,.55);box-shadow:0 0 0 3px rgba(212,149,47,.08);}
+.fg select option{background:var(--bg2);color:var(--t2);}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:.95rem;}
+.fsub{
+  width:100%;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:var(--bg0);padding:.9rem;border:none;border-radius:6px;
+  font-family:'Tajawal',sans-serif;font-size:1rem;font-weight:800;
+  cursor:pointer;margin-top:.3rem;
+  display:flex;align-items:center;justify-content:center;gap:.5rem;
+  transition:all .3s;box-shadow:0 6px 20px rgba(212,149,47,.32);
+}
+.fsub:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(212,149,47,.48);}
+[lang="en"] .fsub{font-family:'Cormorant Garamond',serif;font-size:1.1rem;}
+
+/* ══ TESTIMONIALS ═══════════════════════════════════════ */
+.testi{background:var(--bg2);}
+.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:3rem;}
+.tc{background:var(--bg3);border:1px solid rgba(212,149,47,.1);padding:1.8rem;border-radius:12px;display:flex;flex-direction:column;transition:all .3s;}
+.tc:hover{border-color:rgba(212,149,47,.32);transform:translateY(-3px);}
+.stars{color:var(--gold2);letter-spacing:2px;font-size:.92rem;margin-bottom:.9rem;}
+.tc p{font-size:.92rem;color:var(--t3);line-height:1.9;flex:1;font-weight:400;margin-bottom:1.3rem;}
+.ta{display:flex;align-items:center;gap:.7rem;}
+.tav{width:40px;height:40px;border-radius:50%;background:rgba(212,149,47,.12);border:1px solid rgba(212,149,47,.28);display:flex;align-items:center;justify-content:center;font-size:1.05rem;flex-shrink:0;}
+.ta-n{font-weight:700;font-size:.9rem;color:var(--t1);}
+.ta-d{font-size:.72rem;color:var(--gold-t);}
+
+/* ══ CONTACT BAND ════════════════════════════════════════ */
+.cband{position:relative;overflow:hidden;padding:5rem 5%;}
+.cband-bg{position:absolute;inset:0;}
+.cband-bg img{opacity:.4;}
+.cband-ov{position:absolute;inset:0;background:linear-gradient(135deg,rgba(30,68,176,.95),rgba(7,17,31,.93));}
+.cband-in{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2.5rem;}
+.cband h2{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:700;color:var(--t1);}
+.cband h2 em{font-style:italic;color:var(--gold2);}
+.cband-sub{font-size:.9rem;color:rgba(255,255,255,.65);margin-top:.38rem;}
+.cms{display:flex;gap:.8rem;flex-wrap:wrap;}
+.cm{
+  display:flex;align-items:center;gap:.58rem;
+  padding:.7rem 1.25rem;border-radius:var(--r);
+  font-weight:600;font-size:.88rem;
+  transition:all .3s;color:var(--t1);
+  border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.09);
+  backdrop-filter:blur(6px);
+}
+.cm:hover{border-color:rgba(255,255,255,.42);transform:translateY(-2px);}
+.cm.wa{background:rgba(37,211,102,.16);border-color:rgba(37,211,102,.38);}.cm.wa:hover{background:rgba(37,211,102,.28);}
+
+/* ══ FOOTER ═════════════════════════════════════════════ */
+footer{background:#040c18;padding:4rem 5% 1.8rem;border-top:1px solid rgba(212,149,47,.1);}
+.ftop{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:2.8rem;}
+.flogo{display:flex;align-items:center;gap:.7rem;margin-bottom:1rem;}
+.flogo img{height:48px;width:auto;}
+.flogo strong{display:block;font-weight:800;color:var(--t1);font-size:.96rem;font-family:'Tajawal',sans-serif;}
+.flogo em{display:block;font-style:normal;font-size:.58rem;color:var(--gold);letter-spacing:2px;text-transform:uppercase;}
+.fbp{font-size:.88rem;color:var(--t3);line-height:1.85;font-weight:400;margin-bottom:1.2rem;}
+.soc{display:flex;gap:.55rem;}
+.soc a{width:35px;height:35px;border-radius:6px;border:1px solid rgba(212,149,47,.2);display:flex;align-items:center;justify-content:center;color:var(--t4);transition:all .3s;}
+.soc a:hover{border-color:var(--gold);color:var(--gold-t);}
+.soc a svg{width:14px;height:14px;fill:currentColor;}
+.fc h4{font-size:.86rem;font-weight:700;color:var(--t2);margin-bottom:.95rem;font-family:'Tajawal',sans-serif;}
+.fc ul{list-style:none;}
+.fc ul li{margin-bottom:.52rem;}
+.fc ul li a{color:var(--t3);font-size:.82rem;font-weight:400;transition:color .3s;}
+.fc ul li a:hover{color:var(--gold-t);}
+.fbot{border-top:1px solid rgba(255,255,255,.05);padding-top:1.3rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.8rem;}
+.fbot p{font-size:.74rem;color:var(--t4);}
+.fbot span{color:var(--gold-t);}
+
+/* ══ WA FLOAT ═══════════════════════════════════════════ */
+.wafl{position:fixed;bottom:2rem;left:2rem;z-index:800;}
+.wafl a{display:flex;align-items:center;gap:.6rem;background:var(--wa);color:#fff;padding:.72rem 1.3rem;border-radius:30px;font-weight:700;font-size:.86rem;box-shadow:0 6px 22px rgba(37,211,102,.42);transition:all .3s;animation:wap 2.5s ease infinite;}
+.wafl a:hover{background:#1ebe5c;transform:translateY(-2px);}
+@keyframes wap{0%,100%{box-shadow:0 6px 22px rgba(37,211,102,.42)}50%{box-shadow:0 6px 34px rgba(37,211,102,.68)}}
+
+/* ══ REVEAL ═════════════════════════════════════════════ */
+.ri{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease;}
+.ri.on{opacity:1;transform:translateY(0);}
+
+/* ══ RESPONSIVE ═════════════════════════════════════════ */
+@media(max-width:1100px){
+  .why-g,.req-g{grid-template-columns:1fr;}
+  .why-imgw,.rimg{display:none;}
+  .dcards{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:260px 240px 240px 240px;
+    gap:.8rem;
+  }
+  .dc-a{grid-column:1/3;grid-row:1;}
+  .dc-b{grid-column:1;grid-row:2;}
+  .dc-c{grid-column:2;grid-row:2;}
+  .dc-d{grid-column:1;grid-row:3;}
+  .dc-e{grid-column:2;grid-row:3;}
+  .dc-f{grid-column:1;grid-row:4;}
+  .dc-g{grid-column:2;grid-row:4;}
+  .steps{grid-template-columns:repeat(2,1fr);}
+  .ftop{grid-template-columns:1fr 1fr;}
+  .srv-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:768px){
+  .nlinks{display:none;}
+  .burger{display:flex;}
+  .nlinks.open{display:flex;flex-direction:column;position:fixed;top:65px;right:0;left:0;background:rgba(7,17,31,.97);padding:1.8rem 5%;gap:1.2rem;border-bottom:1px solid rgba(212,149,47,.14);}
+  .stats{grid-template-columns:repeat(2,1fr);}
+  .stat{border-left:none;border-bottom:1px solid rgba(255,255,255,.05);}
+  .dcards{display:flex;flex-direction:column;}
+  .dc{height:240px;}
+  .tg,.srv-grid{grid-template-columns:1fr;}
+  .frow{grid-template-columns:1fr;}
+  .cband-in{flex-direction:column;text-align:center;}
+  .ftop{grid-template-columns:1fr;gap:1.8rem;}
+  .fbot{flex-direction:column;text-align:center;}
+  .gal{flex-wrap:wrap;}.gi{flex:none;width:50%;height:190px;}
+  .plane-wrap{display:none;}
+  .steps{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:480px){
+  .hero-btns{flex-direction:column;}
+  .btn-g,.btn-o{width:100%;justify-content:center;}
+  .gi{width:100%;}
+  .steps{grid-template-columns:1fr;}
+}
+
+/* Visa type badge */
+.vc-name-row{display:flex;align-items:flex-start;justify-content:space-between;gap:.4rem;margin-bottom:.7rem;}
+.vc-name{margin-bottom:0!important;}
+.vc-vtype{font-size:.6rem;font-weight:800;letter-spacing:.8px;padding:.22rem .55rem;border-radius:20px;white-space:nowrap;flex-shrink:0;margin-top:.15rem;text-transform:uppercase;}
+.vt-evisa{background:rgba(74,222,128,.12);border:1px solid rgba(74,222,128,.35);color:#4ade80;}
+.vt-paper{background:rgba(251,191,36,.12);border:1px solid rgba(251,191,36,.35);color:#fbbf24;}
+[data-theme="light"] .vt-evisa{background:rgba(22,163,74,.1);border-color:rgba(22,163,74,.3);color:#166534;}
+[data-theme="light"] .vt-paper{background:rgba(180,83,9,.1);border-color:rgba(180,83,9,.3);color:#92400e;}
+
+/* Hover CTA on visa cards */
+.vc-hover-cta{
+  position:absolute;inset:0;
+  background:rgba(7,17,31,.85);
+  backdrop-filter:blur(4px);
+  display:flex;align-items:center;justify-content:center;gap:.5rem;
+  color:#25d366;font-weight:800;font-size:.9rem;
+  opacity:0;transition:opacity .3s;
+  border-radius:0;
+  font-family:'Tajawal',sans-serif;
+}
+.vc:hover .vc-hover-cta{opacity:1;}
+.vc-hover-cta svg{flex-shrink:0;}
+
+/* Turkey note */
+.vc-note{
+  font-size:.72rem;color:var(--gold2);
+  background:rgba(212,149,47,.08);
+  border:1px solid rgba(212,149,47,.2);
+  border-radius:6px;padding:.45rem .6rem;
+  margin-top:.55rem;line-height:1.6;
+}
+[data-theme="light"] .vc-note{background:rgba(180,104,16,.06);border-color:rgba(180,104,16,.2);color:#92600a;}
+
+/* Visa filter - add evisa/paper tabs */
+.vtab-sep{width:1px;height:20px;background:rgba(212,149,47,.2);align-self:center;}
+
+/* Section subheading for visa type */
+.vsec-title{
+  width:100%;padding:.6rem 1rem;
+  background:rgba(212,149,47,.08);
+  border:1px solid rgba(212,149,47,.15);
+  border-radius:8px;margin:.5rem 0;
+  font-size:.8rem;font-weight:700;color:var(--gold2);
+  letter-spacing:1px;display:flex;align-items:center;gap:.5rem;
+}
+[data-theme="light"] .vsec-title{background:rgba(180,104,16,.06);border-color:rgba(180,104,16,.15);color:#92600a;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nlogo">
+    <img src="logo-white.png" alt="Colonel Tours">
+    <div><strong>Colonel Tours</strong><em>Experience Luxury Travel</em></div>
+  </a>
+  <ul class="nlinks" id="nl">
+    <li><a href="#dest" data-ar="التأشيرات" data-en="Visas">الوجهات</a></li>
+    <li><a href="#visas" data-ar="الأسعار" data-en="Prices">الأسعار</a></li>
+    <li><a href="#services" data-ar="خدماتنا" data-en="Services">خدماتنا</a></li>
+    <li><a href="#how" data-ar="خطوات التأشيرة" data-en="Visa Steps">كيف نعمل</a></li>
+    <li><a href="#request" class="ncta" data-ar="احجز الآن" data-en="Book Now">احجز الآن</a></li>
+  </ul>
+  <div style="display:flex;gap:.7rem;align-items:center;">
+    <button class="theme-btn" id="tbtn" onclick="toggleTheme()">☀️</button>
+    <button class="lang-btn" id="lbtn" onclick="toggleLang()">EN</button>
+    <div class="burger" onclick="document.getElementById('nl').classList.toggle('open')"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-stars" id="stars"></div>
+  <div class="hero-orb"></div>
+  <div class="hero-ring"></div>
+  <div class="plane-trail"></div>
+  <!-- ✈ PLANE SVG -->
+  <div class="plane-wrap">
+    <svg width="72" height="72" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+      <defs><filter id="glow"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+      <g filter="url(#glow)">
+        <path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z" fill="#f0b84a"/>
+        <path d="M56 8L21 31l3.5 19L31 36z" fill="#fad07e" opacity=".5"/>
+        <circle cx="3" cy="33" r="2.2" fill="#f0b84a" opacity=".5"/>
+        <circle cx="9" cy="37.5" r="1.5" fill="#f0b84a" opacity=".3"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="hcontent">
+    <div class="eyebrow-r">
+      <div class="eyl"></div>
+      <span class="eyt" data-ar="متخصصون في التأشيرات السياحية الدولية" data-en="International Tourism Visa Specialists">متخصصون في تأشيرات السياحة الدولية</span>
+    </div>
+    <h1 class="hero-h1">COLONEL<br><span class="shiny">TOURS</span></h1>
+    <p class="hero-p" data-ar="بنوصلك لأكتر من 60 وجهة حول العالم. تأشيرات، فنادق، طيران، وتجهيز خط السير — كل حاجة في مكان واحد." data-en="We take you to 60+ destinations worldwide. Visas, hotels, flights & itinerary planning — everything in one place.">بنوصلك لأكتر من 60 وجهة حول العالم. تأشيرات، فنادق، طيران، وتجهيز خط السير — كل حاجة في مكان واحد.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/201126672801?text=%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AA%D8%A3%D8%B4%D9%8A%D8%B1%D8%A9" target="_blank" class="btn-g">
+        <span data-ar="ابدأ طلبك دلوقتي" data-en="Start Your Application">ابدأ طلبك دلوقتي</span>
+        <svg class="pico" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>
+      </a>
+      <a href="#dest" class="btn-o" data-ar="شوف تأشيراتنا" data-en="Explore Visas">شوف وجهاتنا</a>
+    </div>
+  </div>
+  <div class="scroll-h"><span data-ar="اسكرول" data-en="scroll">اسكرول</span><div class="sw"></div></div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><span class="stat-n">5000+</span><div class="stat-l" data-ar="تأشيرة ناجحة" data-en="Successful Visas">تأشيرة ناجحة</div></div>
+  <div class="stat"><span class="stat-n">60+</span><div class="stat-l" data-ar="وجهة متاحة" data-en="Destinations">وجهة متاحة</div></div>
+  <div class="stat"><span class="stat-n">98%</span><div class="stat-l" data-ar="نسبة القبول" data-en="Approval Rate">نسبة القبول</div></div>
+  <div class="stat"><span class="stat-n">10+</span><div class="stat-l" data-ar="سنوات خبرة" data-en="Years Experience">سنوات خبرة</div></div>
+</div>
+
+<!-- WHY US -->
+<section class="why" id="why">
+  <div class="why-g">
+    <div class="why-imgw ri">
+      <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=900&q=85" alt="">
+      <div class="why-badge"><big>98%</big><span data-ar="نسبة القبول" data-en="Approval Rate">نسبة القبول</span></div>
+    </div>
+    <div class="ri">
+      <div class="sh"><div class="sl"></div><span class="st" data-ar="لماذا تختارنا" data-en="Why Choose Us">لماذا تختارنا</span></div>
+      <h2 class="h2" data-ar="خبرة <em>حقيقية</em><br>ونتائج مضمونة" data-en="Real <em>Expertise</em><br>Guaranteed Results">خبرة <em>حقيقية</em><br>ونتائج مضمونة</h2>
+      <p class="lead" data-ar="مش بس بنجمع أوراق — بنبني ملفك بشكل صح عشان نوصل لأعلى نسبة قبول ممكنة." data-en="We don't just collect documents — we build your file correctly to achieve the highest possible approval rate.">مش بس بنجمع أوراق — بنبني ملفك بشكل صح عشان نوصل لأعلى نسبة قبول ممكنة.</p>
+      <div class="wfs">
+        <div class="wf"><div class="wf-ico">⚡</div><div><h4 data-ar="سرعة في التنفيذ" data-en="Fast Processing">سرعة في التنفيذ</h4><p data-ar="تركيا في ساعة واحدة. أسرع معالجة في السوق لأكتر من 15 وجهة." data-en="Turkey in one hour. Fastest processing on the market for 15+ destinations.">تركيا في ساعة واحدة. أسرع معالجة في السوق لأكتر من 15 وجهة.</p></div></div>
+        <div class="wf"><div class="wf-ico">🛡️</div><div><h4 data-ar="مراجعة الملف قبل التقديم" data-en="Pre-Submission Review">مراجعة الملف قبل التقديم</h4><p data-ar="بنراجع كل ورقة قبل ما نقدم عشان مفيش غلطة تأثر على قرار القنصلية." data-en="Every document is reviewed before submission to prevent any error from affecting the decision.">بنراجع كل ورقة قبل ما نقدم عشان مفيش غلطة تأثر على قرار القنصلية.</p></div></div>
+        <div class="wf"><div class="wf-ico">💬</div><div><h4 data-ar="تواصل على مدار الساعة" data-en="24/7 Support">تواصل على مدار الساعة</h4><p data-ar="فريقنا متاح على واتساب طول الوقت ويرد في أقل من ساعة." data-en="Our team is available on WhatsApp at all times and responds within an hour.">فريقنا متاح على واتساب طول الوقت ويرد في أقل من ساعة.</p></div></div>
+        <div class="wf"><div class="wf-ico">🌍</div><div><h4 data-ar="60+ وجهة متاحة" data-en="60+ Destinations">60+ وجهة متاحة</h4><p data-ar="من أفريقيا لآسيا لأوروبا والأمريكتين. عندنا تأشيرة لكل مكان بتحلم تسافره." data-en="From Africa to Asia to Europe and the Americas — we have a visa for every destination you dream of.">من أفريقيا لآسيا لأوروبا والأمريكتين. عندنا تأشيرة لكل مكان بتحلم تسافره.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESTINATIONS — BENTO GRID -->
+<section class="dest" id="dest">
+  <div class="dest-hd">
+    <div class="ri">
+      <div class="sh"><div class="sl"></div><span class="st" data-ar="أكثر التأشيرات طلباً" data-en="Most Requested Visas">الأكثر طلباً</span></div>
+      <h2 class="h2" data-ar="تأشيرات <em>مميزة</em>" data-en="<em>Featured</em> Visas">وجهاتنا <em>المميزة</em></h2>
+      <p class="lead" data-ar="مرر على البطاقة لعرض تفاصيل التأشيرة" data-en="Hover over a card to view visa details">مرر على الكارت عشان تشوف التفاصيل كاملة</p>
+    </div>
+    <a href="#visas" class="btn-o ri" data-ar="كل التأشيرات" data-en="All Visas">شوف كل الوجهات</a>
+  </div>
+
+  <div class="dcards ri">
+
+    <!-- Cuba — A: tall left column -->
+    <div class="dc dc-a">
+      <div class="dc-img"><img src="https://images.unsplash.com/photo-1500759285222-a95626b934cb?w=1200&q=85" alt="Cuba" loading="eager"></div>
+      <div class="dc-ov"></div>
+      <div class="dc-flag">🇨🇺</div>
+      <div class="dc-info">
+        <div class="dc-name">CUBA</div>
+        <div class="dc-chips"><span class="dc-chip">48 ساعة</span><span class="dc-chip">3 أشهر</span></div>
+        <div class="dc-price"><span data-ar="من 7,000 جنيه" data-en="From EGP 7,000">من 7,000 جنيه</span></div>
+      </div>
+      <div class="dc-reveal">
+        <div class="dcr-title">🇨🇺 Cuba / كوبا</div>
+        <div class="dcr-sub">Caribbean Island</div>
+        <ul class="dcr-list">
+          <li><span data-ar="مدة التنفيذ" data-en="Processing">مدة التنفيذ</span><span>48h ⚡</span></li>
+          <li><span data-ar="مدة التأشيرة" data-en="Validity">مدة التأشيرة</span><span data-ar="3 أشهر" data-en="3 months">3 أشهر</span></li>
+          <li><span data-ar="للمصريين" data-en="Egyptians">للمصريين</span><span>7,000 EGP</span></li>
+          <li><span data-ar="لغير المصريين" data-en="Non-Egyptians">لغير المصريين</span><span>10,000 EGP</span></li>
+        </ul>
+        <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn">
+          <svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>
+          <span data-ar="احجز دلوقتي" data-en="Book Now">احجز دلوقتي</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Georgia — B -->
+    <div class="dc dc-b">
+      <div class="dc-img"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=85" alt="Georgia" loading="lazy"></div>
+      <div class="dc-ov"></div><div class="dc-flag">🇬🇪</div>
+      <div class="dc-info">
+        <div class="dc-name">GEORGIA</div>
+        <div class="dc-chips"><span class="dc-chip">7 أيام</span><span class="dc-chip">شهر</span></div>
+        <div class="dc-price"><span data-ar="من 2,800 جنيه" data-en="From EGP 2,800">من 2,800 جنيه</span></div>
+      </div>
+      <div class="dc-reveal">
+        <div class="dcr-title">🇬🇪 Georgia / جورجيا</div>
+        <div class="dcr-sub">Caucasus Region</div>
+        <ul class="dcr-list">
+          <li><span>Processing</span><span>7 days</span></li>
+          <li><span>Validity</span><span>1 month</span></li>
+          <li><span>Price</span><span>2,800 EGP</span></li>
+        </ul>
+        <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn"><svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>Book Now</a>
+      </div>
+    </div>
+
+    <!-- Bahrain — C -->
+    <div class="dc dc-c">
+      <div class="dc-img"><img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?w=800&q=85" alt="Bahrain" loading="lazy"></div>
+      <div class="dc-ov"></div><div class="dc-flag">🇧🇭</div>
+      <div class="dc-info">
+        <div class="dc-name">BAHRAIN</div>
+        <div class="dc-chips"><span class="dc-chip">7 أيام</span><span class="dc-chip">حتى سنة</span></div>
+        <div class="dc-price"><span data-ar="من 3,700 جنيه" data-en="From EGP 3,700">من 3,700 جنيه</span></div>
+      </div>
+      <div class="dc-reveal">
+        <div class="dcr-title">🇧🇭 Bahrain / البحرين</div>
+        <div class="dcr-sub">Arabian Gulf</div>
+        <ul class="dcr-list">
+          <li><span>2 weeks</span><span>3,700 EGP</span></li>
+          <li><span>3 months</span><span>4,700 EGP</span></li>
+          <li><span>1 year</span><span>9,000 EGP</span></li>
+        </ul>
+        <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn"><svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>Book Now</a>
+      </div>
+    </div>
+
+    <!-- Uzbekistan — D -->
+    <div class="dc dc-d">
+      <div class="dc-img"><img src="https://images.unsplash.com/photo-1601585021226-9a5d7538e8bd?w=800&q=85" alt="Uzbekistan" loading="lazy"></div>
+      <div class="dc-ov"></div>
+      <div class="dc-flag">🇺🇿</div>
+      <div class="dc-info">
+        <div class="dc-name">UZBEKISTAN</div>
+        <div class="dc-chips"><span class="dc-chip">5 أيام</span><span class="dc-chip">شهر</span></div>
+        <div class="dc-price"><span data-ar="من 3,500 جنيه" data-en="From EGP 3,500">من 3,500 جنيه</span></div>
+      </div>
+      <div class="dc-reveal">
+        <div class="dcr-title">🇺🇿 Uzbekistan</div>
+        <div class="dcr-sub">Central Asia</div>
+        <ul class="dcr-list">
+          <li><span>Processing</span><span>5 days ⚡</span></li>
+          <li><span>Validity</span><span>1 month</span></li>
+          <li><span>Price</span><span>3,500 EGP</span></li>
+        </ul>
+        <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn"><svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>Book Now</a>
+      </div>
+    </div>
+
+    <!-- Kenya — E -->
+    <div class="dc dc-e">
+      <div class="dc-img"><img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&q=85" alt="Kenya" loading="lazy"></div>
+      <div class="dc-ov"></div><div class="dc-flag">🇰🇪</div>
+      <div class="dc-info">
+        <div class="dc-name">KENYA</div>
+        <div class="dc-chips"><span class="dc-chip">7 أيام</span><span class="dc-chip">3 أشهر</span></div>
+        <div class="dc-price"><span data-ar="من 5,000 جنيه" data-en="From EGP 5,000">من 5,000 جنيه</span></div>
+      </div>
+      <div class="dc-reveal">
+        <div class="dcr-title">🇰🇪 Kenya / كينيا</div>
+        <div class="dcr-sub">East Africa</div>
+        <ul class="dcr-list">
+          <li><span>Processing</span><span>7 days</span></li>
+          <li><span>Validity</span><span>3 months</span></li>
+          <li><span>Price</span><span>5,000 EGP</span></li>
+        </ul>
+        <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn"><svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>Book Now</a>
+      </div>
+    </div>
+
+    <!-- Uganda — F -->
+    <div class="dc dc-f">
+      <div class="dc-img"><img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=900&q=85" alt="Uganda" loading="lazy"></div>
+      <div class="dc-ov"></div><div class="dc-flag">🇺🇬</div>
+      <div class="dc-info">
+        <div class="dc-name">UGANDA</div>
+        <div class="dc-chips"><span class="dc-chip">10 أيام</span><span class="dc-chip">3 أشهر</span></div>
+        <div class="dc-price"><span data-ar="من 5,500 جنيه" data-en="From EGP 5,500">من 5,500 جنيه</span></div>
+      </div>
+      <div class="dc-reveal">
+        <div class="dcr-title">🇺🇬 Uganda / أوغندا</div>
+        <div class="dcr-sub">East Africa</div>
+        <ul class="dcr-list">
+          <li><span>Processing</span><span>10 days</span></li>
+          <li><span>Validity</span><span>3 months</span></li>
+          <li><span>Price</span><span>5,500 EGP</span></li>
+        </ul>
+        <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn"><svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>Book Now</a>
+      </div>
+    </div>
+
+    <!-- Seychelles — G: wide bottom right -->
+    <div class="dc dc-g">
+      <div class="dc-img"><img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1200&q=85" alt="Seychelles" loading="lazy"></div>
+      <div class="dc-ov"></div>
+      <div class="dc-flag">🇸🇨</div>
+      <div class="dc-info">
+        <div class="dc-name">SEYCHELLES</div>
+        <div class="dc-chips"><span class="dc-chip">5 أيام</span><span class="dc-chip">3 أشهر</span><span class="dc-chip">Indian Ocean</span></div>
+        <div class="dc-price"><span data-ar="من 5,000 جنيه" data-en="From EGP 5,000">من 5,000 جنيه</span></div>
+      </div>
+      <div class="dc-reveal">
+        <div class="dcr-title">🇸🇨 Seychelles / سيشل</div>
+        <div class="dcr-sub">Indian Ocean Paradise</div>
+        <ul class="dcr-list">
+          <li><span>Processing</span><span>5 days ⚡</span></li>
+          <li><span>Validity</span><span>3 months</span></li>
+          <li><span>Price</span><span>5,000 EGP</span></li>
+        </ul>
+        <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn"><svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>Book Now</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="ctr ri">
+    <div class="sh"><div class="sl"></div><span class="st" data-ar="خدماتنا" data-en="Our Services">خدماتنا</span></div>
+    <h2 class="h2" data-ar="أكتر من مجرد <em>تأشيرة</em>" data-en="More Than Just <em>a Visa</em>">أكتر من مجرد <em>تأشيرة</em></h2>
+    <p class="lead" data-ar="بنقدملك حزمة متكاملة من الخدمات عشان رحلتك تبقى مثالية" data-en="We offer a complete package of services to make your trip perfect from start to finish">بنقدملك حزمة متكاملة من الخدمات عشان رحلتك تبقى مثالية</p>
+  </div>
+  <div class="srv-grid">
+    <div class="srv-card ri">
+      <div class="srv-photo"><img src="https://images.unsplash.com/photo-1568992688065-536aad8a12f6?w=600&q=80" alt="" loading="lazy"><div class="srv-photo-ov"></div><div class="srv-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM9 13h6v1.5H9V13zm0 3h6v1.5H9V16zm0-6h3v1.5H9V10z"/></svg></div></div>
+      <div class="srv-body">
+        <h3 data-ar="تجهيز الملفات" data-en="File Preparation">تجهيز الملفات</h3>
+        <p data-ar="بنجمع ونراجع كل أوراقك عشان الملف يوصل للقنصلية بشكل صح ومن غير أي غلطة" data-en="We collect and review all your documents so your file reaches the consulate correctly.">بنجمع ونراجع كل أوراقك عشان الملف يوصل للقنصلية بشكل صح ومن غير أي غلطة</p>
+        <ul class="srv-pts"><li data-ar="مراجعة دقيقة لكل ورقة" data-en="Thorough review of every document">مراجعة دقيقة لكل ورقة</li><li data-ar="ترجمة وتوثيق المستندات" data-en="Translation & attestation">ترجمة وتوثيق المستندات</li><li data-ar="تنسيق مع متطلبات كل سفارة" data-en="Tailored to each embassy">تنسيق مع متطلبات كل سفارة</li></ul>
+        <a href="https://wa.me/201126672801" target="_blank" class="srv-link" data-ar="استفسر دلوقتي ←" data-en="Enquire Now →">استفسر دلوقتي ←</a>
+      </div>
+    </div>
+    <div class="srv-card ri">
+      <div class="srv-photo"><img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=600&q=80" alt="" loading="lazy"><div class="srv-photo-ov"></div><div class="srv-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zM7 12h5v5H7z"/></svg></div></div>
+      <div class="srv-body">
+        <h3 data-ar="حجز المواعيد" data-en="Appointment Booking">حجز المواعيد</h3>
+        <p data-ar="بنحجزلك موعد القنصلية بأسرع وقت ممكن لكل الدول اللي بتشتغل معاها" data-en="We secure your consulate appointment as quickly as possible for all available countries.">بنحجزلك موعد القنصلية بأسرع وقت ممكن لكل الدول اللي بتشتغل معاها</p>
+        <ul class="srv-pts"><li data-ar="أسرع موعد متاح" data-en="Earliest available slot">أسرع موعد متاح</li><li data-ar="تذكير قبل الموعد" data-en="Appointment reminder">تذكير قبل الموعد</li><li data-ar="إرشاد كامل ليوم السفارة" data-en="Full guidance for embassy day">إرشاد كامل ليوم السفارة</li></ul>
+        <a href="https://wa.me/201126672801" target="_blank" class="srv-link" data-ar="استفسر دلوقتي ←" data-en="Enquire Now →">استفسر دلوقتي ←</a>
+      </div>
+    </div>
+    <div class="srv-card ri">
+      <div class="srv-photo"><img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?w=600&q=80" alt="" loading="lazy"><div class="srv-photo-ov"></div><div class="srv-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 3L3 10.53v.98l6.84 2.65L12.48 21h.98L21 3zm-4.47 14.43L15.1 13.6 12.2 12.4l-2.7-1.05L17.72 5.3l-1.19 12.13z"/></svg></div></div>
+      <div class="srv-body">
+        <h3 data-ar="تجهيز خط السير" data-en="Itinerary Planning">تجهيز خط السير</h3>
+        <p data-ar="بنصمملك برنامج رحلة احترافي يومي بالأماكن والفنادق والمواصلات بالتفصيل" data-en="We design a professional day-by-day itinerary with places, hotels and transport in detail.">بنصمملك برنامج رحلة احترافي يومي بالأماكن والفنادق والمواصلات بالتفصيل</p>
+        <ul class="srv-pts"><li data-ar="برنامج يومي مفصّل" data-en="Detailed daily program">برنامج يومي مفصّل</li><li data-ar="أفضل الأماكن والمعالم" data-en="Best places & attractions">أفضل الأماكن والمعالم</li><li data-ar="تنسيق التنقلات الداخلية" data-en="Internal transport coordination">تنسيق التنقلات الداخلية</li></ul>
+        <a href="https://wa.me/201126672801" target="_blank" class="srv-link" data-ar="استفسر دلوقتي ←" data-en="Enquire Now →">استفسر دلوقتي ←</a>
+      </div>
+    </div>
+    <div class="srv-card ri">
+      <div class="srv-photo"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=80" alt="" loading="lazy"><div class="srv-photo-ov"></div><div class="srv-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 13c1.66 0 3-1.34 3-3S8.66 7 7 7s-3 1.34-3 3 1.34 3 3 3zm12-6h-8v7H3V5H1v15h2v-3h18v3h2v-9a4 4 0 0 0-4-4z"/></svg></div></div>
+      <div class="srv-body">
+        <h3 data-ar="حجز فنادق" data-en="Hotel Booking">حجز فنادق</h3>
+        <p data-ar="فنادق مبدئية للتأشيرة أو نهائية للسفر — بنلاقيلك الأنسب لميزانيتك" data-en="Preliminary hotel reservations for visas or final bookings — we find the best match for your budget.">فنادق مبدئية للتأشيرة أو نهائية للسفر — بنلاقيلك الأنسب لميزانيتك</p>
+        <ul class="srv-pts"><li data-ar="حجز مبدئي للتأشيرة" data-en="Preliminary booking for visa">حجز مبدئي للتأشيرة</li><li data-ar="حجز نهائي مع تأكيد" data-en="Final booking with confirmation">حجز نهائي مع تأكيد</li><li data-ar="خيارات لكل الميزانيات" data-en="Options for all budgets">خيارات لكل الميزانيات</li></ul>
+        <a href="https://wa.me/201126672801" target="_blank" class="srv-link" data-ar="استفسر دلوقتي ←" data-en="Enquire Now →">استفسر دلوقتي ←</a>
+      </div>
+    </div>
+    <div class="srv-card ri">
+      <div class="srv-photo"><img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=80" alt="" loading="lazy"><div class="srv-photo-ov"></div><div class="srv-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 16v-2l-8-5V3.5A1.5 1.5 0 0 0 11.5 2 1.5 1.5 0 0 0 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg></div></div>
+      <div class="srv-body">
+        <h3 data-ar="حجز طيران" data-en="Flight Booking">حجز طيران</h3>
+        <p data-ar="تذاكر مبدئية للتأشيرة أو نهائية لرحلتك — بنلاقيلك أفضل الأسعار" data-en="Preliminary tickets for visas or final tickets for travel — we find the best prices.">تذاكر مبدئية للتأشيرة أو نهائية لرحلتك — بنلاقيلك أفضل الأسعار</p>
+        <ul class="srv-pts"><li data-ar="تذاكر مبدئية للتأشيرة" data-en="Preliminary tickets for visa">تذاكر مبدئية للتأشيرة</li><li data-ar="أفضل أسعار التذاكر" data-en="Best ticket prices">أفضل أسعار التذاكر</li><li data-ar="حجز مباشر وسريع" data-en="Direct and fast booking">حجز مباشر وسريع</li></ul>
+        <a href="https://wa.me/201126672801" target="_blank" class="srv-link" data-ar="استفسر دلوقتي ←" data-en="Enquire Now →">استفسر دلوقتي ←</a>
+      </div>
+    </div>
+    <div class="srv-card ri">
+      <div class="srv-photo"><img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=600&q=80" alt="" loading="lazy"><div class="srv-photo-ov"></div><div class="srv-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg></div></div>
+      <div class="srv-body">
+        <h3 data-ar="تأمين السفر" data-en="Travel Insurance">تأمين السفر</h3>
+        <p data-ar="تأمين طبي معتمد ومطابق لمتطلبات كل سفارة بأفضل سعر ممكن" data-en="Certified medical insurance matching every embassy's requirements at the best possible price.">تأمين طبي معتمد ومطابق لمتطلبات كل سفارة بأفضل سعر ممكن</p>
+        <ul class="srv-pts"><li data-ar="تأمين طبي شامل" data-en="Comprehensive medical cover">تأمين طبي شامل</li><li data-ar="مطابق لمتطلبات السفارات" data-en="Embassy-approved">مطابق لمتطلبات السفارات</li><li data-ar="تغطية لكل الوجهات" data-en="Coverage for all destinations">تغطية لكل الوجهات</li></ul>
+        <a href="https://wa.me/201126672801" target="_blank" class="srv-link" data-ar="استفسر دلوقتي ←" data-en="Enquire Now →">استفسر دلوقتي ←</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<div class="gal">
+  <div class="gi"><img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=500&q=75" alt="" loading="lazy"></div>
+  <div class="gi"><img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=500&q=75" alt="" loading="lazy"></div>
+  <div class="gi"><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=500&q=75" alt="" loading="lazy"></div>
+  <div class="gi"><img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=500&q=75" alt="" loading="lazy"></div>
+</div>
+
+<!-- VISAS -->
+<section class="visas" id="visas">
+  <div class="ctr ri">
+    <div class="sh"><div class="sl"></div><span class="st" data-ar="الأسعار والتفاصيل" data-en="Prices & Details">الأسعار والتفاصيل</span></div>
+    <h2 class="h2" data-ar="أكثر من 60 تأشيرة بأسعار <em>واضحة</em>" data-en="60+ Visas at <em>Transparent</em> Prices">60+ وجهة بأسعار <em>شفافة</em></h2>
+    <p class="lead" data-ar="كل التأشيرات بنشتغل عليها يومياً. دور على وجهتك وشوف التفاصيل الكاملة." data-en="We work on all these visas daily. Find your destination and see the full details.">كل التأشيرات بنشتغل عليها يومياً. دور على وجهتك وشوف التفاصيل الكاملة.</p>
+  </div>
+  <div class="vbar ri">
+    <input class="vsrch" id="vs" type="text" placeholder="🔍  Search / ابحث...">
+    <div class="vtabs">
+      <button class="vtab on" onclick="fv('all',this)" data-ar="الكل" data-en="All">الكل</button>
+      <button class="vtab" onclick="fv('africa',this)" data-ar="🌍 أفريقيا" data-en="🌍 Africa">🌍 أفريقيا</button>
+      <button class="vtab" onclick="fv('asia',this)" data-ar="🌏 آسيا" data-en="🌏 Asia">🌏 آسيا</button>
+      <button class="vtab" onclick="fv('europe',this)" data-ar="🌍 أوروبا" data-en="🌍 Europe">🌍 أوروبا</button>
+      <button class="vtab" onclick="fv('americas',this)" data-ar="🌎 الأمريكتين" data-en="🌎 Americas">🌎 الأمريكتين</button>
+      <button class="vtab" onclick="fv('oceania',this)" data-ar="🌏 أوقيانوسيا" data-en="🌏 Oceania">🌏 أوقيانوسيا</button>
+      <button class="vtab" onclick="fv('fast',this)" data-ar="⚡ سريع" data-en="⚡ Fast">⚡ سريع</button>
+      <div class="vtab-sep"></div>
+      <button class="vtab" onclick="fv('evisa',this)" data-ar="🌐 إلكترونية" data-en="🌐 E-Visa">🌐 إلكترونية</button>
+      <button class="vtab" onclick="fv('paper',this)" data-ar="📄 ورقية" data-en="📄 Paper">📄 ورقية</button>
+    </div>
+  </div>
+  <div class="vgrid" id="vg"></div>
+  <div class="vempty" id="ve">No results / ما فيش نتايج</div>
+</section>
+
+<!-- HOW -->
+<section class="how" id="how">
+  <div class="ctr ri">
+    <div class="sh"><div class="sl"></div><span class="st" data-ar="خطوات استخراج التأشيرة" data-en="Visa Process">طريقة العمل</span></div>
+    <h2 class="h2" data-ar="4 خطوات بسيطة <em>لاستخراج التأشيرة</em>" data-en="4 Simple Steps to <em>Your Visa</em>">4 خطوات بس <em>وجوازك في إيدك</em></h2>
+  </div>
+  <div class="steps">
+    <div class="stb ri"><div class="stn">1</div><h3 data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</h3><p data-ar="ابعتلنا رسالة على واتساب أو املا الفورم وهنرد في أقل من ساعة" data-en="Send us a WhatsApp message or fill the form and we'll reply within an hour.">ابعتلنا رسالة على واتساب أو املا الفورم وهنرد في أقل من ساعة</p></div>
+    <div class="stb ri"><div class="stn">2</div><h3 data-ar="جمع الأوراق" data-en="Documents">جمع الأوراق</h3><p data-ar="بنبعتلك قايمة المستندات المطلوبة ونساعدك في تجهيزها صح" data-en="We send you the required documents list and help you prepare them correctly.">بنبعتلك قايمة المستندات المطلوبة ونساعدك في تجهيزها صح</p></div>
+    <div class="stb ri"><div class="stn">3</div><h3 data-ar="تقديم الطلب" data-en="Submit Application">تقديم الطلب</h3><p data-ar="بنقدم ملفك ونبعتلك تحديثات يومية على واتساب" data-en="We submit your file and send you daily updates on WhatsApp.">بنقدم ملفك ونبعتلك تحديثات يومية على واتساب</p></div>
+    <div class="stb ri"><div class="stn">4</div><h3 data-ar="استلم تأشيرتك" data-en="Receive Visa">استلم تأشيرتك</h3><p data-ar="بمجرد القبول بنبعتلك الجواز أو تيجي تستلمه منا" data-en="Upon approval we deliver your passport or you can pick it up from us.">بمجرد القبول بنبعتلك الجواز أو تيجي تستلمه منا</p></div>
+  </div>
+</section>
+
+<!-- REQUEST -->
+<section class="req" id="request">
+  <div class="req-g">
+    <div class="rimg ri">
+      <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=900&q=85" alt="" loading="lazy">
+      <div class="rimg-b"><p data-ar="استشارة أولية" data-en="Initial Consultation">استشارة أولية</p><strong data-ar="مجانية 100% ✓" data-en="100% Free ✓">مجانية 100% ✓</strong></div>
+    </div>
+    <div class="ri">
+      <div class="sh"><div class="sl"></div><span class="st" data-ar="ابدأ إجراءات تأشيرتك" data-en="Start Your Visa Process">ابدأ رحلتك</span></div>
+      <h2 class="h2" data-ar="احجز <em>استشارتك</em><br>المجانية الآن" data-en="Book Your <em>Free</em><br>Consultation Now">احجز <em>استشارتك</em><br>المجانية الآن</h2>
+      <p class="lead" data-ar="ملي الفورم وهيتواصل معاك متخصص خلال ساعة واحدة" data-en="Fill the form and a specialist will contact you within one hour.">ملي الفورم وهيتواصل معاك متخصص خلال ساعة واحدة</p>
+      <ul class="tpts">
+        <li data-ar="استشارة أولية مجانية 100%" data-en="100% free initial consultation">استشارة أولية مجانية 100%</li>
+        <li data-ar="متابعة شخصية مع كل عميل" data-en="Personal follow-up with every client">متابعة شخصية مع كل عميل</li>
+        <li data-ar="مراجعة الملف قبل التقديم" data-en="File review before submission">مراجعة الملف قبل التقديم</li>
+        <li data-ar="تواصل على مدار الساعة" data-en="24/7 support">تواصل على مدار الساعة</li>
+        <li data-ar="خبرة في أكتر من 40 قنصلية" data-en="Experience with 40+ consulates">خبرة في أكتر من 40 قنصلية</li>
+      </ul>
+      <br>
+      <div class="fcard">
+        <div class="ftitle" data-ar="ابعت طلبك دلوقتي ✈" data-en="Send Your Request Now ✈">ابعت طلبك دلوقتي ✈</div>
+        <form onsubmit="doForm(event)">
+          <div class="frow">
+            <div class="fg"><label data-ar="الاسم الأول" data-en="First Name">الاسم الأول</label><input type="text" required></div>
+            <div class="fg"><label data-ar="اسم العيلة" data-en="Last Name">اسم العيلة</label><input type="text" required></div>
+          </div>
+          <div class="fg"><label data-ar="رقم الواتساب" data-en="WhatsApp">رقم الواتساب</label><input type="tel" required></div>
+          <div class="fg">
+            <label data-ar="الوجهة" data-en="Destination">الوجهة</label>
+            <select required>
+              <option value="" data-ar="اختار البلد" data-en="Select Country">اختار البلد</option>
+              <optgroup label="🌍 Africa / أفريقيا"><option>Kenya 🇰🇪</option><option>Uganda 🇺🇬</option><option>Seychelles 🇸🇨</option><option>Tanzania 🇹🇿</option><option>Madagascar 🇲🇬</option><option>Djibouti 🇩🇯</option><option>Malawi 🇲🇼</option><option>Togo 🇹🇬</option><option>Zambia 🇿🇲</option><option>Botswana 🇧🇼</option><option>Sierra Leone 🇸🇱</option><option>Equatorial Guinea 🇬🇶</option><option>Mozambique 🇲🇿</option><option>Mauritania 🇲🇷</option><option>Mauritius 🇲🇺</option><option>Tunisia 🇹🇳</option><option>Algeria 🇩🇿</option></optgroup>
+              <optgroup label="🌏 Asia / آسيا"><option>Turkey 🇹🇷</option><option>Bahrain 🇧🇭</option><option>Georgia 🇬🇪</option><option>Uzbekistan 🇺🇿</option><option>Azerbaijan 🇦🇿</option><option>Thailand 🇹🇭</option><option>Indonesia 🇮🇩</option><option>Singapore 🇸🇬</option><option>Philippines 🇵🇭</option><option>China 🇨🇳</option><option>Japan 🇯🇵</option><option>Cambodia 🇰🇭</option><option>Nepal 🇳🇵</option><option>Laos 🇱🇦</option><option>Myanmar 🇲🇲</option><option>Vietnam 🇻🇳</option><option>Tajikistan 🇹🇯</option><option>Kyrgyzstan 🇰🇬</option></optgroup>
+              <optgroup label="🌎 Americas / الأمريكتين"><option>Cuba 🇨🇺</option><option>Suriname 🇸🇷</option><option>Bahamas 🇧🇸</option><option>Colombia 🇨🇴</option><option>Brazil 🇧🇷</option><option>Bolivia 🇧🇴</option><option>Saint Kitts 🇰🇳</option><option>Trinidad & Tobago 🇹🇹</option><option>Antigua 🇦🇬</option><option>Guyana 🇬🇾</option></optgroup>
+              <optgroup label="🌏 Oceania"><option>Australia 🇦🇺</option><option>New Zealand 🇳🇿</option></optgroup>
+              <optgroup label="🌍 Europe"><option>Albania 🇦🇱</option><option>Serbia 🇷🇸</option><option>Cyprus 🇨🇾</option></optgroup>
+            </select>
+          </div>
+          <div class="frow">
+            <div class="fg"><label data-ar="عدد المسافرين" data-en="Travellers">عدد المسافرين</label><select><option>1</option><option>2</option><option>3-4</option><option>5+</option></select></div>
+            <div class="fg"><label data-ar="موعد السفر" data-en="Travel Date">موعد السفر</label><select><option data-ar="خلال شهر" data-en="Within 1 month">خلال شهر</option><option data-ar="1-3 شهور" data-en="1-3 months">1-3 شهور</option><option data-ar="+3 شهور" data-en="3+ months">+3 شهور</option></select></div>
+          </div>
+          <button type="submit" class="fsub" id="fsb">
+            <svg class="pico" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>
+            <span data-ar="ابعت الطلب" data-en="Send Request">ابعت الطلب</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi" id="testi">
+  <div class="ctr ri">
+    <div class="sh"><div class="sl"></div><span class="st" data-ar="آراء العملاء" data-en="Testimonials">آراء العملاء</span></div>
+    <h2 class="h2" data-ar="بيحكوا <em>عنا</em>" data-en="What They <em>Say</em>">بيحكوا <em>عنا</em></h2>
+  </div>
+  <div class="tg">
+    <div class="tc ri"><div class="stars">★★★★★</div><p data-ar="الحمد لله جت التأشيرة في وقتها بالظبط! الفريق كان متابع معايا خطوة بخطوة. تركيا في يوم واحد فعلاً!" data-en="Alhamdulillah the visa came exactly on time! The team followed up with me step by step. Turkey in one day — truly incredible!">الحمد لله جت التأشيرة في وقتها بالظبط! الفريق كان متابع معايا خطوة بخطوة. تركيا في يوم واحد فعلاً!</p><div class="ta"><div class="tav">👩</div><div><div class="ta-n">نورا سامي</div><div class="ta-d">Turkey 🇹🇷</div></div></div></div>
+    <div class="tc ri"><div class="stars">★★★★★</div><p data-ar="أول مرة أعمل تأشيرة أفريقيا وكنت خايف. مع Colonel Tours الموضوع اتبسط ووصلت كينيا بدون أي مشاكل." data-en="First time applying for an African visa and I was nervous. With Colonel Tours everything was smooth and I arrived in Kenya without any issues.">أول مرة أعمل تأشيرة أفريقيا وكنت خايف. مع Colonel Tours الموضوع اتبسط ووصلت كينيا بدون أي مشاكل.</p><div class="ta"><div class="tav">👨</div><div><div class="ta-n">كريم عادل</div><div class="ta-d">Kenya 🇰🇪</div></div></div></div>
+    <div class="tc ri"><div class="stars">★★★★★</div><p data-ar="عملت تأشيرة عائلية لـ 4 أشخاص لسيشل وجت كلها في نفس الوقت. الاحترافية واضحة جداً." data-en="I got a family visa for 4 people to Seychelles and they all came at the same time. The professionalism is outstanding.">عملت تأشيرة عائلية لـ 4 أشخاص لسيشل وجت كلها في نفس الوقت. الاحترافية واضحة جداً.</p><div class="ta"><div class="tav">👨‍👩‍👧</div><div><div class="ta-n">أسرة المحمدي</div><div class="ta-d">Seychelles 🇸🇨</div></div></div></div>
+  </div>
+</section>
+
+<!-- CONTACT BAND -->
+<div class="cband" id="contact">
+  <div class="cband-bg"><img src="https://images.unsplash.com/photo-1540339832862-474599807836?w=1600&q=70" alt="" loading="lazy"></div>
+  <div class="cband-ov"></div>
+  <div class="cband-in">
+    <div>
+      <h2 data-ar="تواصل معنا <em>دلوقتي</em>" data-en="Contact Us <em>Today</em>">تواصل معنا <em>دلوقتي</em></h2>
+      <div class="cband-sub" data-ar="بنرد على كل الاستفسارات في أقل وقت ممكن" data-en="We respond to all enquiries as quickly as possible">بنرد على كل الاستفسارات في أقل وقت ممكن</div>
+    </div>
+    <div class="cms">
+      <a href="https://wa.me/201126672801" target="_blank" class="cm wa"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp: 01126672801</a>
+      <a href="https://www.facebook.com/coloneltours1" target="_blank" class="cm"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a>
+      <a href="https://www.instagram.com/coloneltour" target="_blank" class="cm"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>Instagram</a>
+      <a href="/cdn-cgi/l/email-protection#05666a696a6b6069716a7077762b6062456268646c692b666a68" class="cm"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>Email</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ftop">
+    <div>
+      <div class="flogo"><img src="logo-white.png" alt="Colonel Tours"><div><strong>Colonel Tours</strong><em>Experience Luxury Travel</em></div></div>
+      <p class="fbp" data-ar="متخصصون في التأشيرات السياحية منذ أكثر من 10 سنوات. بنساعد المصريين يسافروا لأكتر من 60 وجهة حول العالم." data-en="Tourism visa specialists for over 10 years, helping clients travel to 60+ destinations worldwide.">متخصصون في التأشيرات السياحية منذ أكثر من 10 سنوات. بنساعد المصريين يسافروا لأكتر من 60 وجهة حول العالم.</p>
+      <div class="soc">
+        <a href="https://www.facebook.com/coloneltours1" target="_blank"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="https://www.instagram.com/coloneltour" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        <a href="https://wa.me/201126672801" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+      </div>
+    </div>
+    <div class="fc"><h4 data-ar="التأشيرات" data-en="Visas">الوجهات</h4><ul><li><a href="#">Cuba 🇨🇺</a></li><li><a href="#">Georgia 🇬🇪</a></li><li><a href="#">Seychelles 🇸🇨</a></li><li><a href="#">Kenya 🇰🇪</a></li><li><a href="#">Bahrain 🇧🇭</a></li><li><a href="#visas">All destinations...</a></li></ul></div>
+    <div class="fc"><h4 data-ar="خدماتنا" data-en="Services">خدماتنا</h4><ul><li><a href="#" data-ar="تجهيز ملفات" data-en="File Prep">تجهيز ملفات</a></li><li><a href="#" data-ar="حجز مواعيد" data-en="Appointments">حجز مواعيد</a></li><li><a href="#" data-ar="خط سير" data-en="Itinerary">خط سير</a></li><li><a href="#" data-ar="حجز فنادق" data-en="Hotels">حجز فنادق</a></li><li><a href="#" data-ar="حجز طيران" data-en="Flights">حجز طيران</a></li></ul></div>
+    <div class="fc"><h4 data-ar="تواصل" data-en="Contact">تواصل</h4><ul><li><a href="https://wa.me/201126672801">📱 01126672801</a></li><li><a href="/cdn-cgi/l/email-protection#d9bab6b5b6b7bcb5adb6acabaaf7bcbe99beb4b8b0b5f7bab6b4">✉ coloneltours.eg</a></li><li><a href="https://www.facebook.com/coloneltours1">📘 coloneltours1</a></li><li><a href="https://www.instagram.com/coloneltour">📷 coloneltour</a></li></ul></div>
+  </div>
+  <div class="fbot"><p>© 2025 <span>Colonel Tours</span>. All rights reserved.</p><p>Experience <span>Luxury</span> Travel ✈️</p></div>
+</footer>
+
+<!-- WA FLOAT -->
+<div class="wafl"><a href="https://wa.me/201126672801" target="_blank"><svg width="19" height="19" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</span></a></div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* THEME TOGGLE */
+let isDark=true;
+function toggleTheme(){
+  isDark=!isDark;
+  document.getElementById('HR').setAttribute('data-theme',isDark?'dark':'light');
+  document.getElementById('tbtn').textContent=isDark?'☀️':'🌙';
+}
+
+/* LANG TOGGLE */
+let isAR=true;
+const IMGS_URL={
+  '🇺🇬':'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=500&q=80',
+  '🇹🇿':'https://images.unsplash.com/photo-1562864777-4ce3e0be3699?w=500&q=80',
+  '🇲🇬':'https://images.unsplash.com/photo-1580202349105-9352a0bded8c?w=500&q=80',
+  '🇩🇯':'https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?w=500&q=80',
+  '🇲🇼':'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=500&q=80',
+  '🇹🇬':'https://images.unsplash.com/photo-1547481887-a26e2cacbf87?w=500&q=80',
+  '🇿🇲':'https://images.unsplash.com/photo-1517732306149-e8f829eb588a?w=500&q=80',
+  '🇧🇼':'https://images.unsplash.com/photo-1521747116042-5a810fda9664?w=500&q=80',
+  '🇸🇱':'https://images.unsplash.com/photo-1531761535209-83c95aa5f912?w=500&q=80',
+  '🇬🇶':'https://images.unsplash.com/photo-1574482620826-0b7d07a6c1f2?w=500&q=80',
+  '🇲🇿':'https://images.unsplash.com/photo-1596386461350-326ccb383e9f?w=500&q=80',
+  '🇲🇷':'https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=500&q=80',
+  '🇸🇨':'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=500&q=80',
+  '🇲🇺':'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=500&q=80',
+  '🇰🇪':'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=500&q=80',
+  '🇹🇷':'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=500&q=80',
+  '🇧🇭':'https://images.unsplash.com/photo-1590736969955-71cc94901144?w=500&q=80',
+  '🇬🇪':'https://images.unsplash.com/photo-1565008576549-57569a49371d?w=500&q=80',
+  '🇺🇿':'https://images.unsplash.com/photo-1601585021226-9a5d7538e8bd?w=500&q=80',
+  '🇹🇭':'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=500&q=80',
+  '🇮🇩':'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=500&q=80',
+  '🇸🇬':'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=500&q=80',
+  '🇵🇭':'https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=500&q=80',
+  '🇨🇳':'https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=500&q=80',
+  '🇯🇵':'https://images.unsplash.com/photo-1480796927426-f609979314bd?w=500&q=80',
+  '🇰🇭':'https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?w=500&q=80',
+  '🇳🇵':'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&q=80',
+  '🇱🇦':'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=500&q=80',
+  '🇲🇲':'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80',
+  '🇻🇳':'https://images.unsplash.com/photo-1540611025311-01df3cef54b5?w=500&q=80',
+  '🇹🇯':'https://images.unsplash.com/photo-1527838832700-5059252407fa?w=500&q=80',
+  '🇰🇬':'https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?w=500&q=80',
+  '🇦🇱':'https://images.unsplash.com/photo-1555993539-1732b0258235?w=500&q=80',
+  '🇨🇺':'https://images.unsplash.com/photo-1500759285222-a95626b934cb?w=500&q=80',
+  '🇸🇷':'https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=500&q=80',
+  '🇧🇸':'https://images.unsplash.com/photo-1548574505-5e239809ee19?w=500&q=80',
+  '🇨🇴':'https://images.unsplash.com/photo-1560707854-fb9a1f8d5d6f?w=500&q=80',
+  '🇧🇷':'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=500&q=80',
+  '🇧🇴':'https://images.unsplash.com/photo-1580619305218-8423a7ef79b4?w=500&q=80',
+  '🇰🇳':'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=500&q=80',
+  '🇹🇹':'https://images.unsplash.com/photo-1548678471-71d4d2a5f6e7?w=500&q=80',
+  '🇦🇬':'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=500&q=80',
+  '🇬🇾':'https://images.unsplash.com/photo-1535530992830-e25d07cfa780?w=500&q=80',
+  '🇦🇺':'https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=500&q=80',
+  '🇳🇿':'https://images.unsplash.com/photo-1507699622108-4be3abd695ad?w=500&q=80',
+};
+const GRAD={
+  '🇺🇬':'linear-gradient(135deg,#1a4a2e,#2d7a4f)',
+  '🇹🇿':'linear-gradient(135deg,#1a3a4a,#1e6080)',
+  '🇲🇬':'linear-gradient(135deg,#4a2a1a,#8b4513)',
+  '🇩🇯':'linear-gradient(135deg,#3a1a4a,#6b35a0)',
+  '🇲🇼':'linear-gradient(135deg,#1a2a4a,#2855a0)',
+  '🇹🇬':'linear-gradient(135deg,#1a4a3a,#26906a)',
+  '🇿🇲':'linear-gradient(135deg,#2a1a4a,#553090)',
+  '🇧🇼':'linear-gradient(135deg,#3a2a1a,#7a5530)',
+  '🇸🇱':'linear-gradient(135deg,#1a4a1a,#2a802a)',
+  '🇬🇶':'linear-gradient(135deg,#1a3a1a,#1a6a2a)',
+  '🇲🇿':'linear-gradient(135deg,#1a3a4a,#0d5c7a)',
+  '🇲🇷':'linear-gradient(135deg,#3a2a1a,#8b6520)',
+  '🇸🇨':'linear-gradient(135deg,#0d2a4a,#0d70c8)',
+  '🇲🇺':'linear-gradient(135deg,#1a1a4a,#2a2aaa)',
+  '🇰🇪':'linear-gradient(135deg,#2a1a0a,#804020)',
+  '🇹🇷':'linear-gradient(135deg,#4a1a1a,#c02020)',
+  '🇧🇭':'linear-gradient(135deg,#1a2a4a,#1a4a9a)',
+  '🇬🇪':'linear-gradient(135deg,#3a1a1a,#9a2020)',
+  '🇺🇿':'linear-gradient(135deg,#1a2a3a,#1a5a8a)',
+  '🇹🇭':'linear-gradient(135deg,#2a1a3a,#6a1a8a)',
+  '🇮🇩':'linear-gradient(135deg,#4a1a1a,#aa2a2a)',
+  '🇸🇬':'linear-gradient(135deg,#1a3a2a,#1a7a4a)',
+  '🇵🇭':'linear-gradient(135deg,#1a2a4a,#1a3a9a)',
+  '🇨🇳':'linear-gradient(135deg,#4a0a0a,#cc1a1a)',
+  '🇯🇵':'linear-gradient(135deg,#3a1a2a,#aa1a4a)',
+  '🇰🇭':'linear-gradient(135deg,#2a2a1a,#6a6a0a)',
+  '🇳🇵':'linear-gradient(135deg,#2a1a1a,#8a2a0a)',
+  '🇱🇦':'linear-gradient(135deg,#1a2a2a,#0a6a6a)',
+  '🇲🇲':'linear-gradient(135deg,#3a2a0a,#9a7a0a)',
+  '🇻🇳':'linear-gradient(135deg,#3a0a0a,#aa1010)',
+  '🇹🇯':'linear-gradient(135deg,#2a1a2a,#7a1a7a)',
+  '🇰🇬':'linear-gradient(135deg,#2a0a0a,#8a1010)',
+  '🇦🇱':'linear-gradient(135deg,#3a0a0a,#9a1010)',
+  '🇨🇺':'linear-gradient(135deg,#0a2a4a,#0a5090)',
+  '🇸🇷':'linear-gradient(135deg,#0a3a1a,#0a7a30)',
+  '🇧🇸':'linear-gradient(135deg,#0a2a3a,#0a6a8a)',
+  '🇨🇴':'linear-gradient(135deg,#3a2a0a,#9a6a0a)',
+  '🇧🇷':'linear-gradient(135deg,#0a3a0a,#1a8a1a)',
+  '🇧🇴':'linear-gradient(135deg,#2a0a2a,#7a0a7a)',
+  '🇰🇳':'linear-gradient(135deg,#0a3a1a,#0a8a2a)',
+  '🇹🇹':'linear-gradient(135deg,#0a1a3a,#0a3a8a)',
+  '🇦🇬':'linear-gradient(135deg,#1a0a3a,#4a0a8a)',
+  '🇬🇾':'linear-gradient(135deg,#0a2a1a,#0a6a3a)',
+  '🇦🇺':'linear-gradient(135deg,#0a1a3a,#1a3a7a)',
+  '🇳🇿':'linear-gradient(135deg,#0a2a2a,#0a6a6a)',
+  '🇦🇿':'linear-gradient(135deg,#0a1a4a,#0a3a9a)',
+  '🇹🇳':'linear-gradient(135deg,#3a0a0a,#9a1a1a)',
+  '🇩🇿':'linear-gradient(135deg,#1a2a0a,#3a6a0a)',
+  '🇨🇱':'linear-gradient(135deg,#2a0a1a,#6a0a3a)',
+  '🇪🇨':'linear-gradient(135deg,#2a2a0a,#7a6a0a)',
+  '🇷🇸':'linear-gradient(135deg,#2a0a0a,#7a0a0a)',
+  '🇨🇾':'linear-gradient(135deg,#0a2a3a,#0a5a8a)',
+  '🇩🇴':'linear-gradient(135deg,#0a2a0a,#0a6a2a)',
+};
+function toggleLang(){
+  isAR=!isAR;
+  const H=document.getElementById('HR');
+  H.setAttribute('lang',isAR?'ar':'en');
+  H.setAttribute('dir',isAR?'rtl':'ltr');
+  document.getElementById('lbtn').textContent=isAR?'EN':'عر';
+  document.querySelectorAll('[data-ar][data-en]').forEach(el=>{
+    const t=isAR?el.getAttribute('data-ar'):el.getAttribute('data-en');
+    if(!t)return;
+    if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'){el.placeholder=t;}
+    else{el.innerHTML=t;}
+  });
+  apply();
+}
+
+/* STARS */
+(()=>{
+  const c=document.getElementById('stars');
+  if(!c)return;
+  for(let i=0;i<65;i++){
+    const s=document.createElement('div');s.className='star';
+    s.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;--t:${2+Math.random()*4}s;animation-delay:${Math.random()*5}s;opacity:${.15+Math.random()*.5};width:${1+Math.random()*2}px;height:${1+Math.random()*2}px;`;
+    c.appendChild(s);
+  }
+})();
+
+/* NAV */
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('stuck',scrollY>40));
+
+/* REVEAL */
+const obs=new IntersectionObserver((es)=>{
+  es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('on'),i*55);obs.unobserve(e.target);}});
+},{threshold:0.05,rootMargin:'0px 0px -20px 0px'});
+document.querySelectorAll('.ri').forEach(el=>obs.observe(el));
+setTimeout(()=>document.querySelectorAll('.ri:not(.on)').forEach(el=>el.classList.add('on')),2500);
+
+/* VISA DATA */
+const VD=[
+  {ar:"أوغندا",en:"Uganda",c:"أوغندا / Uganda",f:"🇺🇬",r:"africa",d:"10 أيام",dur:"3 أشهر",doc:"جواز + صورة",p:"5,500",fast:false,vtype:"evisa"},
+  {ar:"تنزانيا",en:"Tanzania",c:"تنزانيا / Tanzania",f:"🇹🇿",r:"africa",d:"15 يوم",dur:"3 أشهر",doc:"جواز + صورة",p:"5,500",fast:false,vtype:"evisa"},
+  {ar:"مدغشقر",en:"Madagascar",c:"مدغشقر / Madagascar",f:"🇲🇬",r:"africa",d:"5 أيام",dur:"شهر",doc:"جواز + صورة",p:"4,500",fast:true,vtype:"evisa"},
+  {ar:"جيبوتي (15 يوم)",en:"Djibouti (15 days)",c:"جيبوتي 15 يوم",f:"🇩🇯",r:"africa",d:"5 أيام",dur:"15 يوم",doc:"جواز + صورة",p:"2,500",fast:true,vtype:"evisa"},
+  {ar:"جيبوتي (3 أشهر)",en:"Djibouti (3 months)",c:"جيبوتي 3 أشهر",f:"🇩🇯",r:"africa",d:"5 أيام",dur:"3 أشهر",doc:"جواز + صورة",p:"4,500",fast:true,vtype:"evisa"},
+  {ar:"مالاوي (شهر)",en:"Malawi (1 month)",c:"مالاوي شهر",f:"🇲🇼",r:"africa",d:"10 أيام",dur:"شهر",doc:"جواز + صورة",p:"5,500",fast:false,vtype:"evisa"},
+  {ar:"مالاوي (3 أشهر)",en:"Malawi (3 months)",c:"مالاوي 3 أشهر",f:"🇲🇼",r:"africa",d:"10 أيام",dur:"3 أشهر",doc:"جواز + صورة",p:"10,500",fast:false,vtype:"evisa"},
+  {ar:"توغو (شهر)",en:"Togo (1 month)",c:"توغو شهر",f:"🇹🇬",r:"africa",d:"10 أيام",dur:"شهر",doc:"جواز + صورة",p:"6,500",fast:false,vtype:"evisa"},
+  {ar:"توغو (3 أشهر)",en:"Togo (3 months)",c:"توغو 3 أشهر",f:"🇹🇬",r:"africa",d:"10 أيام",dur:"3 أشهر",doc:"جواز + صورة",p:"8,500",fast:false,vtype:"evisa"},
+  {ar:"زامبيا",en:"Zambia",c:"زامبيا / Zambia",f:"🇿🇲",r:"africa",d:"7 أيام",dur:"3 أشهر",doc:"جواز + صورة",p:"3,700",fast:false,vtype:"evisa"},
+  {ar:"بتسوانا (شهر)",en:"Botswana (1 month)",c:"بتسوانا شهر",f:"🇧🇼",r:"africa",d:"5 أيام",dur:"شهر",doc:"جواز + صورة",p:"5,000",fast:true,vtype:"evisa"},
+  {ar:"بتسوانا (3 أشهر)",en:"Botswana (3 months)",c:"بتسوانا 3 أشهر",f:"🇧🇼",r:"africa",d:"5 أيام",dur:"3 أشهر",doc:"جواز + صورة",p:"6,500",fast:true,vtype:"evisa"},
+  {ar:"سيراليون",en:"Sierra Leone",c:"سيراليون / Sierra Leone",f:"🇸🇱",r:"africa",d:"10 أيام",dur:"شهر",doc:"جواز + صورة",p:"5,500",fast:false,vtype:"evisa"},
+  {ar:"غينيا الاستوائية",en:"Equatorial Guinea",c:"غينيا الاستوائية",f:"🇬🇶",r:"africa",d:"5 أيام",dur:"3 أشهر",doc:"جواز + صورة",p:"7,500",fast:true,vtype:"evisa"},
+  {ar:"موزمبيق",en:"Mozambique",c:"موزمبيق / Mozambique",f:"🇲🇿",r:"africa",d:"10 أيام",dur:"شهر",doc:"جواز + صورة",p:"6,500",fast:false,vtype:"evisa"},
+  {ar:"موريتانيا",en:"Mauritania",c:"موريتانيا / Mauritania",f:"🇲🇷",r:"africa",d:"10 أيام",dur:"3 أشهر",doc:"جواز + صورة",p:"6,000",fast:false,vtype:"evisa"},
+  {ar:"سيشل",en:"Seychelles",c:"سيشل / Seychelles",f:"🇸🇨",r:"africa",d:"5 أيام",dur:"3 أشهر",doc:"جواز + صورة",p:"5,000",fast:true,vtype:"evisa"},
+  {ar:"موريشيوس",en:"Mauritius",c:"موريشيوس / Mauritius",f:"🇲🇺",r:"africa",d:"5 أيام",dur:"3 أشهر",doc:"جواز + صورة",p:"4,500",fast:true,vtype:"evisa"},
+  {ar:"كينيا",en:"Kenya",c:"كينيا / Kenya",f:"🇰🇪",r:"africa",d:"7 أيام",dur:"3 أشهر",doc:"جواز + صورة",p:"5,000",fast:false,vtype:"evisa"},
+  {ar:"تركيا",en:"Turkey",c:"تركيا / Turkey",f:"🇹🇷",r:"asia",d:"ساعة ⚡",dur:"شهر",doc:"جواز + صورة",p:"2,950",fast:true,note:{ar:"متاحة لمن هو أقل من 15 سنة أو أكبر من 45 سنة، أو لمن بين 15 و45 سنة بشرط وجود تأشيرة سارية أو إقامة في (شنغن / أمريكا / بريطانيا / أيرلندا)",en:"Available for under 15 or over 45 years old, or between 15-45 with valid Schengen/US/UK/Ireland visa or residency"}},
+  {ar:"البحرين (أسبوعين)",en:"Bahrain (2 weeks)",c:"البحرين أسبوعين",f:"🇧🇭",r:"asia",d:"7 أيام",dur:"أسبوعين",doc:"جواز + كشف حساب",p:"3,700",fast:false,vtype:"evisa"},
+  {ar:"البحرين (3 أشهر)",en:"Bahrain (3 months)",c:"البحرين 3 أشهر",f:"🇧🇭",r:"asia",d:"7 أيام",dur:"3 أشهر",doc:"جواز + كشف حساب",p:"4,700",fast:false,vtype:"evisa"},
+  {ar:"البحرين (سنة)",en:"Bahrain (1 year)",c:"البحرين سنة",f:"🇧🇭",r:"asia",d:"7 أيام",dur:"سنة",doc:"جواز + كشف حساب",p:"9,000",fast:false,vtype:"evisa"},
+  {ar:"جورجيا",en:"Georgia",c:"جورجيا / Georgia",f:"🇬🇪",r:"asia",d:"7 أيام",dur:"شهر",doc:"جواز + صورة",p:"2,800",fast:false,vtype:"evisa"},
+  {ar:"أوزبكستان",en:"Uzbekistan",c:"أوزبكستان / Uzbekistan",f:"🇺🇿",r:"asia",d:"5 أيام",dur:"شهر",doc:"جواز + صورة",p:"3,500",fast:true,vtype:"evisa"},
+  {ar:"تايلاند",en:"Thailand",c:"تايلاند / Thailand",f:"🇹🇭",r:"asia",d:"15 يوم",dur:"شهرين",doc:"جواز + صورة + خطاب عمل + تأمين + كشف حساب",p:"3,500",fast:false,vtype:"evisa"},
+  {ar:"إندونيسيا",en:"Indonesia",c:"إندونيسيا / Indonesia",f:"🇮🇩",r:"asia",d:"5 أيام",dur:"شهر",doc:"جواز + صورة",p:"4,000",fast:true,vtype:"evisa"},
+  {ar:"سنغافورة",en:"Singapore",c:"سنغافورة / Singapore",f:"🇸🇬",r:"asia",d:"7 أيام",dur:"شهر",doc:"جواز + صورة + كشف حساب",p:"5,500",fast:false,vtype:"evisa"},
+  {ar:"الفلبين",en:"Philippines",c:"الفلبين / Philippines",f:"🇵🇭",r:"asia",d:"7 أيام",dur:"30 يوم",doc:"جواز + صورة + خطاب عمل + كشف حساب",p:"5,500",fast:false,vtype:"paper"},
+  {ar:"الصين",en:"China",c:"الصين / China",f:"🇨🇳",r:"asia",d:"10 أيام",dur:"حسب السفارة",doc:"جواز + صورة + كشف حساب + خطاب وظيفي",p:"2,500 تجهيز",fast:false,vtype:"paper"},
+  {ar:"اليابان",en:"Japan",c:"اليابان / Japan",f:"🇯🇵",r:"asia",d:"10 أيام",dur:"حسب السفارة",doc:"جواز + كشف 6 أشهر + صورة + خطاب عمل + تأمين",p:"2,500 + 26$",fast:false,vtype:"paper"},
+  {ar:"كمبوديا",en:"Cambodia",c:"كمبوديا / Cambodia",f:"🇰🇭",r:"asia",d:"7 أيام",dur:"شهر",doc:"جواز + صورة",p:"3,700",fast:false,vtype:"evisa"},
+  {ar:"نيبال",en:"Nepal",c:"نيبال / Nepal",f:"🇳🇵",r:"asia",d:"5 أيام",dur:"شهر",doc:"جواز + صورة",p:"5,000",fast:true,vtype:"evisa"},
+  {ar:"لاوس",en:"Laos",c:"لاوس / Laos",f:"🇱🇦",r:"asia",d:"10 أيام",dur:"شهر",doc:"جواز + صورة",p:"5,000",fast:false,vtype:"evisa"},
+  {ar:"ميانمار",en:"Myanmar",c:"ميانمار / Myanmar",f:"🇲🇲",r:"asia",d:"5 أيام",dur:"شهر",doc:"جواز + صورة",p:"5,000",fast:true,vtype:"evisa"},
+  {ar:"فيتنام (دخول مرة)",en:"Vietnam (single entry)",c:"فيتنام مرة",f:"🇻🇳",r:"asia",d:"10 أيام",dur:"شهر",doc:"جواز + صورة",p:"4,500",fast:false,vtype:"evisa"},
+  {ar:"فيتنام (دخول متعدد)",en:"Vietnam (multiple entry)",c:"فيتنام متعددة",f:"🇻🇳",r:"asia",d:"10 أيام",dur:"شهر",doc:"جواز + صورة",p:"6,500",fast:false,vtype:"evisa"},
+  {ar:"طاجيكستان",en:"Tajikistan",c:"طاجيكستان / Tajikistan",f:"🇹🇯",r:"asia",d:"14 يوم",dur:"شهرين",doc:"جواز + صورة",p:"3,700",fast:false,vtype:"evisa"},
+  {ar:"قيرغيزستان",en:"Kyrgyzstan",c:"قيرغيزستان / Kyrgyzstan",f:"🇰🇬",r:"asia",d:"15 يوم",dur:"شهر",doc:"جواز + صورة",p:"5,500",fast:false,vtype:"evisa"},
+  {ar:"ألبانيا",en:"Albania",c:"ألبانيا / Albania",f:"🇦🇱",r:"europe",d:"25 يوم",dur:"شهر",doc:"جواز + صورة + خطاب وظيفي + كشف بنكي 12 شهر",p:"5,500 + 7,000",fast:false,vtype:"evisa"},
+  {ar:"كوبا (للمصريين)",en:"Cuba (Egyptians)",c:"كوبا مصريين / Cuba EG",f:"🇨🇺",r:"americas",d:"48 ساعة",dur:"3 أشهر",doc:"صورة جواز",p:"7,000",fast:true,vtype:"evisa"},
+  {ar:"كوبا (غير مصريين)",en:"Cuba (Non-Egyptians)",c:"كوبا غير مصريين",f:"🇨🇺",r:"americas",d:"48 ساعة",dur:"3 أشهر",doc:"صورة جواز",p:"10,000",fast:true,vtype:"evisa"},
+  {ar:"سورينام (مصريين)",en:"Suriname (Egyptians)",c:"سورينام مصريين",f:"🇸🇷",r:"americas",d:"15 يوم",dur:"3 أشهر",doc:"جواز + صورة + خطاب وظيفي + كشف حساب",p:"9,000",fast:false,vtype:"evisa"},
+  {ar:"سورينام (غير مصريين)",en:"Suriname (Non-Egyptians)",c:"سورينام غير مصريين",f:"🇸🇷",r:"americas",d:"48 ساعة",dur:"3 أشهر",doc:"جواز + صورة",p:"9,000",fast:true,vtype:"evisa"},
+  {ar:"جزر البهاما",en:"Bahamas",c:"جزر البهاما / Bahamas",f:"🇧🇸",r:"americas",d:"20 يوم",dur:"3 أشهر",doc:"جواز + صورة + خطاب وظيفي + كشف حساب + فيش جنائي + كشف طبي",p:"10,500 + 4,000",fast:false,vtype:"evisa"},
+  {ar:"كولومبيا",en:"Colombia",c:"كولومبيا / Colombia",f:"🇨🇴",r:"americas",d:"20 يوم",dur:"3 أشهر",doc:"جواز + صورة + كشف حساب + خطاب عمل",p:"6,500 + 8,500",fast:false,vtype:"evisa"},
+  {ar:"البرازيل",en:"Brazil",c:"البرازيل / Brazil",f:"🇧🇷",r:"americas",d:"حسب الموعد",dur:"حسب السفارة",doc:"جواز + صورة + كشف حساب + خطاب عمل + تأمين + فيش جنائي",p:"4,000 + 80$",fast:false,vtype:"paper"},
+  {ar:"بوليفيا",en:"Bolivia",c:"بوليفيا / Bolivia",f:"🇧🇴",r:"americas",d:"7-10 أيام",dur:"حسب السفارة",doc:"جواز + صورة + كشف حساب + خطاب عمل + تأمين",p:"2,500",fast:false,vtype:"paper"},
+  {ar:"سانت كيتس",en:"St. Kitts & Nevis",c:"سانت كيتس / St. Kitts",f:"🇰🇳",r:"americas",d:"15 يوم",dur:"3 أشهر",doc:"جواز + صورة + كشف حساب + خطاب وظيفي",p:"8,000 + 5,000",fast:false,vtype:"evisa"},
+  {ar:"ترينيداد وتوباغو",en:"Trinidad & Tobago",c:"ترينيداد وتوباغو",f:"🇹🇹",r:"americas",d:"15 يوم",dur:"3 أشهر",doc:"جواز + صورة + كشف 6 أشهر + خطاب عمل + تأمين",p:"6,000 + 5,000",fast:false,vtype:"evisa"},
+  {ar:"أنتيغوا وبربودا",en:"Antigua & Barbuda",c:"أنتيغوا / Antigua",f:"🇦🇬",r:"americas",d:"15 يوم",dur:"شهر",doc:"جواز + صورة + كشف 6 أشهر + خطاب عمل + فيش جنائي",p:"6,000 + 5,000",fast:false,vtype:"evisa"},
+  {ar:"غويانا",en:"Guyana",c:"غويانا / Guyana",f:"🇬🇾",r:"americas",d:"15 يوم",dur:"3 أشهر",doc:"جواز + صورة + كشف 6 أشهر + خطاب عمل + فيش جنائي",p:"6,500 + 25$",fast:false,vtype:"evisa"},
+  {ar:"أستراليا",en:"Australia",c:"أستراليا / Australia",f:"🇦🇺",r:"oceania",d:"من 30 يوم",dur:"سنة متعددة",doc:"جواز + صورة + إثبات مالي + تأمين طبي + أملاك في مصر",p:"13,000 + 4,000",fast:false,vtype:"evisa"},
+  {ar:"نيوزيلندا",en:"New Zealand",c:"نيوزيلندا / New Zealand",f:"🇳🇿",r:"oceania",d:"30 يوم عمل",dur:"حسب السفارة",doc:"جواز + صورة + إثبات مالي + تأمين طبي + أملاك + تأشيرات سابقة",p:"20,000 + 4,000",fast:false,vtype:"evisa"},
+
+  {ar:"أذربيجان",en:"Azerbaijan",c:"أذربيجان / Azerbaijan",f:"🇦🇿",r:"asia",d:"15 يوم",dur:"شهر",doc:"جواز + كشف حساب (6 أشهر) + خطاب وظيفي + صورتين خلفية بيضاء + تأمين سياحي",p:"3,500 + رسوم السفارة",fast:false,vtype:"paper"},
+  {ar:"تونس",en:"Tunisia",c:"تونس / Tunisia",f:"🇹🇳",r:"africa",d:"15 يوم",dur:"شهر",doc:"جواز + كشف حساب (6 أشهر) + خطاب وظيفي + صورتين خلفية بيضاء + تأمين سياحي",p:"3,500 + رسوم السفارة",fast:false,vtype:"paper"},
+  {ar:"الجزائر",en:"Algeria",c:"الجزائر / Algeria",f:"🇩🇿",r:"africa",d:"15 يوم",dur:"شهر",doc:"جواز + كشف حساب (6 أشهر) + خطاب وظيفي + صورتين خلفية بيضاء + تأمين سياحي",p:"3,500 + رسوم السفارة",fast:false,vtype:"paper"},
+  {ar:"تشيلي",en:"Chile",c:"تشيلي / Chile",f:"🇨🇱",r:"americas",d:"15 يوم",dur:"شهر",doc:"جواز + كشف حساب (6 أشهر) + خطاب وظيفي + صورتين خلفية بيضاء + تأمين سياحي",p:"3,500 + رسوم السفارة",fast:false,vtype:"paper"},
+  {ar:"الإكوادور",en:"Ecuador",c:"الإكوادور / Ecuador",f:"🇪🇨",r:"americas",d:"15 يوم",dur:"شهر",doc:"جواز + كشف حساب (6 أشهر) + خطاب وظيفي + صورتين خلفية بيضاء + تأمين سياحي",p:"3,500 + رسوم السفارة",fast:false,vtype:"paper"},
+  {ar:"صربيا",en:"Serbia",c:"صربيا / Serbia",f:"🇷🇸",r:"europe",d:"15 يوم",dur:"شهر",doc:"جواز + كشف حساب (6 أشهر) + خطاب وظيفي + صورتين خلفية بيضاء + تأمين سياحي",p:"3,500 + رسوم السفارة",fast:false,vtype:"paper"},
+  {ar:"قبرص",en:"Cyprus",c:"قبرص / Cyprus",f:"🇨🇾",r:"europe",d:"15 يوم",dur:"شهر",doc:"جواز + كشف حساب (6 أشهر) + خطاب وظيفي + صورتين خلفية بيضاء + تأمين سياحي",p:"3,500 + رسوم السفارة",fast:false,vtype:"paper"},
+  {ar:"الدومينيكان",en:"Dominican Republic",c:"الدومينيكان / Dominican Rep.",f:"🇩🇴",r:"americas",d:"15 يوم",dur:"شهر",doc:"جواز + كشف حساب (6 أشهر) + خطاب وظيفي + صورتين خلفية بيضاء + تأمين سياحي",p:"3,500 + رسوم السفارة",fast:false,vtype:"paper"},
+];
+
+let AR_F='all';
+function render(data){
+  const g=document.getElementById('vg'),e=document.getElementById('ve');
+  g.innerHTML='';
+  if(!data.length){e.style.display='block';return;}
+  e.style.display='none';
+  data.forEach(v=>{
+    const img=IMGS_URL[v.f]||'https://images.unsplash.com/photo-1488085061387-422e29b40080?w=400&q=70';
+    const cname=isAR?(v.ar||v.c):(v.en||v.c);
+    const waMsg=isAR?`استفسار عن تأشيرة ${v.ar||v.c}`:`Inquiry about ${v.en||v.c} visa`;
+    const waUrl=`https://wa.me/201126672801?text=${encodeURIComponent(waMsg)}`;
+    const isPaper=v.vtype==='paper';
+    const vtypeLabel=isPaper?(isAR?'ورقية':'Paper Visa'):(isAR?'إلكترونية':'E-Visa');
+    const vtypeClass=isPaper?'vt-paper':'vt-evisa';
+    const noteHtml=v.note?`<div class="vc-note">${isAR?v.note.ar:v.note.en}</div>`:'';
+    g.innerHTML+=`<div class="vc" onclick="window.open('${waUrl}','_blank')" style="cursor:pointer;">
+      <div class="vc-photo">
+        <img src="${img}" alt="${cname}" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background=GRAD['${v.f}']||'linear-gradient(135deg,#1a2a4a,#1e44b0)'">
+        <div class="vc-ov"></div>
+        <div class="vc-flag">${v.f}</div>
+        <div class="vc-price-b">${v.p} EGP</div>
+        <div class="vc-hover-cta"><svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>${isAR?'احجز على واتساب':'Book on WhatsApp'}</div>
+      </div>
+      <div class="vc-body">
+        <div class="vc-name-row"><div class="vc-name">${cname}</div><span class="vc-vtype ${vtypeClass}">${vtypeLabel}</span></div>
+        <div class="vc-meta">
+          <div class="vcm"><div class="vcm-l">${isAR?"مدة التنفيذ":"Processing"}</div><div class="vcm-v">${v.d}</div></div>
+          <div class="vcm"><div class="vcm-l">${isAR?"صلاحية التأشيرة":"Validity"}</div><div class="vcm-v">${v.dur}</div></div>
+        </div>
+        <div class="vc-docs"><b>${isAR?"المستندات:":"Docs:"}</b> ${v.doc}</div>
+        ${noteHtml}
+      </div>
+    </div>`;
+  });
+}
+function fv(r,btn){
+  AR_F=r;
+  document.querySelectorAll('.vtab').forEach(t=>t.classList.remove('on'));
+  btn.classList.add('on');apply();
+}
+function apply(){
+  const q=document.getElementById('vs').value.trim().toLowerCase();
+  let res=VD;
+  if(AR_F==='fast') res=res.filter(v=>v.fast);
+  else if(AR_F==='evisa') res=res.filter(v=>v.vtype==='evisa');
+  else if(AR_F==='paper') res=res.filter(v=>v.vtype==='paper');
+  else if(AR_F!=='all') res=res.filter(v=>v.r===AR_F);
+  if(q) res=res.filter(v=>v.c.toLowerCase().includes(q)||v.f.includes(q)||
+    (v.ar&&v.ar.toLowerCase().includes(q))||(v.en&&v.en.toLowerCase().includes(q)));
+  render(res);
+}
+document.getElementById('vs').addEventListener('input',apply);
+render(VD);
+
+/* FORM */
+function doForm(e){
+  e.preventDefault();
+  const b=document.getElementById('fsb');
+  b.innerHTML='✅ Sent! We\'ll contact you soon.';
+  b.style.cssText='background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--bg0);pointer-events:none;';
+  setTimeout(()=>{b.innerHTML='<svg class="pico" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg><span data-ar="ابعت الطلب" data-en="Send Request">ابعت الطلب</span>';b.style.cssText='';b.disabled=false;},4000);
+  const f=b.closest('form');
+  const dest=f.querySelector('select')?.value||'';
+  const name=f.querySelector('input[type=text]')?.value||'';
+  const phone=f.querySelector('input[type=tel]')?.value||'';
+  const msg=`مرحباً، أنا ${name}%0Aرقمي: ${phone}%0Aأريد الاستفسار عن تأشيرة: ${dest}`;
+  window.open(`https://wa.me/201126672801?text=${msg}`,'_blank');
+}
+</script>
+</body>
+</html>
