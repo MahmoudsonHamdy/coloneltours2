@@ -1,818 +1,808 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a/index (15).html b/index (15).html
-index be70b36c64e1901d3e2e8df0b6806ea76741b2ca..e2e87a02d1c3547664d3c721b3da86d863677b2b 100644
---- a/index (15).html	
-+++ b/index (15).html	
-@@ -1,36 +1,36 @@
- <!DOCTYPE html>
- <html lang="ar" dir="rtl" id="HR" data-theme="dark">
- <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width,initial-scale=1">
- <link rel="icon" type="image/png" href="logo-white.png">
- <link rel="shortcut icon" href="logo-white.png">
- <title>Colonel Tours – تأشيرات سياحية</title>
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
--<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=IBM+Plex+Sans+Arabic:wght@700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
- <style>
- /* ══ DESIGN TOKENS ══════════════════════════════════════ */
- :root{
-   /* Backgrounds */
-   --bg0:#07111f;   /* darkest */
-   --bg1:#0d1b30;
-   --bg2:#122040;
-   --bg3:#1a2c52;   /* card */
- 
-   /* Brand */
-   --blue:#1e44b0;
-   --gold:#d4952f;
-   --gold2:#f0b84a;
-   --gold3:#fad07e;
- 
-   /* Text — ALL high-contrast */
-   --t1:#ffffff;          /* headings */
-   --t2:#eae4d9;          /* body */
-   --t3:#b8c8de;          /* secondary */
-   --t4:#7e98b8;          /* tertiary */
-   --gold-t:#f0b84a;      /* gold text */
- 
-   --wa:#25d366;
-   --r:6px;
- }
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="HR" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/png" href="logo-white.png">
+<link rel="shortcut icon" href="logo-white.png">
+<title>Colonel Tours – تأشيرات سياحية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=IBM+Plex+Sans+Arabic:wght@700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+/* ══ DESIGN TOKENS ══════════════════════════════════════ */
+:root{
+  /* Backgrounds */
+  --bg0:#07111f;   /* darkest */
+  --bg1:#0d1b30;
+  --bg2:#122040;
+  --bg3:#1a2c52;   /* card */
+
+  /* Brand */
+  --blue:#1e44b0;
+  --gold:#d4952f;
+  --gold2:#f0b84a;
+  --gold3:#fad07e;
+
+  /* Text — ALL high-contrast */
+  --t1:#ffffff;          /* headings */
+  --t2:#eae4d9;          /* body */
+  --t3:#b8c8de;          /* secondary */
+  --t4:#7e98b8;          /* tertiary */
+  --gold-t:#f0b84a;      /* gold text */
+
+  --wa:#25d366;
+  --r:6px;
+}
 @@ -208,55 +208,58 @@ a{text-decoration:none;color:inherit;}
- 
- /* ══ NAV ════════════════════════════════════════════════ */
- #nav{
-   position:fixed;top:0;left:0;right:0;z-index:900;
-   display:flex;align-items:center;justify-content:space-between;
-   padding:1rem 5%;transition:all .4s;
- }
- #nav.stuck{
-   background:rgba(7,17,31,.97);backdrop-filter:blur(24px);
-   border-bottom:1px solid rgba(212,149,47,.15);padding:.7rem 5%;
-   box-shadow:0 4px 32px rgba(0,0,0,.5);
- }
- .nlogo{display:flex;align-items:center;gap:.85rem;}
- .nlogo img{height:52px;width:auto;filter:drop-shadow(0 0 8px rgba(212,149,47,.4));}
- .nlogo strong{display:block;font-size:1rem;font-weight:800;color:var(--t1);font-family:'Tajawal',sans-serif;}
- .nlogo em{font-style:normal;font-size:.58rem;color:var(--gold2);letter-spacing:2.5px;text-transform:uppercase;font-family:'Tajawal',sans-serif;}
- .nlinks{display:flex;gap:1.8rem;list-style:none;align-items:center;}
- .nlinks a{
-   color:var(--t3);font-size:.9rem;font-weight:500;
-   position:relative;transition:color .3s;
-   font-family:'Tajawal',sans-serif;
- }
- .nlinks a::after{content:'';position:absolute;bottom:-3px;right:50%;left:50%;height:1px;background:var(--gold2);transition:right .3s,left .3s;}
- .nlinks a:hover{color:var(--gold2);}.nlinks a:hover::after{right:0;left:0;}
- .ncta{
--  background:linear-gradient(135deg,var(--gold),var(--gold2))!important;
--  color:var(--bg0)!important;padding:.52rem 1.3rem!important;
-+  background:linear-gradient(135deg,var(--gold),var(--gold2),var(--gold3))!important;
-+  color:var(--bg0)!important;padding:.62rem 1.4rem!important;
-   border-radius:var(--r);font-weight:800!important;
--  box-shadow:0 4px 16px rgba(212,149,47,.3);
-+  box-shadow:0 8px 24px rgba(212,149,47,.36);
-+  display:inline-flex!important;align-items:center;gap:.45rem;
-+  transform:translateY(0);
- }
-+.ncta:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(240,184,74,.5),0 0 14px rgba(240,184,74,.35);}
- .ncta::after{display:none!important;}
- .lang-btn{
-   background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
-   color:var(--t2);padding:.4rem .95rem;border-radius:20px;
-   font-size:.78rem;font-weight:700;cursor:pointer;
-   transition:all .25s;letter-spacing:.5px;
-   font-family:'Tajawal',sans-serif;
- }
- .lang-btn:hover{border-color:var(--gold2);color:var(--gold2);}
- .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
- .burger span{display:block;width:22px;height:2px;background:var(--gold2);border-radius:2px;}
- .theme-btn{
-   background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
-   color:var(--t2);padding:.4rem .7rem;border-radius:20px;
-   font-size:.85rem;cursor:pointer;transition:all .25s;
- }
- .theme-btn:hover{border-color:var(--gold2);}
- 
- /* ══ HERO ═══════════════════════════════════════════════ */
- .hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;}
- .hero-bg{
-   position:absolute;inset:0;
-   background:
-     radial-gradient(ellipse 60% 80% at 72% 48%,rgba(30,68,176,.2) 0%,transparent 60%),
-     linear-gradient(155deg,#091425 0%,#07111f 55%,#0b1828 100%);
+
+/* ══ NAV ════════════════════════════════════════════════ */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 5%;transition:all .4s;
+}
+#nav.stuck{
+  background:rgba(7,17,31,.97);backdrop-filter:blur(24px);
+  border-bottom:1px solid rgba(212,149,47,.15);padding:.7rem 5%;
+  box-shadow:0 4px 32px rgba(0,0,0,.5);
+}
+.nlogo{display:flex;align-items:center;gap:.85rem;}
+.nlogo img{height:52px;width:auto;filter:drop-shadow(0 0 8px rgba(212,149,47,.4));}
+.nlogo strong{display:block;font-size:1rem;font-weight:800;color:var(--t1);font-family:'Tajawal',sans-serif;}
+.nlogo em{font-style:normal;font-size:.58rem;color:var(--gold2);letter-spacing:2.5px;text-transform:uppercase;font-family:'Tajawal',sans-serif;}
+.nlinks{display:flex;gap:1.8rem;list-style:none;align-items:center;}
+.nlinks a{
+  color:var(--t3);font-size:.9rem;font-weight:500;
+  position:relative;transition:color .3s;
+  font-family:'Tajawal',sans-serif;
+}
+.nlinks a::after{content:'';position:absolute;bottom:-3px;right:50%;left:50%;height:1px;background:var(--gold2);transition:right .3s,left .3s;}
+.nlinks a:hover{color:var(--gold2);}.nlinks a:hover::after{right:0;left:0;}
+.ncta{
+  background:linear-gradient(135deg,var(--gold),var(--gold2))!important;
+  color:var(--bg0)!important;padding:.52rem 1.3rem!important;
+  background:linear-gradient(135deg,var(--gold),var(--gold2),var(--gold3))!important;
+  color:var(--bg0)!important;padding:.62rem 1.4rem!important;
+  border-radius:var(--r);font-weight:800!important;
+  box-shadow:0 4px 16px rgba(212,149,47,.3);
+  box-shadow:0 8px 24px rgba(212,149,47,.36);
+  display:inline-flex!important;align-items:center;gap:.45rem;
+  transform:translateY(0);
+}
+.ncta:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(240,184,74,.5),0 0 14px rgba(240,184,74,.35);}
+.ncta::after{display:none!important;}
+.lang-btn{
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
+  color:var(--t2);padding:.4rem .95rem;border-radius:20px;
+  font-size:.78rem;font-weight:700;cursor:pointer;
+  transition:all .25s;letter-spacing:.5px;
+  font-family:'Tajawal',sans-serif;
+}
+.lang-btn:hover{border-color:var(--gold2);color:var(--gold2);}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.burger span{display:block;width:22px;height:2px;background:var(--gold2);border-radius:2px;}
+.theme-btn{
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
+  color:var(--t2);padding:.4rem .7rem;border-radius:20px;
+  font-size:.85rem;cursor:pointer;transition:all .25s;
+}
+.theme-btn:hover{border-color:var(--gold2);}
+
+/* ══ HERO ═══════════════════════════════════════════════ */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 80% at 72% 48%,rgba(30,68,176,.2) 0%,transparent 60%),
+    linear-gradient(155deg,#091425 0%,#07111f 55%,#0b1828 100%);
 @@ -298,51 +301,51 @@ a{text-decoration:none;color:inherit;}
-   background-size:200%;
-   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-   animation:shn 3.5s linear infinite;
- }
- @keyframes shn{to{background-position:200% center}}
- .hero-p{font-size:1.1rem;line-height:1.95;color:var(--t3);font-weight:400;max-width:460px;margin-bottom:2.4rem;}
- .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
- /* scroll hint */
- .scroll-h{position:absolute;bottom:2.2rem;right:50%;transform:translateX(50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;z-index:3;}
- .scroll-h span{font-size:.62rem;letter-spacing:3px;color:var(--t4);text-transform:uppercase;}
- .sw{width:20px;height:32px;border-radius:10px;border:1px solid rgba(212,149,47,.3);display:flex;justify-content:center;padding-top:5px;}
- .sw::before{content:'';width:3px;height:6px;border-radius:2px;background:var(--gold2);animation:sd 1.6s ease infinite;}
- @keyframes sd{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(12px)}}
- 
- /* ══ STATS ══════════════════════════════════════════════ */
- .stats{
-   padding:2.5rem 5%;
-   background:linear-gradient(135deg,var(--blue) 0%,#142e90 100%);
-   display:grid;grid-template-columns:repeat(4,1fr);
-   border-top:2px solid rgba(212,149,47,.25);
-   border-bottom:2px solid rgba(212,149,47,.25);
- }
- .stat{text-align:center;padding:.8rem;border-left:1px solid rgba(255,255,255,.08);}
- .stat:last-child{border:none;}
- .stat-n{
--  font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:700;
-+  font-family:'IBM Plex Sans Arabic','Cairo','Tajawal',sans-serif;font-size:2.8rem;font-weight:700;
-   background:linear-gradient(135deg,var(--gold2),var(--gold3));
-   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-   display:block;line-height:1;
- }
- .stat-l{font-size:.82rem;color:rgba(255,255,255,.75);margin-top:.3rem;font-weight:500;}
- 
- /* ══ SECTIONS ═══════════════════════════════════════════ */
- section{padding:6rem 5%;}
- 
- /* ══ WHY ════════════════════════════════════════════════ */
- .why{background:var(--bg1);}
- .why-g{display:grid;grid-template-columns:1fr 1.1fr;gap:4.5rem;align-items:center;}
- .why-imgw{position:relative;border-radius:14px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.55);}
- .why-imgw img{height:500px;}
- .why-badge{
-   position:absolute;bottom:-1.2rem;left:-1.2rem;
-   background:linear-gradient(135deg,var(--gold),var(--gold2));
-   color:var(--bg0);padding:1.2rem 1.6rem;border-radius:10px;
-   font-weight:800;font-size:.82rem;text-align:center;
-   box-shadow:0 12px 32px rgba(212,149,47,.45);z-index:2;
- }
- .why-badge big{display:block;font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:700;line-height:1;}
- .wfs{display:flex;flex-direction:column;gap:1.2rem;margin-top:2rem;}
- .wf{display:flex;gap:1rem;align-items:flex-start;padding:1rem 1.1rem;border-radius:10px;border:1px solid transparent;transition:all .3s;}
- .wf:hover{background:rgba(30,68,176,.1);border-color:rgba(212,149,47,.18);}
+  background-size:200%;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:shn 3.5s linear infinite;
+}
+@keyframes shn{to{background-position:200% center}}
+.hero-p{font-size:1.1rem;line-height:1.95;color:var(--t3);font-weight:400;max-width:460px;margin-bottom:2.4rem;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+/* scroll hint */
+.scroll-h{position:absolute;bottom:2.2rem;right:50%;transform:translateX(50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;z-index:3;}
+.scroll-h span{font-size:.62rem;letter-spacing:3px;color:var(--t4);text-transform:uppercase;}
+.sw{width:20px;height:32px;border-radius:10px;border:1px solid rgba(212,149,47,.3);display:flex;justify-content:center;padding-top:5px;}
+.sw::before{content:'';width:3px;height:6px;border-radius:2px;background:var(--gold2);animation:sd 1.6s ease infinite;}
+@keyframes sd{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(12px)}}
+
+/* ══ STATS ══════════════════════════════════════════════ */
+.stats{
+  padding:2.5rem 5%;
+  background:linear-gradient(135deg,var(--blue) 0%,#142e90 100%);
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:2px solid rgba(212,149,47,.25);
+  border-bottom:2px solid rgba(212,149,47,.25);
+}
+.stat{text-align:center;padding:.8rem;border-left:1px solid rgba(255,255,255,.08);}
+.stat:last-child{border:none;}
+.stat-n{
+  font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:700;
+  font-family:'IBM Plex Sans Arabic','Cairo','Tajawal',sans-serif;font-size:2.8rem;font-weight:700;
+  background:linear-gradient(135deg,var(--gold2),var(--gold3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  display:block;line-height:1;
+}
+.stat-l{font-size:.82rem;color:rgba(255,255,255,.75);margin-top:.3rem;font-weight:500;}
+
+/* ══ SECTIONS ═══════════════════════════════════════════ */
+section{padding:6rem 5%;}
+
+/* ══ WHY ════════════════════════════════════════════════ */
+.why{background:var(--bg1);}
+.why-g{display:grid;grid-template-columns:1fr 1.1fr;gap:4.5rem;align-items:center;}
+.why-imgw{position:relative;border-radius:14px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.55);}
+.why-imgw img{height:500px;}
+.why-badge{
+  position:absolute;bottom:-1.2rem;left:-1.2rem;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:var(--bg0);padding:1.2rem 1.6rem;border-radius:10px;
+  font-weight:800;font-size:.82rem;text-align:center;
+  box-shadow:0 12px 32px rgba(212,149,47,.45);z-index:2;
+}
+.why-badge big{display:block;font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:700;line-height:1;}
+.wfs{display:flex;flex-direction:column;gap:1.2rem;margin-top:2rem;}
+.wf{display:flex;gap:1rem;align-items:flex-start;padding:1rem 1.1rem;border-radius:10px;border:1px solid transparent;transition:all .3s;}
+.wf:hover{background:rgba(30,68,176,.1);border-color:rgba(212,149,47,.18);}
 @@ -727,305 +730,318 @@ footer{background:#040c18;padding:4rem 5% 1.8rem;border-top:1px solid rgba(212,1
- .vc-hover-cta svg{flex-shrink:0;}
- 
- /* Turkey note */
- .vc-note{
-   font-size:.72rem;color:var(--gold2);
-   background:rgba(212,149,47,.08);
-   border:1px solid rgba(212,149,47,.2);
-   border-radius:6px;padding:.45rem .6rem;
-   margin-top:.55rem;line-height:1.6;
- }
- [data-theme="light"] .vc-note{background:rgba(180,104,16,.06);border-color:rgba(180,104,16,.2);color:#92600a;}
- 
- /* Visa filter - add evisa/paper tabs */
- .vtab-sep{width:1px;height:20px;background:rgba(212,149,47,.2);align-self:center;}
- 
- /* Section subheading for visa type */
- .vsec-title{
-   width:100%;padding:.6rem 1rem;
-   background:rgba(212,149,47,.08);
-   border:1px solid rgba(212,149,47,.15);
-   border-radius:8px;margin:.5rem 0;
-   font-size:.8rem;font-weight:700;color:var(--gold2);
-   letter-spacing:1px;display:flex;align-items:center;gap:.5rem;
- }
- [data-theme="light"] .vsec-title{background:rgba(180,104,16,.06);border-color:rgba(180,104,16,.15);color:#92600a;}
-+
-+.mobile-cta{display:none;position:fixed;right:1rem;left:1rem;bottom:1rem;z-index:999;}
-+.mobile-cta a{display:flex;align-items:center;justify-content:center;gap:.5rem;padding:.9rem 1rem;border-radius:12px;font-weight:800;background:linear-gradient(135deg,var(--gold),var(--gold2),var(--gold3));color:var(--bg0);box-shadow:0 12px 32px rgba(212,149,47,.45);}
-+.mobile-cta small{display:block;font-weight:700;opacity:.9;font-size:.72rem;}
-+.cta-strip{margin-top:1rem;display:flex;gap:.7rem;flex-wrap:wrap;}
-+.cta-strip a{font-size:.86rem;padding:.72rem 1.1rem;}
-+@media (max-width:900px){.mobile-cta{display:block;}body{padding-bottom:88px;}}
-+
- </style>
- </head>
- <body>
- 
- <!-- NAV -->
- <nav id="nav">
-   <a href="#" class="nlogo">
-     <img src="logo-white.png" alt="Colonel Tours">
-     <div><strong>Colonel Tours</strong><em>Experience Luxury Travel</em></div>
-   </a>
-   <ul class="nlinks" id="nl">
-     <li><a href="#dest" data-ar="التأشيرات" data-en="Visas">الوجهات</a></li>
-     <li><a href="#visas" data-ar="الأسعار" data-en="Prices">الأسعار</a></li>
-     <li><a href="#services" data-ar="خدماتنا" data-en="Services">خدماتنا</a></li>
-     <li><a href="#how" data-ar="خطوات التأشيرة" data-en="Visa Steps">كيف نعمل</a></li>
--    <li><a href="#request" class="ncta" data-ar="احجز الآن" data-en="Book Now">احجز الآن</a></li>
-+    <li><a href="https://wa.me/201126672801?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AA%D9%82%D8%AF%D9%8A%D9%85%20%D8%AA%D8%A3%D8%B4%D9%8A%D8%B1%D8%A9" target="_blank" class="ncta" data-ar="✈️ قدم الآن" data-en="✈️ Apply Now">✈️ قدم الآن</a></li>
-   </ul>
-   <div style="display:flex;gap:.7rem;align-items:center;">
-     <button class="theme-btn" id="tbtn" onclick="toggleTheme()">☀️</button>
-     <button class="lang-btn" id="lbtn" onclick="toggleLang()">EN</button>
-     <div class="burger" onclick="document.getElementById('nl').classList.toggle('open')"><span></span><span></span><span></span></div>
-   </div>
- </nav>
- 
- <!-- HERO -->
- <section class="hero" id="home">
-   <div class="hero-bg"></div>
-   <div class="hero-stars" id="stars"></div>
-   <div class="hero-orb"></div>
-   <div class="hero-ring"></div>
-   <div class="plane-trail"></div>
-   <!-- ✈ PLANE SVG -->
-   <div class="plane-wrap">
-     <svg width="72" height="72" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-       <defs><filter id="glow"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
-       <g filter="url(#glow)">
-         <path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z" fill="#f0b84a"/>
-         <path d="M56 8L21 31l3.5 19L31 36z" fill="#fad07e" opacity=".5"/>
-         <circle cx="3" cy="33" r="2.2" fill="#f0b84a" opacity=".5"/>
-         <circle cx="9" cy="37.5" r="1.5" fill="#f0b84a" opacity=".3"/>
-       </g>
-     </svg>
-   </div>
- 
-   <div class="hcontent">
-     <div class="eyebrow-r">
-       <div class="eyl"></div>
-       <span class="eyt" data-ar="متخصصون في التأشيرات السياحية الدولية" data-en="International Tourism Visa Specialists">متخصصون في تأشيرات السياحة الدولية</span>
-     </div>
-     <h1 class="hero-h1">COLONEL<br><span class="shiny">TOURS</span></h1>
-     <p class="hero-p" data-ar="بنوصلك لأكتر من 60 وجهة حول العالم. تأشيرات، فنادق، طيران، وتجهيز خط السير — كل حاجة في مكان واحد." data-en="We take you to 60+ destinations worldwide. Visas, hotels, flights & itinerary planning — everything in one place.">بنوصلك لأكتر من 60 وجهة حول العالم. تأشيرات، فنادق، طيران، وتجهيز خط السير — كل حاجة في مكان واحد.</p>
-+    <p class="lead" style="margin-top:-1.2rem;margin-bottom:1.2rem;color:var(--gold3);font-weight:700;" data-ar="+5000 تأشيرة ناجحة | دعم 24/7 | رد خلال 5 دقائق" data-en="5000+ successful visas | 24/7 support | Reply within 5 minutes">+5000 تأشيرة ناجحة | دعم 24/7 | رد خلال 5 دقائق</p>
-     <div class="hero-btns">
-       <a href="https://wa.me/201126672801?text=%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AA%D8%A3%D8%B4%D9%8A%D8%B1%D8%A9" target="_blank" class="btn-g">
--        <span data-ar="ابدأ طلبك دلوقتي" data-en="Start Your Application">ابدأ طلبك دلوقتي</span>
-+        <span data-ar="قدم الآن" data-en="Apply Now">قدم الآن</span>
-         <svg class="pico" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>
-       </a>
-       <a href="#dest" class="btn-o" data-ar="شوف تأشيراتنا" data-en="Explore Visas">شوف وجهاتنا</a>
-     </div>
-   </div>
-   <div class="scroll-h"><span data-ar="اسكرول" data-en="scroll">اسكرول</span><div class="sw"></div></div>
- </section>
- 
- <!-- STATS -->
- <div class="stats">
-   <div class="stat"><span class="stat-n">5000+</span><div class="stat-l" data-ar="تأشيرة ناجحة" data-en="Successful Visas">تأشيرة ناجحة</div></div>
-   <div class="stat"><span class="stat-n">60+</span><div class="stat-l" data-ar="وجهة متاحة" data-en="Destinations">وجهة متاحة</div></div>
-   <div class="stat"><span class="stat-n">98%</span><div class="stat-l" data-ar="نسبة القبول" data-en="Approval Rate">نسبة القبول</div></div>
-   <div class="stat"><span class="stat-n">10+</span><div class="stat-l" data-ar="سنوات خبرة" data-en="Years Experience">سنوات خبرة</div></div>
- </div>
-+<div class="cta-strip" style="justify-content:center;padding:1.2rem 5%;background:var(--bg1);">
-+  <a class="btn-g" href="https://wa.me/201126672801?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AA%D9%82%D8%AF%D9%8A%D9%85%20%D8%AA%D8%A3%D8%B4%D9%8A%D8%B1%D8%A9" target="_blank" data-ar="✈️ قدم الآن" data-en="✈️ Apply Now">✈️ قدم الآن</a>
-+  <a class="btn-o" href="https://wa.me/201126672801" target="_blank" data-ar="تواصل واتساب" data-en="WhatsApp Chat">تواصل واتساب</a>
-+</div>
- 
- <!-- WHY US -->
- <section class="why" id="why">
-   <div class="why-g">
-     <div class="why-imgw ri">
-       <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=900&q=85" alt="">
-       <div class="why-badge"><big>98%</big><span data-ar="نسبة القبول" data-en="Approval Rate">نسبة القبول</span></div>
-     </div>
-     <div class="ri">
-       <div class="sh"><div class="sl"></div><span class="st" data-ar="لماذا تختارنا" data-en="Why Choose Us">لماذا تختارنا</span></div>
-       <h2 class="h2" data-ar="خبرة <em>حقيقية</em><br>ونتائج مضمونة" data-en="Real <em>Expertise</em><br>Guaranteed Results">خبرة <em>حقيقية</em><br>ونتائج مضمونة</h2>
-       <p class="lead" data-ar="مش بس بنجمع أوراق — بنبني ملفك بشكل صح عشان نوصل لأعلى نسبة قبول ممكنة." data-en="We don't just collect documents — we build your file correctly to achieve the highest possible approval rate.">مش بس بنجمع أوراق — بنبني ملفك بشكل صح عشان نوصل لأعلى نسبة قبول ممكنة.</p>
-       <div class="wfs">
-         <div class="wf"><div class="wf-ico">⚡</div><div><h4 data-ar="سرعة في التنفيذ" data-en="Fast Processing">سرعة في التنفيذ</h4><p data-ar="تركيا في ساعة واحدة. أسرع معالجة في السوق لأكتر من 15 وجهة." data-en="Turkey in one hour. Fastest processing on the market for 15+ destinations.">تركيا في ساعة واحدة. أسرع معالجة في السوق لأكتر من 15 وجهة.</p></div></div>
-         <div class="wf"><div class="wf-ico">🛡️</div><div><h4 data-ar="مراجعة الملف قبل التقديم" data-en="Pre-Submission Review">مراجعة الملف قبل التقديم</h4><p data-ar="بنراجع كل ورقة قبل ما نقدم عشان مفيش غلطة تأثر على قرار القنصلية." data-en="Every document is reviewed before submission to prevent any error from affecting the decision.">بنراجع كل ورقة قبل ما نقدم عشان مفيش غلطة تأثر على قرار القنصلية.</p></div></div>
-         <div class="wf"><div class="wf-ico">💬</div><div><h4 data-ar="تواصل على مدار الساعة" data-en="24/7 Support">تواصل على مدار الساعة</h4><p data-ar="فريقنا متاح على واتساب طول الوقت ويرد في أقل من ساعة." data-en="Our team is available on WhatsApp at all times and responds within an hour.">فريقنا متاح على واتساب طول الوقت ويرد في أقل من ساعة.</p></div></div>
-         <div class="wf"><div class="wf-ico">🌍</div><div><h4 data-ar="60+ وجهة متاحة" data-en="60+ Destinations">60+ وجهة متاحة</h4><p data-ar="من أفريقيا لآسيا لأوروبا والأمريكتين. عندنا تأشيرة لكل مكان بتحلم تسافره." data-en="From Africa to Asia to Europe and the Americas — we have a visa for every destination you dream of.">من أفريقيا لآسيا لأوروبا والأمريكتين. عندنا تأشيرة لكل مكان بتحلم تسافره.</p></div></div>
-       </div>
-     </div>
-   </div>
- </section>
- 
- <!-- DESTINATIONS — BENTO GRID -->
- <section class="dest" id="dest">
-   <div class="dest-hd">
-     <div class="ri">
-       <div class="sh"><div class="sl"></div><span class="st" data-ar="أكثر التأشيرات طلباً" data-en="Most Requested Visas">الأكثر طلباً</span></div>
-       <h2 class="h2" data-ar="تأشيرات <em>مميزة</em>" data-en="<em>Featured</em> Visas">وجهاتنا <em>المميزة</em></h2>
-       <p class="lead" data-ar="مرر على البطاقة لعرض تفاصيل التأشيرة" data-en="Hover over a card to view visa details">مرر على الكارت عشان تشوف التفاصيل كاملة</p>
-     </div>
-     <a href="#visas" class="btn-o ri" data-ar="كل التأشيرات" data-en="All Visas">شوف كل الوجهات</a>
-   </div>
- 
-   <div class="dcards ri">
- 
-     <!-- Cuba — A: tall left column -->
-     <div class="dc dc-a">
--      <div class="dc-img"><img src="https://images.unsplash.com/photo-1500759285222-a95626b934cb?w=1200&q=85" alt="Cuba" loading="eager"></div>
-+      <div class="dc-img"><img src="https://images.unsplash.com/photo-1446776877081-d282a0f896e2?auto=format&fit=crop&w=1400&q=80&fm=webp" alt="Bahrain" loading="eager"></div>
-       <div class="dc-ov"></div>
--      <div class="dc-flag">🇨🇺</div>
-+      <div class="dc-flag">🇧🇭</div>
-       <div class="dc-info">
--        <div class="dc-name">CUBA</div>
--        <div class="dc-chips"><span class="dc-chip">48 ساعة</span><span class="dc-chip">3 أشهر</span></div>
--        <div class="dc-price"><span data-ar="من 7,000 جنيه" data-en="From EGP 7,000">من 7,000 جنيه</span></div>
-+        <div class="dc-name">BAHRAIN</div>
-+        <div class="dc-chips"><span class="dc-chip">7 أيام</span><span class="dc-chip">حتى سنة</span></div>
-+        <div class="dc-price"><span data-ar="من 3,700 جنيه" data-en="From EGP 3,700">من 3,700 جنيه</span></div>
-       </div>
-       <div class="dc-reveal">
--        <div class="dcr-title">🇨🇺 Cuba / كوبا</div>
--        <div class="dcr-sub">Caribbean Island</div>
-+        <div class="dcr-title">🇧🇭 Bahrain / البحرين</div>
-+        <div class="dcr-sub">Luxury Gulf Destination</div>
-         <ul class="dcr-list">
-           <li><span data-ar="مدة التنفيذ" data-en="Processing">مدة التنفيذ</span><span>48h ⚡</span></li>
-           <li><span data-ar="مدة التأشيرة" data-en="Validity">مدة التأشيرة</span><span data-ar="3 أشهر" data-en="3 months">3 أشهر</span></li>
--          <li><span data-ar="للمصريين" data-en="Egyptians">للمصريين</span><span>7,000 EGP</span></li>
--          <li><span data-ar="لغير المصريين" data-en="Non-Egyptians">لغير المصريين</span><span>10,000 EGP</span></li>
-+          <li><span data-ar="للمصريين" data-en="Egyptians">أسبوعين</span><span>3,700 EGP</span></li>
-+          <li><span data-ar="لغير المصريين" data-en="Non-Egyptians">سنة كاملة</span><span>9,000 EGP</span></li>
-         </ul>
-         <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn">
-           <svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>
--          <span data-ar="احجز دلوقتي" data-en="Book Now">احجز دلوقتي</span>
-+          <span data-ar="قدم الآن" data-en="Apply Now">قدم الآن</span>
-         </a>
-       </div>
-     </div>
- 
-     <!-- Georgia — B -->
-     <div class="dc dc-b">
--      <div class="dc-img"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=85" alt="Georgia" loading="lazy"></div>
--      <div class="dc-ov"></div><div class="dc-flag">🇬🇪</div>
-+      <div class="dc-img"><img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1200&q=80&fm=webp" alt="Uzbekistan" loading="lazy"></div>
-+      <div class="dc-ov"></div><div class="dc-flag">🇺🇿</div>
-       <div class="dc-info">
--        <div class="dc-name">GEORGIA</div>
--        <div class="dc-chips"><span class="dc-chip">7 أيام</span><span class="dc-chip">شهر</span></div>
--        <div class="dc-price"><span data-ar="من 2,800 جنيه" data-en="From EGP 2,800">من 2,800 جنيه</span></div>
-+        <div class="dc-name">UZBEKISTAN</div>
-+        <div class="dc-chips"><span class="dc-chip">5 أيام</span><span class="dc-chip">شهر</span></div>
-+        <div class="dc-price"><span data-ar="من 3,500 جنيه" data-en="From EGP 3,500">من 3,500 جنيه</span></div>
-       </div>
-       <div class="dc-reveal">
--        <div class="dcr-title">🇬🇪 Georgia / جورجيا</div>
--        <div class="dcr-sub">Caucasus Region</div>
-+        <div class="dcr-title">🇺🇿 Uzbekistan / أوزبكستان</div>
-+        <div class="dcr-sub">Silk Road Heritage</div>
-         <ul class="dcr-list">
--          <li><span>Processing</span><span>7 days</span></li>
-+          <li><span>Processing</span><span>5 days</span></li>
-           <li><span>Validity</span><span>1 month</span></li>
--          <li><span>Price</span><span>2,800 EGP</span></li>
-+          <li><span>Price</span><span>3,500 EGP</span></li>
-         </ul>
--        <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn"><svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>Book Now</a>
-+        <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn"><svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>Apply Now</a>
-       </div>
-     </div>
- 
-     <!-- Bahrain — C -->
-     <div class="dc dc-c">
-       <div class="dc-img"><img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?w=800&q=85" alt="Bahrain" loading="lazy"></div>
-       <div class="dc-ov"></div><div class="dc-flag">🇧🇭</div>
-       <div class="dc-info">
-         <div class="dc-name">BAHRAIN</div>
-         <div class="dc-chips"><span class="dc-chip">7 أيام</span><span class="dc-chip">حتى سنة</span></div>
-         <div class="dc-price"><span data-ar="من 3,700 جنيه" data-en="From EGP 3,700">من 3,700 جنيه</span></div>
-       </div>
-       <div class="dc-reveal">
-         <div class="dcr-title">🇧🇭 Bahrain / البحرين</div>
-         <div class="dcr-sub">Arabian Gulf</div>
-         <ul class="dcr-list">
-           <li><span>2 weeks</span><span>3,700 EGP</span></li>
-           <li><span>3 months</span><span>4,700 EGP</span></li>
-           <li><span>1 year</span><span>9,000 EGP</span></li>
-         </ul>
--        <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn"><svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>Book Now</a>
-+        <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn"><svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>Apply Now</a>
-       </div>
-     </div>
- 
-     <!-- Uzbekistan — D -->
-     <div class="dc dc-d">
-       <div class="dc-img"><img src="https://images.unsplash.com/photo-1601585021226-9a5d7538e8bd?w=800&q=85" alt="Uzbekistan" loading="lazy"></div>
-       <div class="dc-ov"></div>
-       <div class="dc-flag">🇺🇿</div>
-       <div class="dc-info">
-         <div class="dc-name">UZBEKISTAN</div>
-         <div class="dc-chips"><span class="dc-chip">5 أيام</span><span class="dc-chip">شهر</span></div>
-         <div class="dc-price"><span data-ar="من 3,500 جنيه" data-en="From EGP 3,500">من 3,500 جنيه</span></div>
-       </div>
-       <div class="dc-reveal">
-         <div class="dcr-title">🇺🇿 Uzbekistan</div>
-         <div class="dcr-sub">Central Asia</div>
-         <ul class="dcr-list">
-           <li><span>Processing</span><span>5 days ⚡</span></li>
-           <li><span>Validity</span><span>1 month</span></li>
-           <li><span>Price</span><span>3,500 EGP</span></li>
-         </ul>
--        <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn"><svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>Book Now</a>
-+        <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn"><svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>Apply Now</a>
-       </div>
-     </div>
- 
-     <!-- Kenya — E -->
-     <div class="dc dc-e">
--      <div class="dc-img"><img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&q=85" alt="Kenya" loading="lazy"></div>
--      <div class="dc-ov"></div><div class="dc-flag">🇰🇪</div>
-+      <div class="dc-img"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80&fm=webp" alt="Madagascar" loading="lazy"></div>
-+      <div class="dc-ov"></div><div class="dc-flag">🇲🇬</div>
-       <div class="dc-info">
--        <div class="dc-name">KENYA</div>
--        <div class="dc-chips"><span class="dc-chip">7 أيام</span><span class="dc-chip">3 أشهر</span></div>
--        <div class="dc-price"><span data-ar="من 5,000 جنيه" data-en="From EGP 5,000">من 5,000 جنيه</span></div>
-+        <div class="dc-name">MADAGASCAR</div>
-+        <div class="dc-chips"><span class="dc-chip">5 أيام</span><span class="dc-chip">شهر</span></div>
-+        <div class="dc-price"><span data-ar="من 4,500 جنيه" data-en="From EGP 4,500">من 4,500 جنيه</span></div>
-       </div>
-       <div class="dc-reveal">
--        <div class="dcr-title">🇰🇪 Kenya / كينيا</div>
--        <div class="dcr-sub">East Africa</div>
-+        <div class="dcr-title">🇲🇬 Madagascar / مدغشقر</div>
-+        <div class="dcr-sub">Nature & Adventure</div>
-         <ul class="dcr-list">
--          <li><span>Processing</span><span>7 days</span></li>
--          <li><span>Validity</span><span>3 months</span></li>
--          <li><span>Price</span><span>5,000 EGP</span></li>
-+          <li><span>Processing</span><span>5 days</span></li>
-+          <li><span>Validity</span><span>1 month</span></li>
-+          <li><span>Price</span><span>4,500 EGP</span></li>
-         </ul>
--        <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn"><svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>Book Now</a>
-+        <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn"><svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>Apply Now</a>
-       </div>
-     </div>
- 
-     <!-- Uganda — F -->
-     <div class="dc dc-f">
--      <div class="dc-img"><img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=900&q=85" alt="Uganda" loading="lazy"></div>
--      <div class="dc-ov"></div><div class="dc-flag">🇺🇬</div>
-+      <div class="dc-img"><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80&fm=webp" alt="Togo" loading="lazy"></div>
-+      <div class="dc-ov"></div><div class="dc-flag">🇹🇬</div>
-       <div class="dc-info">
--        <div class="dc-name">UGANDA</div>
--        <div class="dc-chips"><span class="dc-chip">10 أيام</span><span class="dc-chip">3 أشهر</span></div>
--        <div class="dc-price"><span data-ar="من 5,500 جنيه" data-en="From EGP 5,500">من 5,500 جنيه</span></div>
-+        <div class="dc-name">TOGO</div>
-+        <div class="dc-chips"><span class="dc-chip">10 أيام</span><span class="dc-chip">حتى 3 أشهر</span></div>
-+        <div class="dc-price"><span data-ar="من 6,500 جنيه" data-en="From EGP 6,500">من 6,500 جنيه</span></div>
-       </div>
-       <div class="dc-reveal">
--        <div class="dcr-title">🇺🇬 Uganda / أوغندا</div>
--        <div class="dcr-sub">East Africa</div>
-+        <div class="dcr-title">🇹🇬 Togo / توغو</div>
-+        <div class="dcr-sub">West Africa Gateway</div>
-         <ul class="dcr-list">
-           <li><span>Processing</span><span>10 days</span></li>
--          <li><span>Validity</span><span>3 months</span></li>
--          <li><span>Price</span><span>5,500 EGP</span></li>
-+          <li><span>Validity</span><span>1-3 months</span></li>
-+          <li><span>Price</span><span>6,500+ EGP</span></li>
-         </ul>
--        <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn"><svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>Book Now</a>
-+        <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn"><svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>Apply Now</a>
-       </div>
-     </div>
- 
-     <!-- Seychelles — G: wide bottom right -->
-     <div class="dc dc-g">
-       <div class="dc-img"><img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1200&q=85" alt="Seychelles" loading="lazy"></div>
-       <div class="dc-ov"></div>
-       <div class="dc-flag">🇸🇨</div>
-       <div class="dc-info">
-         <div class="dc-name">SEYCHELLES</div>
-         <div class="dc-chips"><span class="dc-chip">5 أيام</span><span class="dc-chip">3 أشهر</span><span class="dc-chip">Indian Ocean</span></div>
-         <div class="dc-price"><span data-ar="من 5,000 جنيه" data-en="From EGP 5,000">من 5,000 جنيه</span></div>
-       </div>
-       <div class="dc-reveal">
-         <div class="dcr-title">🇸🇨 Seychelles / سيشل</div>
-         <div class="dcr-sub">Indian Ocean Paradise</div>
-         <ul class="dcr-list">
-           <li><span>Processing</span><span>5 days ⚡</span></li>
-           <li><span>Validity</span><span>3 months</span></li>
-           <li><span>Price</span><span>5,000 EGP</span></li>
-         </ul>
--        <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn"><svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>Book Now</a>
-+        <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn"><svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>Apply Now</a>
-       </div>
-     </div>
- 
-   </div>
- </section>
- 
- <!-- SERVICES -->
- <section class="services" id="services">
-   <div class="ctr ri">
-     <div class="sh"><div class="sl"></div><span class="st" data-ar="خدماتنا" data-en="Our Services">خدماتنا</span></div>
-     <h2 class="h2" data-ar="أكتر من مجرد <em>تأشيرة</em>" data-en="More Than Just <em>a Visa</em>">أكتر من مجرد <em>تأشيرة</em></h2>
-     <p class="lead" data-ar="بنقدملك حزمة متكاملة من الخدمات عشان رحلتك تبقى مثالية" data-en="We offer a complete package of services to make your trip perfect from start to finish">بنقدملك حزمة متكاملة من الخدمات عشان رحلتك تبقى مثالية</p>
-   </div>
-   <div class="srv-grid">
-     <div class="srv-card ri">
-       <div class="srv-photo"><img src="https://images.unsplash.com/photo-1568992688065-536aad8a12f6?w=600&q=80" alt="" loading="lazy"><div class="srv-photo-ov"></div><div class="srv-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM9 13h6v1.5H9V13zm0 3h6v1.5H9V16zm0-6h3v1.5H9V10z"/></svg></div></div>
-       <div class="srv-body">
-         <h3 data-ar="تجهيز الملفات" data-en="File Preparation">تجهيز الملفات</h3>
-         <p data-ar="بنجمع ونراجع كل أوراقك عشان الملف يوصل للقنصلية بشكل صح ومن غير أي غلطة" data-en="We collect and review all your documents so your file reaches the consulate correctly.">بنجمع ونراجع كل أوراقك عشان الملف يوصل للقنصلية بشكل صح ومن غير أي غلطة</p>
-         <ul class="srv-pts"><li data-ar="مراجعة دقيقة لكل ورقة" data-en="Thorough review of every document">مراجعة دقيقة لكل ورقة</li><li data-ar="ترجمة وتوثيق المستندات" data-en="Translation & attestation">ترجمة وتوثيق المستندات</li><li data-ar="تنسيق مع متطلبات كل سفارة" data-en="Tailored to each embassy">تنسيق مع متطلبات كل سفارة</li></ul>
-         <a href="https://wa.me/201126672801" target="_blank" class="srv-link" data-ar="استفسر دلوقتي ←" data-en="Enquire Now →">استفسر دلوقتي ←</a>
-       </div>
-     </div>
-     <div class="srv-card ri">
-       <div class="srv-photo"><img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=600&q=80" alt="" loading="lazy"><div class="srv-photo-ov"></div><div class="srv-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zM7 12h5v5H7z"/></svg></div></div>
+.vc-hover-cta svg{flex-shrink:0;}
+
+/* Turkey note */
+.vc-note{
+  font-size:.72rem;color:var(--gold2);
+  background:rgba(212,149,47,.08);
+  border:1px solid rgba(212,149,47,.2);
+  border-radius:6px;padding:.45rem .6rem;
+  margin-top:.55rem;line-height:1.6;
+}
+[data-theme="light"] .vc-note{background:rgba(180,104,16,.06);border-color:rgba(180,104,16,.2);color:#92600a;}
+
+/* Visa filter - add evisa/paper tabs */
+.vtab-sep{width:1px;height:20px;background:rgba(212,149,47,.2);align-self:center;}
+
+/* Section subheading for visa type */
+.vsec-title{
+  width:100%;padding:.6rem 1rem;
+  background:rgba(212,149,47,.08);
+  border:1px solid rgba(212,149,47,.15);
+  border-radius:8px;margin:.5rem 0;
+  font-size:.8rem;font-weight:700;color:var(--gold2);
+  letter-spacing:1px;display:flex;align-items:center;gap:.5rem;
+}
+[data-theme="light"] .vsec-title{background:rgba(180,104,16,.06);border-color:rgba(180,104,16,.15);color:#92600a;}
+
+.mobile-cta{display:none;position:fixed;right:1rem;left:1rem;bottom:1rem;z-index:999;}
+.mobile-cta a{display:flex;align-items:center;justify-content:center;gap:.5rem;padding:.9rem 1rem;border-radius:12px;font-weight:800;background:linear-gradient(135deg,var(--gold),var(--gold2),var(--gold3));color:var(--bg0);box-shadow:0 12px 32px rgba(212,149,47,.45);}
+.mobile-cta small{display:block;font-weight:700;opacity:.9;font-size:.72rem;}
+.cta-strip{margin-top:1rem;display:flex;gap:.7rem;flex-wrap:wrap;}
+.cta-strip a{font-size:.86rem;padding:.72rem 1.1rem;}
+@media (max-width:900px){.mobile-cta{display:block;}body{padding-bottom:88px;}}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nlogo">
+    <img src="logo-white.png" alt="Colonel Tours">
+    <div><strong>Colonel Tours</strong><em>Experience Luxury Travel</em></div>
+  </a>
+  <ul class="nlinks" id="nl">
+    <li><a href="#dest" data-ar="التأشيرات" data-en="Visas">الوجهات</a></li>
+    <li><a href="#visas" data-ar="الأسعار" data-en="Prices">الأسعار</a></li>
+    <li><a href="#services" data-ar="خدماتنا" data-en="Services">خدماتنا</a></li>
+    <li><a href="#how" data-ar="خطوات التأشيرة" data-en="Visa Steps">كيف نعمل</a></li>
+    <li><a href="#request" class="ncta" data-ar="احجز الآن" data-en="Book Now">احجز الآن</a></li>
+    <li><a href="https://wa.me/201126672801?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AA%D9%82%D8%AF%D9%8A%D9%85%20%D8%AA%D8%A3%D8%B4%D9%8A%D8%B1%D8%A9" target="_blank" class="ncta" data-ar="✈️ قدم الآن" data-en="✈️ Apply Now">✈️ قدم الآن</a></li>
+  </ul>
+  <div style="display:flex;gap:.7rem;align-items:center;">
+    <button class="theme-btn" id="tbtn" onclick="toggleTheme()">☀️</button>
+    <button class="lang-btn" id="lbtn" onclick="toggleLang()">EN</button>
+    <div class="burger" onclick="document.getElementById('nl').classList.toggle('open')"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-stars" id="stars"></div>
+  <div class="hero-orb"></div>
+  <div class="hero-ring"></div>
+  <div class="plane-trail"></div>
+  <!-- ✈ PLANE SVG -->
+  <div class="plane-wrap">
+    <svg width="72" height="72" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+      <defs><filter id="glow"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+      <g filter="url(#glow)">
+        <path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z" fill="#f0b84a"/>
+        <path d="M56 8L21 31l3.5 19L31 36z" fill="#fad07e" opacity=".5"/>
+        <circle cx="3" cy="33" r="2.2" fill="#f0b84a" opacity=".5"/>
+        <circle cx="9" cy="37.5" r="1.5" fill="#f0b84a" opacity=".3"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="hcontent">
+    <div class="eyebrow-r">
+      <div class="eyl"></div>
+      <span class="eyt" data-ar="متخصصون في التأشيرات السياحية الدولية" data-en="International Tourism Visa Specialists">متخصصون في تأشيرات السياحة الدولية</span>
+    </div>
+    <h1 class="hero-h1">COLONEL<br><span class="shiny">TOURS</span></h1>
+    <p class="hero-p" data-ar="بنوصلك لأكتر من 60 وجهة حول العالم. تأشيرات، فنادق، طيران، وتجهيز خط السير — كل حاجة في مكان واحد." data-en="We take you to 60+ destinations worldwide. Visas, hotels, flights & itinerary planning — everything in one place.">بنوصلك لأكتر من 60 وجهة حول العالم. تأشيرات، فنادق، طيران، وتجهيز خط السير — كل حاجة في مكان واحد.</p>
+    <p class="lead" style="margin-top:-1.2rem;margin-bottom:1.2rem;color:var(--gold3);font-weight:700;" data-ar="+5000 تأشيرة ناجحة | دعم 24/7 | رد خلال 5 دقائق" data-en="5000+ successful visas | 24/7 support | Reply within 5 minutes">+5000 تأشيرة ناجحة | دعم 24/7 | رد خلال 5 دقائق</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/201126672801?text=%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AA%D8%A3%D8%B4%D9%8A%D8%B1%D8%A9" target="_blank" class="btn-g">
+        <span data-ar="ابدأ طلبك دلوقتي" data-en="Start Your Application">ابدأ طلبك دلوقتي</span>
+        <span data-ar="قدم الآن" data-en="Apply Now">قدم الآن</span>
+        <svg class="pico" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>
+      </a>
+      <a href="#dest" class="btn-o" data-ar="شوف تأشيراتنا" data-en="Explore Visas">شوف وجهاتنا</a>
+    </div>
+  </div>
+  <div class="scroll-h"><span data-ar="اسكرول" data-en="scroll">اسكرول</span><div class="sw"></div></div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><span class="stat-n">5000+</span><div class="stat-l" data-ar="تأشيرة ناجحة" data-en="Successful Visas">تأشيرة ناجحة</div></div>
+  <div class="stat"><span class="stat-n">60+</span><div class="stat-l" data-ar="وجهة متاحة" data-en="Destinations">وجهة متاحة</div></div>
+  <div class="stat"><span class="stat-n">98%</span><div class="stat-l" data-ar="نسبة القبول" data-en="Approval Rate">نسبة القبول</div></div>
+  <div class="stat"><span class="stat-n">10+</span><div class="stat-l" data-ar="سنوات خبرة" data-en="Years Experience">سنوات خبرة</div></div>
+</div>
+<div class="cta-strip" style="justify-content:center;padding:1.2rem 5%;background:var(--bg1);">
+  <a class="btn-g" href="https://wa.me/201126672801?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AA%D9%82%D8%AF%D9%8A%D9%85%20%D8%AA%D8%A3%D8%B4%D9%8A%D8%B1%D8%A9" target="_blank" data-ar="✈️ قدم الآن" data-en="✈️ Apply Now">✈️ قدم الآن</a>
+  <a class="btn-o" href="https://wa.me/201126672801" target="_blank" data-ar="تواصل واتساب" data-en="WhatsApp Chat">تواصل واتساب</a>
+</div>
+
+<!-- WHY US -->
+<section class="why" id="why">
+  <div class="why-g">
+    <div class="why-imgw ri">
+      <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=900&q=85" alt="">
+      <div class="why-badge"><big>98%</big><span data-ar="نسبة القبول" data-en="Approval Rate">نسبة القبول</span></div>
+    </div>
+    <div class="ri">
+      <div class="sh"><div class="sl"></div><span class="st" data-ar="لماذا تختارنا" data-en="Why Choose Us">لماذا تختارنا</span></div>
+      <h2 class="h2" data-ar="خبرة <em>حقيقية</em><br>ونتائج مضمونة" data-en="Real <em>Expertise</em><br>Guaranteed Results">خبرة <em>حقيقية</em><br>ونتائج مضمونة</h2>
+      <p class="lead" data-ar="مش بس بنجمع أوراق — بنبني ملفك بشكل صح عشان نوصل لأعلى نسبة قبول ممكنة." data-en="We don't just collect documents — we build your file correctly to achieve the highest possible approval rate.">مش بس بنجمع أوراق — بنبني ملفك بشكل صح عشان نوصل لأعلى نسبة قبول ممكنة.</p>
+      <div class="wfs">
+        <div class="wf"><div class="wf-ico">⚡</div><div><h4 data-ar="سرعة في التنفيذ" data-en="Fast Processing">سرعة في التنفيذ</h4><p data-ar="تركيا في ساعة واحدة. أسرع معالجة في السوق لأكتر من 15 وجهة." data-en="Turkey in one hour. Fastest processing on the market for 15+ destinations.">تركيا في ساعة واحدة. أسرع معالجة في السوق لأكتر من 15 وجهة.</p></div></div>
+        <div class="wf"><div class="wf-ico">🛡️</div><div><h4 data-ar="مراجعة الملف قبل التقديم" data-en="Pre-Submission Review">مراجعة الملف قبل التقديم</h4><p data-ar="بنراجع كل ورقة قبل ما نقدم عشان مفيش غلطة تأثر على قرار القنصلية." data-en="Every document is reviewed before submission to prevent any error from affecting the decision.">بنراجع كل ورقة قبل ما نقدم عشان مفيش غلطة تأثر على قرار القنصلية.</p></div></div>
+        <div class="wf"><div class="wf-ico">💬</div><div><h4 data-ar="تواصل على مدار الساعة" data-en="24/7 Support">تواصل على مدار الساعة</h4><p data-ar="فريقنا متاح على واتساب طول الوقت ويرد في أقل من ساعة." data-en="Our team is available on WhatsApp at all times and responds within an hour.">فريقنا متاح على واتساب طول الوقت ويرد في أقل من ساعة.</p></div></div>
+        <div class="wf"><div class="wf-ico">🌍</div><div><h4 data-ar="60+ وجهة متاحة" data-en="60+ Destinations">60+ وجهة متاحة</h4><p data-ar="من أفريقيا لآسيا لأوروبا والأمريكتين. عندنا تأشيرة لكل مكان بتحلم تسافره." data-en="From Africa to Asia to Europe and the Americas — we have a visa for every destination you dream of.">من أفريقيا لآسيا لأوروبا والأمريكتين. عندنا تأشيرة لكل مكان بتحلم تسافره.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESTINATIONS — BENTO GRID -->
+<section class="dest" id="dest">
+  <div class="dest-hd">
+    <div class="ri">
+      <div class="sh"><div class="sl"></div><span class="st" data-ar="أكثر التأشيرات طلباً" data-en="Most Requested Visas">الأكثر طلباً</span></div>
+      <h2 class="h2" data-ar="تأشيرات <em>مميزة</em>" data-en="<em>Featured</em> Visas">وجهاتنا <em>المميزة</em></h2>
+      <p class="lead" data-ar="مرر على البطاقة لعرض تفاصيل التأشيرة" data-en="Hover over a card to view visa details">مرر على الكارت عشان تشوف التفاصيل كاملة</p>
+    </div>
+    <a href="#visas" class="btn-o ri" data-ar="كل التأشيرات" data-en="All Visas">شوف كل الوجهات</a>
+  </div>
+
+  <div class="dcards ri">
+
+    <!-- Cuba — A: tall left column -->
+    <div class="dc dc-a">
+      <div class="dc-img"><img src="https://images.unsplash.com/photo-1500759285222-a95626b934cb?w=1200&q=85" alt="Cuba" loading="eager"></div>
+      <div class="dc-img"><img src="https://images.unsplash.com/photo-1446776877081-d282a0f896e2?auto=format&fit=crop&w=1400&q=80&fm=webp" alt="Bahrain" loading="eager"></div>
+      <div class="dc-ov"></div>
+      <div class="dc-flag">🇨🇺</div>
+      <div class="dc-flag">🇧🇭</div>
+      <div class="dc-info">
+        <div class="dc-name">CUBA</div>
+        <div class="dc-chips"><span class="dc-chip">48 ساعة</span><span class="dc-chip">3 أشهر</span></div>
+        <div class="dc-price"><span data-ar="من 7,000 جنيه" data-en="From EGP 7,000">من 7,000 جنيه</span></div>
+        <div class="dc-name">BAHRAIN</div>
+        <div class="dc-chips"><span class="dc-chip">7 أيام</span><span class="dc-chip">حتى سنة</span></div>
+        <div class="dc-price"><span data-ar="من 3,700 جنيه" data-en="From EGP 3,700">من 3,700 جنيه</span></div>
+      </div>
+      <div class="dc-reveal">
+        <div class="dcr-title">🇨🇺 Cuba / كوبا</div>
+        <div class="dcr-sub">Caribbean Island</div>
+        <div class="dcr-title">🇧🇭 Bahrain / البحرين</div>
+        <div class="dcr-sub">Luxury Gulf Destination</div>
+        <ul class="dcr-list">
+          <li><span data-ar="مدة التنفيذ" data-en="Processing">مدة التنفيذ</span><span>48h ⚡</span></li>
+          <li><span data-ar="مدة التأشيرة" data-en="Validity">مدة التأشيرة</span><span data-ar="3 أشهر" data-en="3 months">3 أشهر</span></li>
+          <li><span data-ar="للمصريين" data-en="Egyptians">للمصريين</span><span>7,000 EGP</span></li>
+          <li><span data-ar="لغير المصريين" data-en="Non-Egyptians">لغير المصريين</span><span>10,000 EGP</span></li>
+          <li><span data-ar="للمصريين" data-en="Egyptians">أسبوعين</span><span>3,700 EGP</span></li>
+          <li><span data-ar="لغير المصريين" data-en="Non-Egyptians">سنة كاملة</span><span>9,000 EGP</span></li>
+        </ul>
+        <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn">
+          <svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>
+          <span data-ar="احجز دلوقتي" data-en="Book Now">احجز دلوقتي</span>
+          <span data-ar="قدم الآن" data-en="Apply Now">قدم الآن</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Georgia — B -->
+    <div class="dc dc-b">
+      <div class="dc-img"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=85" alt="Georgia" loading="lazy"></div>
+      <div class="dc-ov"></div><div class="dc-flag">🇬🇪</div>
+      <div class="dc-img"><img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1200&q=80&fm=webp" alt="Uzbekistan" loading="lazy"></div>
+      <div class="dc-ov"></div><div class="dc-flag">🇺🇿</div>
+      <div class="dc-info">
+        <div class="dc-name">GEORGIA</div>
+        <div class="dc-chips"><span class="dc-chip">7 أيام</span><span class="dc-chip">شهر</span></div>
+        <div class="dc-price"><span data-ar="من 2,800 جنيه" data-en="From EGP 2,800">من 2,800 جنيه</span></div>
+        <div class="dc-name">UZBEKISTAN</div>
+        <div class="dc-chips"><span class="dc-chip">5 أيام</span><span class="dc-chip">شهر</span></div>
+        <div class="dc-price"><span data-ar="من 3,500 جنيه" data-en="From EGP 3,500">من 3,500 جنيه</span></div>
+      </div>
+      <div class="dc-reveal">
+        <div class="dcr-title">🇬🇪 Georgia / جورجيا</div>
+        <div class="dcr-sub">Caucasus Region</div>
+        <div class="dcr-title">🇺🇿 Uzbekistan / أوزبكستان</div>
+        <div class="dcr-sub">Silk Road Heritage</div>
+        <ul class="dcr-list">
+          <li><span>Processing</span><span>7 days</span></li>
+          <li><span>Processing</span><span>5 days</span></li>
+          <li><span>Validity</span><span>1 month</span></li>
+          <li><span>Price</span><span>2,800 EGP</span></li>
+          <li><span>Price</span><span>3,500 EGP</span></li>
+        </ul>
+        <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn"><svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>Book Now</a>
+        <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn"><svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>Apply Now</a>
+      </div>
+    </div>
+
+    <!-- Bahrain — C -->
+    <div class="dc dc-c">
+      <div class="dc-img"><img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?w=800&q=85" alt="Bahrain" loading="lazy"></div>
+      <div class="dc-ov"></div><div class="dc-flag">🇧🇭</div>
+      <div class="dc-info">
+        <div class="dc-name">BAHRAIN</div>
+        <div class="dc-chips"><span class="dc-chip">7 أيام</span><span class="dc-chip">حتى سنة</span></div>
+        <div class="dc-price"><span data-ar="من 3,700 جنيه" data-en="From EGP 3,700">من 3,700 جنيه</span></div>
+      </div>
+      <div class="dc-reveal">
+        <div class="dcr-title">🇧🇭 Bahrain / البحرين</div>
+        <div class="dcr-sub">Arabian Gulf</div>
+        <ul class="dcr-list">
+          <li><span>2 weeks</span><span>3,700 EGP</span></li>
+          <li><span>3 months</span><span>4,700 EGP</span></li>
+          <li><span>1 year</span><span>9,000 EGP</span></li>
+        </ul>
+        <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn"><svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>Book Now</a>
+        <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn"><svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>Apply Now</a>
+      </div>
+    </div>
+
+    <!-- Uzbekistan — D -->
+    <div class="dc dc-d">
+      <div class="dc-img"><img src="https://images.unsplash.com/photo-1601585021226-9a5d7538e8bd?w=800&q=85" alt="Uzbekistan" loading="lazy"></div>
+      <div class="dc-ov"></div>
+      <div class="dc-flag">🇺🇿</div>
+      <div class="dc-info">
+        <div class="dc-name">UZBEKISTAN</div>
+        <div class="dc-chips"><span class="dc-chip">5 أيام</span><span class="dc-chip">شهر</span></div>
+        <div class="dc-price"><span data-ar="من 3,500 جنيه" data-en="From EGP 3,500">من 3,500 جنيه</span></div>
+      </div>
+      <div class="dc-reveal">
+        <div class="dcr-title">🇺🇿 Uzbekistan</div>
+        <div class="dcr-sub">Central Asia</div>
+        <ul class="dcr-list">
+          <li><span>Processing</span><span>5 days ⚡</span></li>
+          <li><span>Validity</span><span>1 month</span></li>
+          <li><span>Price</span><span>3,500 EGP</span></li>
+        </ul>
+        <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn"><svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>Book Now</a>
+        <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn"><svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>Apply Now</a>
+      </div>
+    </div>
+
+    <!-- Kenya — E -->
+    <div class="dc dc-e">
+      <div class="dc-img"><img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&q=85" alt="Kenya" loading="lazy"></div>
+      <div class="dc-ov"></div><div class="dc-flag">🇰🇪</div>
+      <div class="dc-img"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80&fm=webp" alt="Madagascar" loading="lazy"></div>
+      <div class="dc-ov"></div><div class="dc-flag">🇲🇬</div>
+      <div class="dc-info">
+        <div class="dc-name">KENYA</div>
+        <div class="dc-chips"><span class="dc-chip">7 أيام</span><span class="dc-chip">3 أشهر</span></div>
+        <div class="dc-price"><span data-ar="من 5,000 جنيه" data-en="From EGP 5,000">من 5,000 جنيه</span></div>
+        <div class="dc-name">MADAGASCAR</div>
+        <div class="dc-chips"><span class="dc-chip">5 أيام</span><span class="dc-chip">شهر</span></div>
+        <div class="dc-price"><span data-ar="من 4,500 جنيه" data-en="From EGP 4,500">من 4,500 جنيه</span></div>
+      </div>
+      <div class="dc-reveal">
+        <div class="dcr-title">🇰🇪 Kenya / كينيا</div>
+        <div class="dcr-sub">East Africa</div>
+        <div class="dcr-title">🇲🇬 Madagascar / مدغشقر</div>
+        <div class="dcr-sub">Nature & Adventure</div>
+        <ul class="dcr-list">
+          <li><span>Processing</span><span>7 days</span></li>
+          <li><span>Validity</span><span>3 months</span></li>
+          <li><span>Price</span><span>5,000 EGP</span></li>
+          <li><span>Processing</span><span>5 days</span></li>
+          <li><span>Validity</span><span>1 month</span></li>
+          <li><span>Price</span><span>4,500 EGP</span></li>
+        </ul>
+        <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn"><svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>Book Now</a>
+        <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn"><svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>Apply Now</a>
+      </div>
+    </div>
+
+    <!-- Uganda — F -->
+    <div class="dc dc-f">
+      <div class="dc-img"><img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=900&q=85" alt="Uganda" loading="lazy"></div>
+      <div class="dc-ov"></div><div class="dc-flag">🇺🇬</div>
+      <div class="dc-img"><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80&fm=webp" alt="Togo" loading="lazy"></div>
+      <div class="dc-ov"></div><div class="dc-flag">🇹🇬</div>
+      <div class="dc-info">
+        <div class="dc-name">UGANDA</div>
+        <div class="dc-chips"><span class="dc-chip">10 أيام</span><span class="dc-chip">3 أشهر</span></div>
+        <div class="dc-price"><span data-ar="من 5,500 جنيه" data-en="From EGP 5,500">من 5,500 جنيه</span></div>
+        <div class="dc-name">TOGO</div>
+        <div class="dc-chips"><span class="dc-chip">10 أيام</span><span class="dc-chip">حتى 3 أشهر</span></div>
+        <div class="dc-price"><span data-ar="من 6,500 جنيه" data-en="From EGP 6,500">من 6,500 جنيه</span></div>
+      </div>
+      <div class="dc-reveal">
+        <div class="dcr-title">🇺🇬 Uganda / أوغندا</div>
+        <div class="dcr-sub">East Africa</div>
+        <div class="dcr-title">🇹🇬 Togo / توغو</div>
+        <div class="dcr-sub">West Africa Gateway</div>
+        <ul class="dcr-list">
+          <li><span>Processing</span><span>10 days</span></li>
+          <li><span>Validity</span><span>3 months</span></li>
+          <li><span>Price</span><span>5,500 EGP</span></li>
+          <li><span>Validity</span><span>1-3 months</span></li>
+          <li><span>Price</span><span>6,500+ EGP</span></li>
+        </ul>
+        <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn"><svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>Book Now</a>
+        <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn"><svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>Apply Now</a>
+      </div>
+    </div>
+
+    <!-- Seychelles — G: wide bottom right -->
+    <div class="dc dc-g">
+      <div class="dc-img"><img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1200&q=85" alt="Seychelles" loading="lazy"></div>
+      <div class="dc-ov"></div>
+      <div class="dc-flag">🇸🇨</div>
+      <div class="dc-info">
+        <div class="dc-name">SEYCHELLES</div>
+        <div class="dc-chips"><span class="dc-chip">5 أيام</span><span class="dc-chip">3 أشهر</span><span class="dc-chip">Indian Ocean</span></div>
+        <div class="dc-price"><span data-ar="من 5,000 جنيه" data-en="From EGP 5,000">من 5,000 جنيه</span></div>
+      </div>
+      <div class="dc-reveal">
+        <div class="dcr-title">🇸🇨 Seychelles / سيشل</div>
+        <div class="dcr-sub">Indian Ocean Paradise</div>
+        <ul class="dcr-list">
+          <li><span>Processing</span><span>5 days ⚡</span></li>
+          <li><span>Validity</span><span>3 months</span></li>
+          <li><span>Price</span><span>5,000 EGP</span></li>
+        </ul>
+        <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn"><svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>Book Now</a>
+        <a href="https://wa.me/201126672801" target="_blank" class="dcr-btn"><svg viewBox="0 0 64 64"><path d="M56 8L6 26l15 5 3.5 19L31 36l25-28z"/></svg>Apply Now</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="ctr ri">
+    <div class="sh"><div class="sl"></div><span class="st" data-ar="خدماتنا" data-en="Our Services">خدماتنا</span></div>
+    <h2 class="h2" data-ar="أكتر من مجرد <em>تأشيرة</em>" data-en="More Than Just <em>a Visa</em>">أكتر من مجرد <em>تأشيرة</em></h2>
+    <p class="lead" data-ar="بنقدملك حزمة متكاملة من الخدمات عشان رحلتك تبقى مثالية" data-en="We offer a complete package of services to make your trip perfect from start to finish">بنقدملك حزمة متكاملة من الخدمات عشان رحلتك تبقى مثالية</p>
+  </div>
+  <div class="srv-grid">
+    <div class="srv-card ri">
+      <div class="srv-photo"><img src="https://images.unsplash.com/photo-1568992688065-536aad8a12f6?w=600&q=80" alt="" loading="lazy"><div class="srv-photo-ov"></div><div class="srv-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM9 13h6v1.5H9V13zm0 3h6v1.5H9V16zm0-6h3v1.5H9V10z"/></svg></div></div>
+      <div class="srv-body">
+        <h3 data-ar="تجهيز الملفات" data-en="File Preparation">تجهيز الملفات</h3>
+        <p data-ar="بنجمع ونراجع كل أوراقك عشان الملف يوصل للقنصلية بشكل صح ومن غير أي غلطة" data-en="We collect and review all your documents so your file reaches the consulate correctly.">بنجمع ونراجع كل أوراقك عشان الملف يوصل للقنصلية بشكل صح ومن غير أي غلطة</p>
+        <ul class="srv-pts"><li data-ar="مراجعة دقيقة لكل ورقة" data-en="Thorough review of every document">مراجعة دقيقة لكل ورقة</li><li data-ar="ترجمة وتوثيق المستندات" data-en="Translation & attestation">ترجمة وتوثيق المستندات</li><li data-ar="تنسيق مع متطلبات كل سفارة" data-en="Tailored to each embassy">تنسيق مع متطلبات كل سفارة</li></ul>
+        <a href="https://wa.me/201126672801" target="_blank" class="srv-link" data-ar="استفسر دلوقتي ←" data-en="Enquire Now →">استفسر دلوقتي ←</a>
+      </div>
+    </div>
+    <div class="srv-card ri">
+      <div class="srv-photo"><img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=600&q=80" alt="" loading="lazy"><div class="srv-photo-ov"></div><div class="srv-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zM7 12h5v5H7z"/></svg></div></div>
 @@ -1069,51 +1085,56 @@ footer{background:#040c18;padding:4rem 5% 1.8rem;border-top:1px solid rgba(212,1
-         <h3 data-ar="تأمين السفر" data-en="Travel Insurance">تأمين السفر</h3>
-         <p data-ar="تأمين طبي معتمد ومطابق لمتطلبات كل سفارة بأفضل سعر ممكن" data-en="Certified medical insurance matching every embassy's requirements at the best possible price.">تأمين طبي معتمد ومطابق لمتطلبات كل سفارة بأفضل سعر ممكن</p>
-         <ul class="srv-pts"><li data-ar="تأمين طبي شامل" data-en="Comprehensive medical cover">تأمين طبي شامل</li><li data-ar="مطابق لمتطلبات السفارات" data-en="Embassy-approved">مطابق لمتطلبات السفارات</li><li data-ar="تغطية لكل الوجهات" data-en="Coverage for all destinations">تغطية لكل الوجهات</li></ul>
-         <a href="https://wa.me/201126672801" target="_blank" class="srv-link" data-ar="استفسر دلوقتي ←" data-en="Enquire Now →">استفسر دلوقتي ←</a>
-       </div>
-     </div>
-   </div>
- </section>
- 
- <!-- GALLERY -->
- <div class="gal">
-   <div class="gi"><img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=500&q=75" alt="" loading="lazy"></div>
-   <div class="gi"><img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=500&q=75" alt="" loading="lazy"></div>
-   <div class="gi"><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=500&q=75" alt="" loading="lazy"></div>
-   <div class="gi"><img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=500&q=75" alt="" loading="lazy"></div>
- </div>
- 
- <!-- VISAS -->
- <section class="visas" id="visas">
-   <div class="ctr ri">
-     <div class="sh"><div class="sl"></div><span class="st" data-ar="الأسعار والتفاصيل" data-en="Prices & Details">الأسعار والتفاصيل</span></div>
-     <h2 class="h2" data-ar="أكثر من 60 تأشيرة بأسعار <em>واضحة</em>" data-en="60+ Visas at <em>Transparent</em> Prices">60+ وجهة بأسعار <em>شفافة</em></h2>
-     <p class="lead" data-ar="كل التأشيرات بنشتغل عليها يومياً. دور على وجهتك وشوف التفاصيل الكاملة." data-en="We work on all these visas daily. Find your destination and see the full details.">كل التأشيرات بنشتغل عليها يومياً. دور على وجهتك وشوف التفاصيل الكاملة.</p>
-   </div>
-   <div class="vbar ri">
--    <input class="vsrch" id="vs" type="text" placeholder="🔍  Search / ابحث...">
-+    <input class="vsrch" id="vs" type="text" placeholder="🔍  Search / ابحث بالاسم...">
-+    <div class="vtabs" style="margin-bottom:.6rem;">
-+      <select id="priceFilter" class="vsrch" style="max-width:220px;"><option value="all">السعر: الكل</option><option value="<=5000">حتى 5000</option><option value=">5000">أعلى من 5000</option></select>
-+      <select id="durationFilter" class="vsrch" style="max-width:220px;"><option value="all">المدة: الكل</option><option value="short">حتى شهر</option><option value="long">أكثر من شهر</option></select>
-+      <select id="typeFilter" class="vsrch" style="max-width:220px;"><option value="all">النوع: الكل</option><option value="evisa">إلكترونية</option><option value="paper">ورقية</option></select>
-+    </div>
-     <div class="vtabs">
-       <button class="vtab on" onclick="fv('all',this)" data-ar="الكل" data-en="All">الكل</button>
-       <button class="vtab" onclick="fv('africa',this)" data-ar="🌍 أفريقيا" data-en="🌍 Africa">🌍 أفريقيا</button>
-       <button class="vtab" onclick="fv('asia',this)" data-ar="🌏 آسيا" data-en="🌏 Asia">🌏 آسيا</button>
-       <button class="vtab" onclick="fv('europe',this)" data-ar="🌍 أوروبا" data-en="🌍 Europe">🌍 أوروبا</button>
-       <button class="vtab" onclick="fv('americas',this)" data-ar="🌎 الأمريكتين" data-en="🌎 Americas">🌎 الأمريكتين</button>
-       <button class="vtab" onclick="fv('oceania',this)" data-ar="🌏 أوقيانوسيا" data-en="🌏 Oceania">🌏 أوقيانوسيا</button>
-       <button class="vtab" onclick="fv('fast',this)" data-ar="⚡ سريع" data-en="⚡ Fast">⚡ سريع</button>
-       <div class="vtab-sep"></div>
-       <button class="vtab" onclick="fv('evisa',this)" data-ar="🌐 إلكترونية" data-en="🌐 E-Visa">🌐 إلكترونية</button>
-       <button class="vtab" onclick="fv('paper',this)" data-ar="📄 ورقية" data-en="📄 Paper">📄 ورقية</button>
-     </div>
-   </div>
-   <div class="vgrid" id="vg"></div>
-   <div class="vempty" id="ve">No results / ما فيش نتايج</div>
- </section>
- 
- <!-- HOW -->
- <section class="how" id="how">
-   <div class="ctr ri">
-     <div class="sh"><div class="sl"></div><span class="st" data-ar="خطوات استخراج التأشيرة" data-en="Visa Process">طريقة العمل</span></div>
-     <h2 class="h2" data-ar="4 خطوات بسيطة <em>لاستخراج التأشيرة</em>" data-en="4 Simple Steps to <em>Your Visa</em>">4 خطوات بس <em>وجوازك في إيدك</em></h2>
-   </div>
-   <div class="steps">
-     <div class="stb ri"><div class="stn">1</div><h3 data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</h3><p data-ar="ابعتلنا رسالة على واتساب أو املا الفورم وهنرد في أقل من ساعة" data-en="Send us a WhatsApp message or fill the form and we'll reply within an hour.">ابعتلنا رسالة على واتساب أو املا الفورم وهنرد في أقل من ساعة</p></div>
+        <h3 data-ar="تأمين السفر" data-en="Travel Insurance">تأمين السفر</h3>
+        <p data-ar="تأمين طبي معتمد ومطابق لمتطلبات كل سفارة بأفضل سعر ممكن" data-en="Certified medical insurance matching every embassy's requirements at the best possible price.">تأمين طبي معتمد ومطابق لمتطلبات كل سفارة بأفضل سعر ممكن</p>
+        <ul class="srv-pts"><li data-ar="تأمين طبي شامل" data-en="Comprehensive medical cover">تأمين طبي شامل</li><li data-ar="مطابق لمتطلبات السفارات" data-en="Embassy-approved">مطابق لمتطلبات السفارات</li><li data-ar="تغطية لكل الوجهات" data-en="Coverage for all destinations">تغطية لكل الوجهات</li></ul>
+        <a href="https://wa.me/201126672801" target="_blank" class="srv-link" data-ar="استفسر دلوقتي ←" data-en="Enquire Now →">استفسر دلوقتي ←</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<div class="gal">
+  <div class="gi"><img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=500&q=75" alt="" loading="lazy"></div>
+  <div class="gi"><img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=500&q=75" alt="" loading="lazy"></div>
+  <div class="gi"><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=500&q=75" alt="" loading="lazy"></div>
+  <div class="gi"><img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=500&q=75" alt="" loading="lazy"></div>
+</div>
+
+<!-- VISAS -->
+<section class="visas" id="visas">
+  <div class="ctr ri">
+    <div class="sh"><div class="sl"></div><span class="st" data-ar="الأسعار والتفاصيل" data-en="Prices & Details">الأسعار والتفاصيل</span></div>
+    <h2 class="h2" data-ar="أكثر من 60 تأشيرة بأسعار <em>واضحة</em>" data-en="60+ Visas at <em>Transparent</em> Prices">60+ وجهة بأسعار <em>شفافة</em></h2>
+    <p class="lead" data-ar="كل التأشيرات بنشتغل عليها يومياً. دور على وجهتك وشوف التفاصيل الكاملة." data-en="We work on all these visas daily. Find your destination and see the full details.">كل التأشيرات بنشتغل عليها يومياً. دور على وجهتك وشوف التفاصيل الكاملة.</p>
+  </div>
+  <div class="vbar ri">
+    <input class="vsrch" id="vs" type="text" placeholder="🔍  Search / ابحث...">
+    <input class="vsrch" id="vs" type="text" placeholder="🔍  Search / ابحث بالاسم...">
+    <div class="vtabs" style="margin-bottom:.6rem;">
+      <select id="priceFilter" class="vsrch" style="max-width:220px;"><option value="all">السعر: الكل</option><option value="<=5000">حتى 5000</option><option value=">5000">أعلى من 5000</option></select>
+      <select id="durationFilter" class="vsrch" style="max-width:220px;"><option value="all">المدة: الكل</option><option value="short">حتى شهر</option><option value="long">أكثر من شهر</option></select>
+      <select id="typeFilter" class="vsrch" style="max-width:220px;"><option value="all">النوع: الكل</option><option value="evisa">إلكترونية</option><option value="paper">ورقية</option></select>
+    </div>
+    <div class="vtabs">
+      <button class="vtab on" onclick="fv('all',this)" data-ar="الكل" data-en="All">الكل</button>
+      <button class="vtab" onclick="fv('africa',this)" data-ar="🌍 أفريقيا" data-en="🌍 Africa">🌍 أفريقيا</button>
+      <button class="vtab" onclick="fv('asia',this)" data-ar="🌏 آسيا" data-en="🌏 Asia">🌏 آسيا</button>
+      <button class="vtab" onclick="fv('europe',this)" data-ar="🌍 أوروبا" data-en="🌍 Europe">🌍 أوروبا</button>
+      <button class="vtab" onclick="fv('americas',this)" data-ar="🌎 الأمريكتين" data-en="🌎 Americas">🌎 الأمريكتين</button>
+      <button class="vtab" onclick="fv('oceania',this)" data-ar="🌏 أوقيانوسيا" data-en="🌏 Oceania">🌏 أوقيانوسيا</button>
+      <button class="vtab" onclick="fv('fast',this)" data-ar="⚡ سريع" data-en="⚡ Fast">⚡ سريع</button>
+      <div class="vtab-sep"></div>
+      <button class="vtab" onclick="fv('evisa',this)" data-ar="🌐 إلكترونية" data-en="🌐 E-Visa">🌐 إلكترونية</button>
+      <button class="vtab" onclick="fv('paper',this)" data-ar="📄 ورقية" data-en="📄 Paper">📄 ورقية</button>
+    </div>
+  </div>
+  <div class="vgrid" id="vg"></div>
+  <div class="vempty" id="ve">No results / ما فيش نتايج</div>
+</section>
+
+<!-- HOW -->
+<section class="how" id="how">
+  <div class="ctr ri">
+    <div class="sh"><div class="sl"></div><span class="st" data-ar="خطوات استخراج التأشيرة" data-en="Visa Process">طريقة العمل</span></div>
+    <h2 class="h2" data-ar="4 خطوات بسيطة <em>لاستخراج التأشيرة</em>" data-en="4 Simple Steps to <em>Your Visa</em>">4 خطوات بس <em>وجوازك في إيدك</em></h2>
+  </div>
+  <div class="steps">
+    <div class="stb ri"><div class="stn">1</div><h3 data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</h3><p data-ar="ابعتلنا رسالة على واتساب أو املا الفورم وهنرد في أقل من ساعة" data-en="Send us a WhatsApp message or fill the form and we'll reply within an hour.">ابعتلنا رسالة على واتساب أو املا الفورم وهنرد في أقل من ساعة</p></div>
 @@ -1206,107 +1227,87 @@ footer{background:#040c18;padding:4rem 5% 1.8rem;border-top:1px solid rgba(212,1
-   </div>
- </div>
- 
- <!-- FOOTER -->
- <footer>
-   <div class="ftop">
-     <div>
-       <div class="flogo"><img src="logo-white.png" alt="Colonel Tours"><div><strong>Colonel Tours</strong><em>Experience Luxury Travel</em></div></div>
-       <p class="fbp" data-ar="متخصصون في التأشيرات السياحية منذ أكثر من 10 سنوات. بنساعد المصريين يسافروا لأكتر من 60 وجهة حول العالم." data-en="Tourism visa specialists for over 10 years, helping clients travel to 60+ destinations worldwide.">متخصصون في التأشيرات السياحية منذ أكثر من 10 سنوات. بنساعد المصريين يسافروا لأكتر من 60 وجهة حول العالم.</p>
-       <div class="soc">
-         <a href="https://www.facebook.com/coloneltours1" target="_blank"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-         <a href="https://www.instagram.com/coloneltour" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-         <a href="https://wa.me/201126672801" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
-       </div>
-     </div>
-     <div class="fc"><h4 data-ar="التأشيرات" data-en="Visas">الوجهات</h4><ul><li><a href="#">Cuba 🇨🇺</a></li><li><a href="#">Georgia 🇬🇪</a></li><li><a href="#">Seychelles 🇸🇨</a></li><li><a href="#">Kenya 🇰🇪</a></li><li><a href="#">Bahrain 🇧🇭</a></li><li><a href="#visas">All destinations...</a></li></ul></div>
-     <div class="fc"><h4 data-ar="خدماتنا" data-en="Services">خدماتنا</h4><ul><li><a href="#" data-ar="تجهيز ملفات" data-en="File Prep">تجهيز ملفات</a></li><li><a href="#" data-ar="حجز مواعيد" data-en="Appointments">حجز مواعيد</a></li><li><a href="#" data-ar="خط سير" data-en="Itinerary">خط سير</a></li><li><a href="#" data-ar="حجز فنادق" data-en="Hotels">حجز فنادق</a></li><li><a href="#" data-ar="حجز طيران" data-en="Flights">حجز طيران</a></li></ul></div>
-     <div class="fc"><h4 data-ar="تواصل" data-en="Contact">تواصل</h4><ul><li><a href="https://wa.me/201126672801">📱 01126672801</a></li><li><a href="/cdn-cgi/l/email-protection#d9bab6b5b6b7bcb5adb6acabaaf7bcbe99beb4b8b0b5f7bab6b4">✉ coloneltours.eg</a></li><li><a href="https://www.facebook.com/coloneltours1">📘 coloneltours1</a></li><li><a href="https://www.instagram.com/coloneltour">📷 coloneltour</a></li></ul></div>
-   </div>
-   <div class="fbot"><p>© 2025 <span>Colonel Tours</span>. All rights reserved.</p><p>Experience <span>Luxury</span> Travel ✈️</p></div>
- </footer>
- 
- <!-- WA FLOAT -->
- <div class="wafl"><a href="https://wa.me/201126672801" target="_blank"><svg width="19" height="19" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</span></a></div>
- 
--<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><div class="mobile-cta"><a href="https://wa.me/201126672801?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AA%D9%82%D8%AF%D9%8A%D9%85%20%D8%AA%D8%A3%D8%B4%D9%8A%D8%B1%D8%A9" target="_blank">✈️ <span data-ar="قدم الآن" data-en="Apply Now">قدم الآن</span> <small data-ar="رد خلال 5 دقائق" data-en="Reply within 5 minutes">رد خلال 5 دقائق</small></a></div>
-+
-+<script>
- /* THEME TOGGLE */
- let isDark=true;
- function toggleTheme(){
-   isDark=!isDark;
-   document.getElementById('HR').setAttribute('data-theme',isDark?'dark':'light');
-   document.getElementById('tbtn').textContent=isDark?'☀️':'🌙';
- }
- 
- /* LANG TOGGLE */
- let isAR=true;
- const IMGS_URL={
--  '🇺🇬':'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=500&q=80',
--  '🇹🇿':'https://images.unsplash.com/photo-1562864777-4ce3e0be3699?w=500&q=80',
--  '🇲🇬':'https://images.unsplash.com/photo-1580202349105-9352a0bded8c?w=500&q=80',
--  '🇩🇯':'https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?w=500&q=80',
--  '🇲🇼':'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=500&q=80',
--  '🇹🇬':'https://images.unsplash.com/photo-1547481887-a26e2cacbf87?w=500&q=80',
--  '🇿🇲':'https://images.unsplash.com/photo-1517732306149-e8f829eb588a?w=500&q=80',
--  '🇧🇼':'https://images.unsplash.com/photo-1521747116042-5a810fda9664?w=500&q=80',
--  '🇸🇱':'https://images.unsplash.com/photo-1531761535209-83c95aa5f912?w=500&q=80',
--  '🇬🇶':'https://images.unsplash.com/photo-1574482620826-0b7d07a6c1f2?w=500&q=80',
--  '🇲🇿':'https://images.unsplash.com/photo-1596386461350-326ccb383e9f?w=500&q=80',
--  '🇲🇷':'https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=500&q=80',
--  '🇸🇨':'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=500&q=80',
--  '🇲🇺':'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=500&q=80',
--  '🇰🇪':'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=500&q=80',
--  '🇹🇷':'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=500&q=80',
--  '🇧🇭':'https://images.unsplash.com/photo-1590736969955-71cc94901144?w=500&q=80',
--  '🇬🇪':'https://images.unsplash.com/photo-1565008576549-57569a49371d?w=500&q=80',
--  '🇺🇿':'https://images.unsplash.com/photo-1601585021226-9a5d7538e8bd?w=500&q=80',
--  '🇹🇭':'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=500&q=80',
--  '🇮🇩':'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=500&q=80',
--  '🇸🇬':'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=500&q=80',
--  '🇵🇭':'https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=500&q=80',
--  '🇨🇳':'https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=500&q=80',
--  '🇯🇵':'https://images.unsplash.com/photo-1480796927426-f609979314bd?w=500&q=80',
--  '🇰🇭':'https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?w=500&q=80',
--  '🇳🇵':'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&q=80',
--  '🇱🇦':'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=500&q=80',
--  '🇲🇲':'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80',
--  '🇻🇳':'https://images.unsplash.com/photo-1540611025311-01df3cef54b5?w=500&q=80',
--  '🇹🇯':'https://images.unsplash.com/photo-1527838832700-5059252407fa?w=500&q=80',
--  '🇰🇬':'https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?w=500&q=80',
--  '🇦🇱':'https://images.unsplash.com/photo-1555993539-1732b0258235?w=500&q=80',
--  '🇨🇺':'https://images.unsplash.com/photo-1500759285222-a95626b934cb?w=500&q=80',
--  '🇸🇷':'https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=500&q=80',
--  '🇧🇸':'https://images.unsplash.com/photo-1548574505-5e239809ee19?w=500&q=80',
--  '🇨🇴':'https://images.unsplash.com/photo-1560707854-fb9a1f8d5d6f?w=500&q=80',
--  '🇧🇷':'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=500&q=80',
--  '🇧🇴':'https://images.unsplash.com/photo-1580619305218-8423a7ef79b4?w=500&q=80',
--  '🇰🇳':'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=500&q=80',
--  '🇹🇹':'https://images.unsplash.com/photo-1548678471-71d4d2a5f6e7?w=500&q=80',
--  '🇦🇬':'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=500&q=80',
--  '🇬🇾':'https://images.unsplash.com/photo-1535530992830-e25d07cfa780?w=500&q=80',
--  '🇦🇺':'https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=500&q=80',
--  '🇳🇿':'https://images.unsplash.com/photo-1507699622108-4be3abd695ad?w=500&q=80',
-+  '🇲🇬':'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=78&fm=webp',
-+  '🇹🇬':'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=78&fm=webp',
-+  '🇸🇱':'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200&q=78&fm=webp',
-+  '🇬🇶':'https://images.unsplash.com/photo-1482192505345-5655af888cc4?auto=format&fit=crop&w=1200&q=78&fm=webp',
-+  '🇧🇭':'https://images.unsplash.com/photo-1446776877081-d282a0f896e2?auto=format&fit=crop&w=1200&q=78&fm=webp',
-+  '🇺🇿':'https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1200&q=78&fm=webp',
-+  '🇸🇷':'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=78&fm=webp',
-+  '🇨🇴':'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1200&q=78&fm=webp',
-+  '🇹🇹':'https://images.unsplash.com/photo-1500835556837-99ac94a94552?auto=format&fit=crop&w=1200&q=78&fm=webp',
-+  '🇲🇲':'https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=1200&q=78&fm=webp',
-+  '🇨🇳':'https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=1200&q=78&fm=webp',
-+  '🇯🇵':'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=78&fm=webp',
-+  '🇵🇭':'https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1200&q=78&fm=webp',
-+  '🇧🇷':'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=1200&q=78&fm=webp',
-+  '🇧🇴':'https://images.unsplash.com/photo-1580619305218-8423a7ef79b4?auto=format&fit=crop&w=1200&q=78&fm=webp',
-+  '🇦🇿':'https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=1200&q=78&fm=webp',
-+  '🇹🇳':'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=78&fm=webp',
-+  '🇩🇿':'https://images.unsplash.com/photo-1526778548025-fa2f459cd5ce?auto=format&fit=crop&w=1200&q=78&fm=webp',
-+  '🇨🇱':'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1200&q=78&fm=webp',
-+  '🇪🇨':'https://images.unsplash.com/photo-1482192505345-5655af888cc4?auto=format&fit=crop&w=1200&q=78&fm=webp',
-+  '🇷🇸':'https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1200&q=78&fm=webp',
-+  '🇨🇾':'https://images.unsplash.com/photo-1446776877081-d282a0f896e2?auto=format&fit=crop&w=1200&q=78&fm=webp',
-+  '🇩🇴':'https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=1200&q=78&fm=webp',
- };
- const GRAD={
-   '🇺🇬':'linear-gradient(135deg,#1a4a2e,#2d7a4f)',
-   '🇹🇿':'linear-gradient(135deg,#1a3a4a,#1e6080)',
-   '🇲🇬':'linear-gradient(135deg,#4a2a1a,#8b4513)',
-   '🇩🇯':'linear-gradient(135deg,#3a1a4a,#6b35a0)',
-   '🇲🇼':'linear-gradient(135deg,#1a2a4a,#2855a0)',
-   '🇹🇬':'linear-gradient(135deg,#1a4a3a,#26906a)',
-   '🇿🇲':'linear-gradient(135deg,#2a1a4a,#553090)',
-   '🇧🇼':'linear-gradient(135deg,#3a2a1a,#7a5530)',
-   '🇸🇱':'linear-gradient(135deg,#1a4a1a,#2a802a)',
-   '🇬🇶':'linear-gradient(135deg,#1a3a1a,#1a6a2a)',
-   '🇲🇿':'linear-gradient(135deg,#1a3a4a,#0d5c7a)',
-   '🇲🇷':'linear-gradient(135deg,#3a2a1a,#8b6520)',
-   '🇸🇨':'linear-gradient(135deg,#0d2a4a,#0d70c8)',
-   '🇲🇺':'linear-gradient(135deg,#1a1a4a,#2a2aaa)',
-   '🇰🇪':'linear-gradient(135deg,#2a1a0a,#804020)',
-   '🇹🇷':'linear-gradient(135deg,#4a1a1a,#c02020)',
-   '🇧🇭':'linear-gradient(135deg,#1a2a4a,#1a4a9a)',
-   '🇬🇪':'linear-gradient(135deg,#3a1a1a,#9a2020)',
-   '🇺🇿':'linear-gradient(135deg,#1a2a3a,#1a5a8a)',
-   '🇹🇭':'linear-gradient(135deg,#2a1a3a,#6a1a8a)',
-   '🇮🇩':'linear-gradient(135deg,#4a1a1a,#aa2a2a)',
-   '🇸🇬':'linear-gradient(135deg,#1a3a2a,#1a7a4a)',
-   '🇵🇭':'linear-gradient(135deg,#1a2a4a,#1a3a9a)',
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ftop">
+    <div>
+      <div class="flogo"><img src="logo-white.png" alt="Colonel Tours"><div><strong>Colonel Tours</strong><em>Experience Luxury Travel</em></div></div>
+      <p class="fbp" data-ar="متخصصون في التأشيرات السياحية منذ أكثر من 10 سنوات. بنساعد المصريين يسافروا لأكتر من 60 وجهة حول العالم." data-en="Tourism visa specialists for over 10 years, helping clients travel to 60+ destinations worldwide.">متخصصون في التأشيرات السياحية منذ أكثر من 10 سنوات. بنساعد المصريين يسافروا لأكتر من 60 وجهة حول العالم.</p>
+      <div class="soc">
+        <a href="https://www.facebook.com/coloneltours1" target="_blank"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="https://www.instagram.com/coloneltour" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        <a href="https://wa.me/201126672801" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+      </div>
+    </div>
+    <div class="fc"><h4 data-ar="التأشيرات" data-en="Visas">الوجهات</h4><ul><li><a href="#">Cuba 🇨🇺</a></li><li><a href="#">Georgia 🇬🇪</a></li><li><a href="#">Seychelles 🇸🇨</a></li><li><a href="#">Kenya 🇰🇪</a></li><li><a href="#">Bahrain 🇧🇭</a></li><li><a href="#visas">All destinations...</a></li></ul></div>
+    <div class="fc"><h4 data-ar="خدماتنا" data-en="Services">خدماتنا</h4><ul><li><a href="#" data-ar="تجهيز ملفات" data-en="File Prep">تجهيز ملفات</a></li><li><a href="#" data-ar="حجز مواعيد" data-en="Appointments">حجز مواعيد</a></li><li><a href="#" data-ar="خط سير" data-en="Itinerary">خط سير</a></li><li><a href="#" data-ar="حجز فنادق" data-en="Hotels">حجز فنادق</a></li><li><a href="#" data-ar="حجز طيران" data-en="Flights">حجز طيران</a></li></ul></div>
+    <div class="fc"><h4 data-ar="تواصل" data-en="Contact">تواصل</h4><ul><li><a href="https://wa.me/201126672801">📱 01126672801</a></li><li><a href="/cdn-cgi/l/email-protection#d9bab6b5b6b7bcb5adb6acabaaf7bcbe99beb4b8b0b5f7bab6b4">✉ coloneltours.eg</a></li><li><a href="https://www.facebook.com/coloneltours1">📘 coloneltours1</a></li><li><a href="https://www.instagram.com/coloneltour">📷 coloneltour</a></li></ul></div>
+  </div>
+  <div class="fbot"><p>© 2025 <span>Colonel Tours</span>. All rights reserved.</p><p>Experience <span>Luxury</span> Travel ✈️</p></div>
+</footer>
+
+<!-- WA FLOAT -->
+<div class="wafl"><a href="https://wa.me/201126672801" target="_blank"><svg width="19" height="19" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</span></a></div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><div class="mobile-cta"><a href="https://wa.me/201126672801?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AA%D9%82%D8%AF%D9%8A%D9%85%20%D8%AA%D8%A3%D8%B4%D9%8A%D8%B1%D8%A9" target="_blank">✈️ <span data-ar="قدم الآن" data-en="Apply Now">قدم الآن</span> <small data-ar="رد خلال 5 دقائق" data-en="Reply within 5 minutes">رد خلال 5 دقائق</small></a></div>
+
+<script>
+/* THEME TOGGLE */
+let isDark=true;
+function toggleTheme(){
+  isDark=!isDark;
+  document.getElementById('HR').setAttribute('data-theme',isDark?'dark':'light');
+  document.getElementById('tbtn').textContent=isDark?'☀️':'🌙';
+}
+
+/* LANG TOGGLE */
+let isAR=true;
+const IMGS_URL={
+  '🇺🇬':'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=500&q=80',
+  '🇹🇿':'https://images.unsplash.com/photo-1562864777-4ce3e0be3699?w=500&q=80',
+  '🇲🇬':'https://images.unsplash.com/photo-1580202349105-9352a0bded8c?w=500&q=80',
+  '🇩🇯':'https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?w=500&q=80',
+  '🇲🇼':'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=500&q=80',
+  '🇹🇬':'https://images.unsplash.com/photo-1547481887-a26e2cacbf87?w=500&q=80',
+  '🇿🇲':'https://images.unsplash.com/photo-1517732306149-e8f829eb588a?w=500&q=80',
+  '🇧🇼':'https://images.unsplash.com/photo-1521747116042-5a810fda9664?w=500&q=80',
+  '🇸🇱':'https://images.unsplash.com/photo-1531761535209-83c95aa5f912?w=500&q=80',
+  '🇬🇶':'https://images.unsplash.com/photo-1574482620826-0b7d07a6c1f2?w=500&q=80',
+  '🇲🇿':'https://images.unsplash.com/photo-1596386461350-326ccb383e9f?w=500&q=80',
+  '🇲🇷':'https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=500&q=80',
+  '🇸🇨':'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=500&q=80',
+  '🇲🇺':'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=500&q=80',
+  '🇰🇪':'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=500&q=80',
+  '🇹🇷':'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=500&q=80',
+  '🇧🇭':'https://images.unsplash.com/photo-1590736969955-71cc94901144?w=500&q=80',
+  '🇬🇪':'https://images.unsplash.com/photo-1565008576549-57569a49371d?w=500&q=80',
+  '🇺🇿':'https://images.unsplash.com/photo-1601585021226-9a5d7538e8bd?w=500&q=80',
+  '🇹🇭':'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=500&q=80',
+  '🇮🇩':'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=500&q=80',
+  '🇸🇬':'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=500&q=80',
+  '🇵🇭':'https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=500&q=80',
+  '🇨🇳':'https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=500&q=80',
+  '🇯🇵':'https://images.unsplash.com/photo-1480796927426-f609979314bd?w=500&q=80',
+  '🇰🇭':'https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?w=500&q=80',
+  '🇳🇵':'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&q=80',
+  '🇱🇦':'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=500&q=80',
+  '🇲🇲':'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80',
+  '🇻🇳':'https://images.unsplash.com/photo-1540611025311-01df3cef54b5?w=500&q=80',
+  '🇹🇯':'https://images.unsplash.com/photo-1527838832700-5059252407fa?w=500&q=80',
+  '🇰🇬':'https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?w=500&q=80',
+  '🇦🇱':'https://images.unsplash.com/photo-1555993539-1732b0258235?w=500&q=80',
+  '🇨🇺':'https://images.unsplash.com/photo-1500759285222-a95626b934cb?w=500&q=80',
+  '🇸🇷':'https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=500&q=80',
+  '🇧🇸':'https://images.unsplash.com/photo-1548574505-5e239809ee19?w=500&q=80',
+  '🇨🇴':'https://images.unsplash.com/photo-1560707854-fb9a1f8d5d6f?w=500&q=80',
+  '🇧🇷':'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=500&q=80',
+  '🇧🇴':'https://images.unsplash.com/photo-1580619305218-8423a7ef79b4?w=500&q=80',
+  '🇰🇳':'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=500&q=80',
+  '🇹🇹':'https://images.unsplash.com/photo-1548678471-71d4d2a5f6e7?w=500&q=80',
+  '🇦🇬':'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=500&q=80',
+  '🇬🇾':'https://images.unsplash.com/photo-1535530992830-e25d07cfa780?w=500&q=80',
+  '🇦🇺':'https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=500&q=80',
+  '🇳🇿':'https://images.unsplash.com/photo-1507699622108-4be3abd695ad?w=500&q=80',
+  '🇲🇬':'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=78&fm=webp',
+  '🇹🇬':'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=78&fm=webp',
+  '🇸🇱':'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200&q=78&fm=webp',
+  '🇬🇶':'https://images.unsplash.com/photo-1482192505345-5655af888cc4?auto=format&fit=crop&w=1200&q=78&fm=webp',
+  '🇧🇭':'https://images.unsplash.com/photo-1446776877081-d282a0f896e2?auto=format&fit=crop&w=1200&q=78&fm=webp',
+  '🇺🇿':'https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1200&q=78&fm=webp',
+  '🇸🇷':'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=78&fm=webp',
+  '🇨🇴':'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1200&q=78&fm=webp',
+  '🇹🇹':'https://images.unsplash.com/photo-1500835556837-99ac94a94552?auto=format&fit=crop&w=1200&q=78&fm=webp',
+  '🇲🇲':'https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=1200&q=78&fm=webp',
+  '🇨🇳':'https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=1200&q=78&fm=webp',
+  '🇯🇵':'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=78&fm=webp',
+  '🇵🇭':'https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1200&q=78&fm=webp',
+  '🇧🇷':'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=1200&q=78&fm=webp',
+  '🇧🇴':'https://images.unsplash.com/photo-1580619305218-8423a7ef79b4?auto=format&fit=crop&w=1200&q=78&fm=webp',
+  '🇦🇿':'https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=1200&q=78&fm=webp',
+  '🇹🇳':'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=78&fm=webp',
+  '🇩🇿':'https://images.unsplash.com/photo-1526778548025-fa2f459cd5ce?auto=format&fit=crop&w=1200&q=78&fm=webp',
+  '🇨🇱':'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1200&q=78&fm=webp',
+  '🇪🇨':'https://images.unsplash.com/photo-1482192505345-5655af888cc4?auto=format&fit=crop&w=1200&q=78&fm=webp',
+  '🇷🇸':'https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1200&q=78&fm=webp',
+  '🇨🇾':'https://images.unsplash.com/photo-1446776877081-d282a0f896e2?auto=format&fit=crop&w=1200&q=78&fm=webp',
+  '🇩🇴':'https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=1200&q=78&fm=webp',
+};
+const GRAD={
+  '🇺🇬':'linear-gradient(135deg,#1a4a2e,#2d7a4f)',
+  '🇹🇿':'linear-gradient(135deg,#1a3a4a,#1e6080)',
+  '🇲🇬':'linear-gradient(135deg,#4a2a1a,#8b4513)',
+  '🇩🇯':'linear-gradient(135deg,#3a1a4a,#6b35a0)',
+  '🇲🇼':'linear-gradient(135deg,#1a2a4a,#2855a0)',
+  '🇹🇬':'linear-gradient(135deg,#1a4a3a,#26906a)',
+  '🇿🇲':'linear-gradient(135deg,#2a1a4a,#553090)',
+  '🇧🇼':'linear-gradient(135deg,#3a2a1a,#7a5530)',
+  '🇸🇱':'linear-gradient(135deg,#1a4a1a,#2a802a)',
+  '🇬🇶':'linear-gradient(135deg,#1a3a1a,#1a6a2a)',
+  '🇲🇿':'linear-gradient(135deg,#1a3a4a,#0d5c7a)',
+  '🇲🇷':'linear-gradient(135deg,#3a2a1a,#8b6520)',
+  '🇸🇨':'linear-gradient(135deg,#0d2a4a,#0d70c8)',
+  '🇲🇺':'linear-gradient(135deg,#1a1a4a,#2a2aaa)',
+  '🇰🇪':'linear-gradient(135deg,#2a1a0a,#804020)',
+  '🇹🇷':'linear-gradient(135deg,#4a1a1a,#c02020)',
+  '🇧🇭':'linear-gradient(135deg,#1a2a4a,#1a4a9a)',
+  '🇬🇪':'linear-gradient(135deg,#3a1a1a,#9a2020)',
+  '🇺🇿':'linear-gradient(135deg,#1a2a3a,#1a5a8a)',
+  '🇹🇭':'linear-gradient(135deg,#2a1a3a,#6a1a8a)',
+  '🇮🇩':'linear-gradient(135deg,#4a1a1a,#aa2a2a)',
+  '🇸🇬':'linear-gradient(135deg,#1a3a2a,#1a7a4a)',
+  '🇵🇭':'linear-gradient(135deg,#1a2a4a,#1a3a9a)',
 @@ -1437,81 +1438,92 @@ const VD=[
-   {ar:"أذربيجان",en:"Azerbaijan",c:"أذربيجان / Azerbaijan",f:"🇦🇿",r:"asia",d:"15 يوم",dur:"شهر",doc:"جواز + كشف حساب (6 أشهر) + خطاب وظيفي + صورتين خلفية بيضاء + تأمين سياحي",p:"3,500 + رسوم السفارة",fast:false,vtype:"paper"},
-   {ar:"تونس",en:"Tunisia",c:"تونس / Tunisia",f:"🇹🇳",r:"africa",d:"15 يوم",dur:"شهر",doc:"جواز + كشف حساب (6 أشهر) + خطاب وظيفي + صورتين خلفية بيضاء + تأمين سياحي",p:"3,500 + رسوم السفارة",fast:false,vtype:"paper"},
-   {ar:"الجزائر",en:"Algeria",c:"الجزائر / Algeria",f:"🇩🇿",r:"africa",d:"15 يوم",dur:"شهر",doc:"جواز + كشف حساب (6 أشهر) + خطاب وظيفي + صورتين خلفية بيضاء + تأمين سياحي",p:"3,500 + رسوم السفارة",fast:false,vtype:"paper"},
-   {ar:"تشيلي",en:"Chile",c:"تشيلي / Chile",f:"🇨🇱",r:"americas",d:"15 يوم",dur:"شهر",doc:"جواز + كشف حساب (6 أشهر) + خطاب وظيفي + صورتين خلفية بيضاء + تأمين سياحي",p:"3,500 + رسوم السفارة",fast:false,vtype:"paper"},
-   {ar:"الإكوادور",en:"Ecuador",c:"الإكوادور / Ecuador",f:"🇪🇨",r:"americas",d:"15 يوم",dur:"شهر",doc:"جواز + كشف حساب (6 أشهر) + خطاب وظيفي + صورتين خلفية بيضاء + تأمين سياحي",p:"3,500 + رسوم السفارة",fast:false,vtype:"paper"},
-   {ar:"صربيا",en:"Serbia",c:"صربيا / Serbia",f:"🇷🇸",r:"europe",d:"15 يوم",dur:"شهر",doc:"جواز + كشف حساب (6 أشهر) + خطاب وظيفي + صورتين خلفية بيضاء + تأمين سياحي",p:"3,500 + رسوم السفارة",fast:false,vtype:"paper"},
-   {ar:"قبرص",en:"Cyprus",c:"قبرص / Cyprus",f:"🇨🇾",r:"europe",d:"15 يوم",dur:"شهر",doc:"جواز + كشف حساب (6 أشهر) + خطاب وظيفي + صورتين خلفية بيضاء + تأمين سياحي",p:"3,500 + رسوم السفارة",fast:false,vtype:"paper"},
-   {ar:"الدومينيكان",en:"Dominican Republic",c:"الدومينيكان / Dominican Rep.",f:"🇩🇴",r:"americas",d:"15 يوم",dur:"شهر",doc:"جواز + كشف حساب (6 أشهر) + خطاب وظيفي + صورتين خلفية بيضاء + تأمين سياحي",p:"3,500 + رسوم السفارة",fast:false,vtype:"paper"},
- ];
- 
- let AR_F='all';
- function render(data){
-   const g=document.getElementById('vg'),e=document.getElementById('ve');
-   g.innerHTML='';
-   if(!data.length){e.style.display='block';return;}
-   e.style.display='none';
-   data.forEach(v=>{
-     const img=IMGS_URL[v.f]||'https://images.unsplash.com/photo-1488085061387-422e29b40080?w=400&q=70';
-     const cname=isAR?(v.ar||v.c):(v.en||v.c);
-     const waMsg=isAR?`استفسار عن تأشيرة ${v.ar||v.c}`:`Inquiry about ${v.en||v.c} visa`;
-     const waUrl=`https://wa.me/201126672801?text=${encodeURIComponent(waMsg)}`;
-     const isPaper=v.vtype==='paper';
-     const vtypeLabel=isPaper?(isAR?'ورقية':'Paper Visa'):(isAR?'إلكترونية':'E-Visa');
-     const vtypeClass=isPaper?'vt-paper':'vt-evisa';
-     const noteHtml=v.note?`<div class="vc-note">${isAR?v.note.ar:v.note.en}</div>`:'';
-+    const badge=v.fast?(isAR?'سريع':'Fast'):(isAR?'متاح الآن':'Available');
-+    const mline=isAR?'وجهة مثالية للسفر الاقتصادي والطبيعة':'Perfect destination for budget-friendly luxury travel';
-     g.innerHTML+=`<div class="vc" onclick="window.open('${waUrl}','_blank')" style="cursor:pointer;">
-       <div class="vc-photo">
-         <img src="${img}" alt="${cname}" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background=GRAD['${v.f}']||'linear-gradient(135deg,#1a2a4a,#1e44b0)'">
-         <div class="vc-ov"></div>
-         <div class="vc-flag">${v.f}</div>
-         <div class="vc-price-b">${v.p} EGP</div>
--        <div class="vc-hover-cta"><svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>${isAR?'احجز على واتساب':'Book on WhatsApp'}</div>
-+        <div class="vc-hover-cta"><svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>${isAR?'✈️ تواصل واتساب':'✈️ WhatsApp Chat'}</div>
-       </div>
-       <div class="vc-body">
--        <div class="vc-name-row"><div class="vc-name">${cname}</div><span class="vc-vtype ${vtypeClass}">${vtypeLabel}</span></div>
-+        <div class="vc-name-row"><div class="vc-name">${cname}</div><span class="vc-vtype ${vtypeClass}">${vtypeLabel}</span></div><div class="vc-note" style="margin-top:-.2rem;margin-bottom:.5rem;">✈️ ${badge}</div>
-         <div class="vc-meta">
-           <div class="vcm"><div class="vcm-l">${isAR?"مدة التنفيذ":"Processing"}</div><div class="vcm-v">${v.d}</div></div>
-           <div class="vcm"><div class="vcm-l">${isAR?"صلاحية التأشيرة":"Validity"}</div><div class="vcm-v">${v.dur}</div></div>
-         </div>
-         <div class="vc-docs"><b>${isAR?"المستندات:":"Docs:"}</b> ${v.doc}</div>
--        ${noteHtml}
-+        ${noteHtml}<div class="vc-docs" style="margin-top:.5rem;">${mline}</div><a class="btn-g" style="margin-top:.65rem;width:100%;justify-content:center;padding:.65rem 1rem;font-size:.82rem;" href="${waUrl}" target="_blank">✈️ ${isAR?'قدم الآن':'Apply Now'}</a>
-       </div>
-     </div>`;
-   });
- }
- function fv(r,btn){
-   AR_F=r;
-   document.querySelectorAll('.vtab').forEach(t=>t.classList.remove('on'));
-   btn.classList.add('on');apply();
- }
- function apply(){
-   const q=document.getElementById('vs').value.trim().toLowerCase();
-   let res=VD;
-   if(AR_F==='fast') res=res.filter(v=>v.fast);
-   else if(AR_F==='evisa') res=res.filter(v=>v.vtype==='evisa');
-   else if(AR_F==='paper') res=res.filter(v=>v.vtype==='paper');
-   else if(AR_F!=='all') res=res.filter(v=>v.r===AR_F);
--  if(q) res=res.filter(v=>v.c.toLowerCase().includes(q)||v.f.includes(q)||
--    (v.ar&&v.ar.toLowerCase().includes(q))||(v.en&&v.en.toLowerCase().includes(q)));
-+  if(q) res=res.filter(v=>v.c.toLowerCase().includes(q)||v.f.includes(q)||(v.ar&&v.ar.toLowerCase().includes(q))||(v.en&&v.en.toLowerCase().includes(q)));
-+  const pf=document.getElementById('priceFilter')?.value||'all';
-+  const df=document.getElementById('durationFilter')?.value||'all';
-+  const tf=document.getElementById('typeFilter')?.value||'all';
-+  if(tf!=='all') res=res.filter(v=>v.vtype===tf);
-+  const num=v=>parseInt(String(v.p).replace(/[^\d]/g,''))||0;
-+  if(pf==='<=5000') res=res.filter(v=>num(v)<=5000);
-+  if(pf==='>5000') res=res.filter(v=>num(v)>5000);
-+  if(df==='short') res=res.filter(v=>/(شهر|30|15|أسبوع)/.test(v.dur));
-+  if(df==='long') res=res.filter(v=>!/(شهر|30|15|أسبوع)/.test(v.dur));
-   render(res);
- }
- document.getElementById('vs').addEventListener('input',apply);
-+['priceFilter','durationFilter','typeFilter'].forEach(id=>document.getElementById(id)?.addEventListener('change',apply));
- render(VD);
- 
- /* FORM */
- function doForm(e){
-   e.preventDefault();
-   const b=document.getElementById('fsb');
-   b.innerHTML='✅ Sent! We\'ll contact you soon.';
-   b.style.cssText='background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--bg0);pointer-events:none;';
-   setTimeout(()=>{b.innerHTML='<svg class="pico" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg><span data-ar="ابعت الطلب" data-en="Send Request">ابعت الطلب</span>';b.style.cssText='';b.disabled=false;},4000);
-   const f=b.closest('form');
-   const dest=f.querySelector('select')?.value||'';
-   const name=f.querySelector('input[type=text]')?.value||'';
-   const phone=f.querySelector('input[type=tel]')?.value||'';
-   const msg=`مرحباً، أنا ${name}%0Aرقمي: ${phone}%0Aأريد الاستفسار عن تأشيرة: ${dest}`;
-   window.open(`https://wa.me/201126672801?text=${msg}`,'_blank');
- }
- </script>
- </body>
--</html>
-\ No newline at end of file
-+</html>
- 
-EOF
-)
+  {ar:"أذربيجان",en:"Azerbaijan",c:"أذربيجان / Azerbaijan",f:"🇦🇿",r:"asia",d:"15 يوم",dur:"شهر",doc:"جواز + كشف حساب (6 أشهر) + خطاب وظيفي + صورتين خلفية بيضاء + تأمين سياحي",p:"3,500 + رسوم السفارة",fast:false,vtype:"paper"},
+  {ar:"تونس",en:"Tunisia",c:"تونس / Tunisia",f:"🇹🇳",r:"africa",d:"15 يوم",dur:"شهر",doc:"جواز + كشف حساب (6 أشهر) + خطاب وظيفي + صورتين خلفية بيضاء + تأمين سياحي",p:"3,500 + رسوم السفارة",fast:false,vtype:"paper"},
+  {ar:"الجزائر",en:"Algeria",c:"الجزائر / Algeria",f:"🇩🇿",r:"africa",d:"15 يوم",dur:"شهر",doc:"جواز + كشف حساب (6 أشهر) + خطاب وظيفي + صورتين خلفية بيضاء + تأمين سياحي",p:"3,500 + رسوم السفارة",fast:false,vtype:"paper"},
+  {ar:"تشيلي",en:"Chile",c:"تشيلي / Chile",f:"🇨🇱",r:"americas",d:"15 يوم",dur:"شهر",doc:"جواز + كشف حساب (6 أشهر) + خطاب وظيفي + صورتين خلفية بيضاء + تأمين سياحي",p:"3,500 + رسوم السفارة",fast:false,vtype:"paper"},
+  {ar:"الإكوادور",en:"Ecuador",c:"الإكوادور / Ecuador",f:"🇪🇨",r:"americas",d:"15 يوم",dur:"شهر",doc:"جواز + كشف حساب (6 أشهر) + خطاب وظيفي + صورتين خلفية بيضاء + تأمين سياحي",p:"3,500 + رسوم السفارة",fast:false,vtype:"paper"},
+  {ar:"صربيا",en:"Serbia",c:"صربيا / Serbia",f:"🇷🇸",r:"europe",d:"15 يوم",dur:"شهر",doc:"جواز + كشف حساب (6 أشهر) + خطاب وظيفي + صورتين خلفية بيضاء + تأمين سياحي",p:"3,500 + رسوم السفارة",fast:false,vtype:"paper"},
+  {ar:"قبرص",en:"Cyprus",c:"قبرص / Cyprus",f:"🇨🇾",r:"europe",d:"15 يوم",dur:"شهر",doc:"جواز + كشف حساب (6 أشهر) + خطاب وظيفي + صورتين خلفية بيضاء + تأمين سياحي",p:"3,500 + رسوم السفارة",fast:false,vtype:"paper"},
+  {ar:"الدومينيكان",en:"Dominican Republic",c:"الدومينيكان / Dominican Rep.",f:"🇩🇴",r:"americas",d:"15 يوم",dur:"شهر",doc:"جواز + كشف حساب (6 أشهر) + خطاب وظيفي + صورتين خلفية بيضاء + تأمين سياحي",p:"3,500 + رسوم السفارة",fast:false,vtype:"paper"},
+];
+
+let AR_F='all';
+function render(data){
+  const g=document.getElementById('vg'),e=document.getElementById('ve');
+  g.innerHTML='';
+  if(!data.length){e.style.display='block';return;}
+  e.style.display='none';
+  data.forEach(v=>{
+    const img=IMGS_URL[v.f]||'https://images.unsplash.com/photo-1488085061387-422e29b40080?w=400&q=70';
+    const cname=isAR?(v.ar||v.c):(v.en||v.c);
+    const waMsg=isAR?`استفسار عن تأشيرة ${v.ar||v.c}`:`Inquiry about ${v.en||v.c} visa`;
+    const waUrl=`https://wa.me/201126672801?text=${encodeURIComponent(waMsg)}`;
+    const isPaper=v.vtype==='paper';
+    const vtypeLabel=isPaper?(isAR?'ورقية':'Paper Visa'):(isAR?'إلكترونية':'E-Visa');
+    const vtypeClass=isPaper?'vt-paper':'vt-evisa';
+    const noteHtml=v.note?`<div class="vc-note">${isAR?v.note.ar:v.note.en}</div>`:'';
+    const badge=v.fast?(isAR?'سريع':'Fast'):(isAR?'متاح الآن':'Available');
+    const mline=isAR?'وجهة مثالية للسفر الاقتصادي والطبيعة':'Perfect destination for budget-friendly luxury travel';
+    g.innerHTML+=`<div class="vc" onclick="window.open('${waUrl}','_blank')" style="cursor:pointer;">
+      <div class="vc-photo">
+        <img src="${img}" alt="${cname}" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background=GRAD['${v.f}']||'linear-gradient(135deg,#1a2a4a,#1e44b0)'">
+        <div class="vc-ov"></div>
+        <div class="vc-flag">${v.f}</div>
+        <div class="vc-price-b">${v.p} EGP</div>
+        <div class="vc-hover-cta"><svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>${isAR?'احجز على واتساب':'Book on WhatsApp'}</div>
+        <div class="vc-hover-cta"><svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>${isAR?'✈️ تواصل واتساب':'✈️ WhatsApp Chat'}</div>
+      </div>
+      <div class="vc-body">
+        <div class="vc-name-row"><div class="vc-name">${cname}</div><span class="vc-vtype ${vtypeClass}">${vtypeLabel}</span></div>
+        <div class="vc-name-row"><div class="vc-name">${cname}</div><span class="vc-vtype ${vtypeClass}">${vtypeLabel}</span></div><div class="vc-note" style="margin-top:-.2rem;margin-bottom:.5rem;">✈️ ${badge}</div>
+        <div class="vc-meta">
+          <div class="vcm"><div class="vcm-l">${isAR?"مدة التنفيذ":"Processing"}</div><div class="vcm-v">${v.d}</div></div>
+          <div class="vcm"><div class="vcm-l">${isAR?"صلاحية التأشيرة":"Validity"}</div><div class="vcm-v">${v.dur}</div></div>
+        </div>
+        <div class="vc-docs"><b>${isAR?"المستندات:":"Docs:"}</b> ${v.doc}</div>
+        ${noteHtml}
+        ${noteHtml}<div class="vc-docs" style="margin-top:.5rem;">${mline}</div><a class="btn-g" style="margin-top:.65rem;width:100%;justify-content:center;padding:.65rem 1rem;font-size:.82rem;" href="${waUrl}" target="_blank">✈️ ${isAR?'قدم الآن':'Apply Now'}</a>
+      </div>
+    </div>`;
+  });
+}
+function fv(r,btn){
+  AR_F=r;
+  document.querySelectorAll('.vtab').forEach(t=>t.classList.remove('on'));
+  btn.classList.add('on');apply();
+}
+function apply(){
+  const q=document.getElementById('vs').value.trim().toLowerCase();
+  let res=VD;
+  if(AR_F==='fast') res=res.filter(v=>v.fast);
+  else if(AR_F==='evisa') res=res.filter(v=>v.vtype==='evisa');
+  else if(AR_F==='paper') res=res.filter(v=>v.vtype==='paper');
+  else if(AR_F!=='all') res=res.filter(v=>v.r===AR_F);
+  if(q) res=res.filter(v=>v.c.toLowerCase().includes(q)||v.f.includes(q)||
+    (v.ar&&v.ar.toLowerCase().includes(q))||(v.en&&v.en.toLowerCase().includes(q)));
+  if(q) res=res.filter(v=>v.c.toLowerCase().includes(q)||v.f.includes(q)||(v.ar&&v.ar.toLowerCase().includes(q))||(v.en&&v.en.toLowerCase().includes(q)));
+  const pf=document.getElementById('priceFilter')?.value||'all';
+  const df=document.getElementById('durationFilter')?.value||'all';
+  const tf=document.getElementById('typeFilter')?.value||'all';
+  if(tf!=='all') res=res.filter(v=>v.vtype===tf);
+  const num=v=>parseInt(String(v.p).replace(/[^\d]/g,''))||0;
+  if(pf==='<=5000') res=res.filter(v=>num(v)<=5000);
+  if(pf==='>5000') res=res.filter(v=>num(v)>5000);
+  if(df==='short') res=res.filter(v=>/(شهر|30|15|أسبوع)/.test(v.dur));
+  if(df==='long') res=res.filter(v=>!/(شهر|30|15|أسبوع)/.test(v.dur));
+  render(res);
+}
+document.getElementById('vs').addEventListener('input',apply);
+['priceFilter','durationFilter','typeFilter'].forEach(id=>document.getElementById(id)?.addEventListener('change',apply));
+render(VD);
+
+/* FORM */
+function doForm(e){
+  e.preventDefault();
+  const b=document.getElementById('fsb');
+  b.innerHTML='✅ Sent! We\'ll contact you soon.';
+  b.style.cssText='background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--bg0);pointer-events:none;';
+  setTimeout(()=>{b.innerHTML='<svg class="pico" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg><span data-ar="ابعت الطلب" data-en="Send Request">ابعت الطلب</span>';b.style.cssText='';b.disabled=false;},4000);
+  const f=b.closest('form');
+  const dest=f.querySelector('select')?.value||'';
+  const name=f.querySelector('input[type=text]')?.value||'';
+  const phone=f.querySelector('input[type=tel]')?.value||'';
+  const msg=`مرحباً، أنا ${name}%0Aرقمي: ${phone}%0Aأريد الاستفسار عن تأشيرة: ${dest}`;
+  window.open(`https://wa.me/201126672801?text=${msg}`,'_blank');
+}
+</script>
+</body>
+</html>
+</html>
